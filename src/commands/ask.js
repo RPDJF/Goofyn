@@ -2,7 +2,11 @@ const { getGeminiContext, safetySettings, generationConfig, historySettings } = 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Interaction, Message, Collection } = require('discord.js');
 const { commands } = require('./commands');
+const { langCode, languageData } = require('../utils/language');
+const db = require("../utils/db");
 const logger = require('../utils/logger');
+
+
 
 /**
  * 
@@ -72,6 +76,11 @@ module.exports = {
      * @param {Interaction} interaction
      */
     async execute(interaction) {
+        let lang = langCode.default;
+        const user = await db.getData("users", interaction.user.id);
+        if (user && user.lang)
+            lang = user.lang;
+
         if (!process.env.GEMINI_API_KEY) {
             logger.warn("Gemini was called but the API key is missing!");
             await interaction.reply({ content: "The Gemini API key is missing!", ephemeral: true });
