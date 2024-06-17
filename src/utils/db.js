@@ -1,10 +1,85 @@
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
+// imports
+const admin = require("firebase-admin");
+const serviceAccount = require("../../config/firebase-key.json");
+const logger = require("./logger");
 
-const serviceAccount = require("../../config/firebase.json");
-
-initializeApp({
-  credential: cert(serviceAccount)
+// db setup
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
 });
 
-module.exports =  getFirestore();
+const db = admin.firestore();
+
+// cache setup
+const inMemoryCache = {};
+
+/**
+ * Generates a cache key based on the hierarchy of the collection and document.
+ * @param {string} collectionName - The name of the Firestore collection (may include subcollections).
+ * @param {string} documentId - The ID of the Firestore document.
+ * @returns {string} - The generated cache key.
+ */
+function generateCacheKey(collectionName, documentId) {
+    return `${collectionName}/${documentId}`;
+}
+
+/**
+ * Retrieve data from Firestore or in-memory cache.
+ * @param {string} collectionName - The name of the Firestore collection.
+ * @param {string} documentId - The ID of the Firestore document.
+ * @returns {Promise<admin.firestore.DocumentData|null>} - Returns the data if found, otherwise null.
+ */
+async function getData(collectionName, documentId) {
+    const cacheKey = generateCacheKey(collectionName, documentId);
+    const cachedData = inMemoryCache[cacheKey];
+
+    if (cachedData !== undefined) {
+        return cachedData;
+    }
+
+    try {
+        const docRef = db.collection(collectionName).doc(documentId);
+        const snapshot = await docRef.get();
+
+        let data = null;
+        if (snapshot.exists) {
+            data = snapshot.data();
+            inMemoryCache[cacheKey] = data;
+            logger.info(`Fetched data from Firestore ${cacheKey}`);
+        } else {
+            logger.info(`No data was found in Firestore for ${cacheKey}.`);
+        }
+
+        return data;
+    } catch (error) {
+        logger.error(error);
+        return null;
+    }
+}
+
+/**
+ * Writes data to Firestore and reloads the in-memory cache.
+ * @param {string} collectionName - The name of the Firestore collection.
+ * @param {string} documentId - The ID of the Firestore document.
+ * @param {Object} newData - The new data to write to Firestore.
+ * @param {boolean} merge - Whether to merge the data (default: true).
+ */
+async function writeData(collectionName, documentId, newData, merge = true) {
+    const cacheKey = generateCacheKey(collectionName, documentId);
+
+    try {
+        await db.collection(collectionName).doc(documentId).set(newData, { merge });
+        logger.info(`Successfully wrote data to Firestore ${cacheKey}`);
+    } catch (error) {
+        logger.error(error);
+        return;
+    }
+
+    // erase in-memory cache for this document
+    delete inMemoryCache[cacheKey];
+
+    // reload the data from Firestore
+    await getData(collectionName, documentId);
+}
+
+module.exports = { getData, writeData };
