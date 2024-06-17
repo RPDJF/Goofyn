@@ -1,0 +1,3 @@
+first you need to create a firebase account and setup firestore on it
+then you need to get your .json key from https://console.cloud.google.com/projectselector2/
+download it and move it to config/ renaming it "firebase-key.json"
