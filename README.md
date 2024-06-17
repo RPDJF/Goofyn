@@ -50,7 +50,7 @@ Just copy the code above to get started! 🎈👾
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License 📝
-This project is licensed under the [MIT](https://github.com/RPDJF/Goofyn/LICENSE.md).
+This project is licensed under the [MIT](https://github.com/RPDJF/Goofyn/blob/main/LICENCE.md).
 
 This means you can use, modify, and distribute the code as you see fit, but you must include the original copyright and license.
 
