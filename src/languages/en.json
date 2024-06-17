@@ -1,0 +1,13 @@
+{
+	"commands": {
+		"ask": {
+			"errors": {
+				"no_api_key": "The provider has not configured the API for this command!",
+				"no_slash_command_yet": "I can't execute a slash command from /ask (yet)!\nMention me in a message to execute commands.",
+				"command_not_available": "I can't execute this command yet..!",
+				"command_failed": "Oops.. The command failed.. Try again later!",
+				"command_not_found": "Huh? What command?"
+			}
+		}
+	}
+}
