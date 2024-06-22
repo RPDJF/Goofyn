@@ -1,7 +1,13 @@
 // imports
 const admin = require("firebase-admin");
-const serviceAccount = require("../../config/firebase-key.json");
 const logger = require("./logger");
+let serviceAccount;
+try {
+    serviceAccount = require("../../config/firebase-key.json");
+} catch (error) {
+    logger.error("Please provide a Firebase service account key \"firebase-key.json\" in the config/ folder.");
+    process.exit(1);
+}
 
 // db setup
 admin.initializeApp({
