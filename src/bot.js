@@ -14,6 +14,12 @@ const client = new Client({
     allowedMentions: { parse: ['users'], repliedUser: true },
     partials: [Partials.Channel],
 });
+const fs = require("fs");
+
+if (!fs.existsSync(".env")) {
+    logger.error("No .env file found. Please check the README.md for instructions on setting up the environment variables.");
+    process.exit(1);
+}
 
 client.commands = commands;
 loadCommands(client, `${__dirname}/commands`);
