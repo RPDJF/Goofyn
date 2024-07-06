@@ -66,11 +66,6 @@ module.exports = {
             option.setName("question")
                 .setDescription("The question you want to ask")
                 .setRequired(true)),
-    usage: [
-        "/ask \"question to ask\"",
-        "or mention the bot",
-        "or reply to bot",
-    ],
     /**
      * Instructions to execute
      * @param {Interaction} interaction
