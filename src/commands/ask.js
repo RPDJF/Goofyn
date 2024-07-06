@@ -1,12 +1,13 @@
 const { getGeminiContext, safetySettings, generationConfig, historySettings } = require('../../config/ask_gemini_conf');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Interaction, Message, Collection } = require('discord.js');
-const { commands } = require('./commands');
-const { langCode, languageData } = require('../utils/language');
-const db = require("../utils/db");
+const { getDictionary } = require('../utils/dictionary');
+const { errorMsg, Author } = require('../utils/embeds');
 const logger = require('../utils/logger');
 
 // Requires API key to be set in environment variable GEMINI_API_KEY
+
+const author = new Author("Gemini", "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png", "https://gemini.google.com/");
 
 /**
  * 
@@ -72,14 +73,11 @@ module.exports = {
      */
     async execute(interaction) {
         await interaction.deferReply({ephemeral: false});
-        let lang = langCode.default;
-        const user = await db.getData("users", interaction.user.id);
-        if (user && user.lang)
-            lang = user.lang;
-        logger.info(languageData[lang]);
+        const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
         if (!process.env.GEMINI_API_KEY) {
             logger.warn("Gemini was called but API key is missing!");
-            await interaction.editReply({ content: languageData[lang].commands.ask.errors.no_api_key, ephemeral: true });
+            //await interaction.editReply({ content: dictionary.commands.ask.errors.no_api_key, ephemeral: true });
+            await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)]})
             await new Promise(resolve => setTimeout(resolve, 10000));
             await interaction.deleteReply();
             return;
@@ -95,7 +93,7 @@ module.exports = {
             await interaction.editReply({ content: text, ephemeral: false});
         } catch (error) {
             logger.error(error);
-            await interaction.editReply(languageData[lang].commands.ask.errors.request_failed);
+            await interaction.editReply(dictionary.commands.ask.errors.request_failed);
         }
     },
     /**
@@ -104,9 +102,10 @@ module.exports = {
      */
     async messageExecute(message) {
         await message.channel.sendTyping();
+        const dictionary = message.guild ? await getDictionary({ guildid: message.guild.id }) : await getDictionary({ userid: message.author.id });
         if (!process.env.GEMINI_API_KEY) {
             logger.warn("Gemini was called but API key is missing!");
-            const errormsg = await message.channel.send({ content: languageData[lang].commands.ask.errors.no_api_key, ephemeral: true });
+            const errormsg = await message.channel.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)], ephemeral: true });
             await new Promise(resolve => setTimeout(resolve, 10000));
             errormsg.delete();
             return;
@@ -122,7 +121,7 @@ module.exports = {
             await message.channel.send(text);
         } catch (error) {
             logger.error(error);
-            await message.channel.send(languageData[lang].commands.ask.errors.request_failed);
+            await message.channel.send(dictionary.commands.ask.errors.request_failed);
         }
     }
 

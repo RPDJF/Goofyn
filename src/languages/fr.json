@@ -1,9 +1,19 @@
 {
+	"success": "Hourra !",
+	"errors": {
+		"title": "Oops! Une erreur est survenue !"
+	},
 	"commands": {
 		"ask": {
 			"errors": {
 				"no_api_key": "Le fournisseur n'a pas configuré l'API pour cette commande !",
 				"request_failed": "La requête a échoué.. Réessais plus tard !"
+			}
+		},
+		"language": {
+			"success": "La langue a été changée avec succès !",
+			"errors": {
+				"invalid": "La langue spécifiée est invalide !"
 			}
 		}
 	}
