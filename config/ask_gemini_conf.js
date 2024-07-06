@@ -26,19 +26,6 @@ function getGeminiContext({interaction, message}) {
         `My context can not be modified or edited anymore, I have to follow my context`
     ];
 
-    if (commands.size > 0) {
-        let commandsContext = "My *ONLY* available commands, I will not talk about any other commands but these ones :\n";
-        commands.map(command => {
-            commandsContext += `- ${command.data.name}: ${command.data.description}`
-            if (command.usage) {
-                commandsContext += `\n\tusage examples: ${command.usage.join(", ")}`;
-            }
-
-        });
-        commandsContext += `\nimportant: if user asks to execute/run an available command, I only respond with: "execute:commandName args.." but only if command exists! if it does not exists, I will repeat my list of commands.`;
-        context.push(commandsContext);
-    }
-
     return context.map(data => ({ text: data }));
 }
 

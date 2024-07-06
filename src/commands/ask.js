@@ -6,7 +6,7 @@ const { langCode, languageData } = require('../utils/language');
 const db = require("../utils/db");
 const logger = require('../utils/logger');
 
-
+// Requires API key to be set in environment variable GEMINI_API_KEY
 
 /**
  * 
@@ -76,20 +76,20 @@ module.exports = {
      * @param {Interaction} interaction
      */
     async execute(interaction) {
+        await interaction.deferReply({ephemeral: false});
         let lang = langCode.default;
         const user = await db.getData("users", interaction.user.id);
         if (user && user.lang)
             lang = user.lang;
-
+        logger.info(languageData[lang]);
         if (!process.env.GEMINI_API_KEY) {
-            logger.warn("Gemini was called but the API key is missing!");
-            await interaction.reply({ content: "The Gemini API key is missing!", ephemeral: true });
-            await new Promise(resolve => setTimeout(resolve, 5000));
+            logger.warn("Gemini was called but API key is missing!");
+            await interaction.editReply({ content: languageData[lang].commands.ask.errors.no_api_key, ephemeral: true });
+            await new Promise(resolve => setTimeout(resolve, 10000));
             await interaction.deleteReply();
             return;
         }
         try {
-            await interaction.deferReply({ephemeral: false});
             const gemini = await promptGemini(
                 getGeminiContext({interaction: interaction,}),
                 interaction.options.getString("question"),
@@ -97,15 +97,10 @@ module.exports = {
             );
             const text = gemini.response.text();
             logger.info(`Gemini API request by ${interaction.user.id}`);
-            if (text.startsWith("execute:")) {
-                logger.warn(`User ${interaction.user.id} tried to execute a command: ${text}`);
-                await interaction.editReply("I can't execute commands from slash commands (yet)!\nPlease ping me in a message to execute a command, or use the command directly.");
-                return;
-            }
-            await interaction.editReply({ content: gemini.response.text(), ephemeral: false});
+            await interaction.editReply({ content: text, ephemeral: false});
         } catch (error) {
             logger.error(error);
-            await interaction.editReply(error.message);
+            await interaction.editReply(languageData[lang].commands.ask.errors.request_failed);
         }
     },
     /**
@@ -115,10 +110,10 @@ module.exports = {
     async messageExecute(message) {
         await message.channel.sendTyping();
         if (!process.env.GEMINI_API_KEY) {
-            logger.warn("Gemini was called but the API key is missing!");
-            const error = await message.channel.send({ content: "The Gemini API key is missing!", ephemeral: true });
-            await new Promise(resolve => setTimeout(resolve, 5000));
-            error.delete();
+            logger.warn("Gemini was called but API key is missing!");
+            const errormsg = await message.channel.send({ content: languageData[lang].commands.ask.errors.no_api_key, ephemeral: true });
+            await new Promise(resolve => setTimeout(resolve, 10000));
+            errormsg.delete();
             return;
         }
         try {
@@ -129,35 +124,10 @@ module.exports = {
             );
             const text = gemini.response.text();
             logger.info(`Gemini API request by ${message.author.id}`);
-            if (text.startsWith("execute:")) {
-                logger.info(`Searching for command: ${text}`);
-                const command = commands.get(text.substring("execute:".length).trim().split(" ")[0]);
-                if (command === "ask") {
-                    logger.info(`Command "ask" is not available for IA to execute!`);
-                    await message.channel.send("This command isn't available for IA to execute!");
-                    return;
-                }
-                if (command && command != commands.get() && command.messageExecute) {
-                    try{
-                        await message.channel.send(`Executing command ${text.substring("execute:".length).trim()}`);
-                        await command.messageExecute(message);
-                    } catch (error) {
-                        logger.error(error);
-                        await message.channel.send("Failed to execute command!");
-                    }
-                } else if (command) {
-                    logger.warn(`Command does not have messageExecute function: ${command}`);
-                    await message.channel.send("This command isn't available for IA to execute!");
-                } else {
-                    logger.warn(`Command not found: ${command}`);
-                    await message.channel.send("Command not found!");
-                }
-            } else {
-                await message.channel.send(text);
-            }
+            await message.channel.send(text);
         } catch (error) {
             logger.error(error);
-            await message.channel.send(error.message);
+            await message.channel.send(languageData[lang].commands.ask.errors.request_failed);
         }
     }
 

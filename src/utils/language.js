@@ -1,8 +1,9 @@
 const langCode = {
-    default: process.env.DEFAULT_LANG,
     en: 0,
     fr: 1,
 };
+
+langCode.default = langCode[process.env.DEFAULT_LANGUAGE] || langCode.en;
 
 const languageData = [];
 languageData[langCode.en] = require("../languages/en.json");
