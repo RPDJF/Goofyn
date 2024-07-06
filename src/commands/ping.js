@@ -11,8 +11,7 @@ module.exports = {
      * @param {Interaction} interaction
      */
     async execute(interaction) {
-        interaction.deferReply();
-        interaction.editReply("Pong !");
+        interaction.reply("Pong !");
     },
     async messageExecute(message) {
         message.channel.send("Pong !");
