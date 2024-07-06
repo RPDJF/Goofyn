@@ -15,6 +15,12 @@
 			"errors": {
 				"invalid": "La langue spécifiée est invalide !"
 			}
+		},
+		"invite": {
+			"title": "Lien d'invitation",
+			"errors": {
+				"no_link": "Aucun lien d'invitation n'a été défini par le propriétaire du bot !"
+			}
 		}
 	}
 }

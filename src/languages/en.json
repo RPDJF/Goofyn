@@ -15,6 +15,12 @@
 			"errors": {
 				"invalid": "The specified language is invalid!"
 			}
+		},
+		"invite": {
+			"title": "Invitation Link",
+			"errors": {
+				"no_link": "No invitation link has been set by the bot owner!"
+			}
 		}
 	}
 }
