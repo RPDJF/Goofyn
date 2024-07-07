@@ -20,14 +20,11 @@ const fs = require("fs");
 const { errorMsg } = require("./utils/embeds");
 const { getDictionary } = require("./utils/dictionary");
 
-if (!fs.existsSync(".env")) {
-    logger.error("No .env file found. Please check the README.md for instructions on setting up the environment variables.");
-    process.exit(1);
-}
+if (!fs.existsSync(".env"))
+    logger.warn("No .env file found. Please check the README.md for instructions on setting up the environment variables.");
 
 client.commands = commands;
 loadCommands(client, `${__dirname}/commands`);
-deployCommands(client.commands.map((command) => command.data.toJSON()));
 
 client.login(process.env.DISCORD_CLIENT_SECRET).catch((err) => {
     logger.error(err);
@@ -36,6 +33,7 @@ client.login(process.env.DISCORD_CLIENT_SECRET).catch((err) => {
 
 client.on(Events.ClientReady, () => {
     logger.info(`Logged in as ${client.user.tag}`);
+    deployCommands(client.commands.map((command) => command.data.toJSON()));
     dynactivity(client);
 });
 
