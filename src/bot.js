@@ -2,6 +2,7 @@ const { loadCommands } = require("./utils/loadCommands");
 const { deployCommands } = require("./utils/deployCommands");
 const { commands } = require("./commands/commands");
 const logger = require("./utils/logger");
+const dynactivity = require("./utils/dynactivity");
 const { Client, GatewayIntentBits, Events, MessageType, Partials, ChannelType } = require("discord.js");
 const client = new Client({
     intents: [
@@ -35,6 +36,7 @@ client.login(process.env.DISCORD_CLIENT_SECRET).catch((err) => {
 
 client.on(Events.ClientReady, () => {
     logger.info(`Logged in as ${client.user.tag}`);
+    dynactivity(client);
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
