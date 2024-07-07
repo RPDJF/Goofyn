@@ -43,24 +43,19 @@ async function getData(collectionName, documentId) {
         return cachedData;
     }
 
-    try {
-        const docRef = db.collection(collectionName).doc(documentId);
-        const snapshot = await docRef.get();
+    const docRef = db.collection(collectionName).doc(documentId);
+    const snapshot = await docRef.get();
 
-        let data = null;
-        if (snapshot.exists) {
-            data = snapshot.data();
-            inMemoryCache[cacheKey] = data;
-            logger.info(`Fetched data from Firestore ${cacheKey}`);
-        } else {
-            logger.info(`No data was found in Firestore for ${cacheKey}.`);
-        }
-
-        return data;
-    } catch (error) {
-        logger.error(error);
-        return null;
+    let data = null;
+    if (snapshot.exists) {
+        data = snapshot.data();
+        inMemoryCache[cacheKey] = data;
+        logger.info(`Fetched data from Firestore ${cacheKey}`);
+    } else {
+        logger.info(`No data was found in Firestore for ${cacheKey}.`);
     }
+
+    return data;
 }
 
 /**
@@ -69,17 +64,13 @@ async function getData(collectionName, documentId) {
  * @param {string} documentId - The ID of the Firestore document.
  * @param {Object} newData - The new data to write to Firestore.
  * @param {boolean} merge - Whether to merge the data (default: true).
+ * @returns {Promise<void>} - A Promise that resolves when the data has been written.
  */
 async function writeData(collectionName, documentId, newData, merge = true) {
     const cacheKey = generateCacheKey(collectionName, documentId);
 
-    try {
-        await db.collection(collectionName).doc(documentId).set(newData, { merge });
-        logger.info(`Successfully wrote data to Firestore ${cacheKey}`);
-    } catch (error) {
-        logger.error(error);
-        return;
-    }
+    await db.collection(collectionName).doc(documentId).set(newData, { merge });
+    logger.info(`Successfully wrote data to Firestore ${cacheKey}`);
 
     // erase in-memory cache for this document
     delete inMemoryCache[cacheKey];
