@@ -16,5 +16,6 @@ COPY config/ ./config/
 
 # Exposing the default topgg webhook port
 EXPOSE 3042
+
 # Running the bot
 CMD ["npm", "start"]
