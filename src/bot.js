@@ -10,6 +10,7 @@ const client = new Client({
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.GuildPresences,
         GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers,
     ],
     allowedMentions: { parse: ['users'], repliedUser: true },
     partials: [Partials.Channel],
@@ -50,7 +51,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     } catch (error) {
         logger.error(error);
         const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
-        await interaction.editReply({ embeds: [ errorMsg(dictionary.errors.execution_error) ], ephemeral: true });
+        await interaction.editReply({ embeds: [ errorMsg(dictionary.errors.title, dictionary.errors.execution_error) ], ephemeral: true });
         await new Promise(resolve => setTimeout(resolve, 10000));
         await interaction.deleteReply();
     }
@@ -66,4 +67,8 @@ client.on(Events.MessageCreate, async (message) => {
             if (command && command.messageExecute)
                 command.messageExecute(message);
     }
+});
+
+client.on(Events.GuildMemberAdd, async (member) => {
+    commands.get("autorole").onGuildMemberAdd_hook(member);
 });

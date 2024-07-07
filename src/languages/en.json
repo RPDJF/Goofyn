@@ -1,8 +1,8 @@
 {
 	"success": "Hooray!",
 	"errors": {
-		"title": "Oops! An error occurred!",
-		"execution_error": "Oopsie daisy! There was a hiccup while executing this command!"
+		"title": "Oopsie daisy!",
+		"execution_error": "There was a hiccup while executing this command!"
 	},
 	"commands": {
 		"ask": {
@@ -21,6 +21,22 @@
 			"title": "Invitation Link",
 			"errors": {
 				"no_link": "No invitation link has been set by the bot owner!"
+			}
+		},
+		"autorole": {
+			"title": {
+				"add": "Added automatic role",
+				"remove": "Removed automatic role",
+				"list": "List of automatic roles"
+			},
+			"success": {
+				"add": "The role <@&{role}> will now be assigned to new members!",
+				"remove": "The role <@&{role}> will no longer be assigned to new members!"
+			},
+			"errors": {
+				"no_role": "The role is not an autorole!",
+				"empty_roles": "There are no autoroles defined!",
+				"already_added": "The role has already been added!"
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 {
 	"success": "Hourra !",
 	"errors": {
-		"title": "Oops! Une erreur est survenue !",
+		"title": "Oops la boulette !",
 		"execution_error": "Il y a eu un pépin lors de l'exécution de cette commande !"
 	},
 	"commands": {
@@ -21,6 +21,22 @@
 			"title": "Lien d'invitation",
 			"errors": {
 				"no_link": "Aucun lien d'invitation n'a été défini par le propriétaire du bot !"
+			}
+		},
+		"autorole": {
+			"title": {
+				"add": "Rôle automatique ajouté",
+				"remove": "Rôle automatique supprimé",
+				"list": "Liste des rôles automatiques"
+			},
+			"success": {
+				"add": "Le rôle <@&{role}> sera désormais attribué aux nouveaux membres !",
+				"remove": "Le rôle <@&{role}> ne sera plus attribué aux nouveaux membres !"
+			},
+			"errors": {
+				"no_role": "Le rôle n'est pas un rôle automatique !",
+				"empty_roles": "Aucun rôle automatique n'est défini !",
+				"already_added": "Le rôle a déjà été ajouté !"
 			}
 		}
 	}
