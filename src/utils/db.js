@@ -5,7 +5,7 @@ let serviceAccount;
 try {
     serviceAccount = require("../../config/firebase-key.json");
 } catch (error) {
-    logger.error("Please provide a Firebase service account key \"firebase-key.json\" in the config/ folder.");
+    logger.fatal("Please provide a Firebase service account key \"firebase-key.json\" in the config/ folder.");
     process.exit(1);
 }
 
