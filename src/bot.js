@@ -15,6 +15,8 @@ const client = new Client({
     partials: [Partials.Channel],
 });
 const fs = require("fs");
+const { errorMsg } = require("./utils/embeds");
+const { getDictionary } = require("./utils/dictionary");
 
 if (!fs.existsSync(".env")) {
     logger.error("No .env file found. Please check the README.md for instructions on setting up the environment variables.");
@@ -47,7 +49,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
         await command.execute(interaction);
     } catch (error) {
         logger.error(error);
-        await interaction.editReply({ content: 'There was an error while executing this command!', ephemeral: true });
+        const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
+        await interaction.editReply({ embeds: [ errorMsg(dictionary.errors.execution_error) ], ephemeral: true });
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        await interaction.deleteReply();
     }
 });
 

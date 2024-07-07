@@ -1,7 +1,8 @@
 {
 	"success": "Hourra !",
 	"errors": {
-		"title": "Oops! Une erreur est survenue !"
+		"title": "Oops! Une erreur est survenue !",
+		"execution_error": "Il y a eu un pépin lors de l'exécution de cette commande !"
 	},
 	"commands": {
 		"ask": {
