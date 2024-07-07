@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Interaction } = require('discord.js');
+const { Interaction, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 const { langCode, getDictionary } = require("../utils/dictionary");
 const db = require("../utils/db");
 const { errorMsg, msg } = require('../utils/embeds');
@@ -9,6 +8,7 @@ module.exports = {
         .setName("language")
         .setDMPermission(true)
         .setDescription("Change bot language")
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
         .addStringOption(option => {
             option.setName("language")
                 .setDescription("The language you want to use")
