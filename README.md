@@ -49,6 +49,8 @@ Just copy the code above to get started! 🎈👾
 ## Contributing 🤝
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+One very appreciated contribution would be to add more languages to the chatbot. You can do this by copying one of the existing language files in the ``/languages`` folder (en.json by default) and translating the strings.
+
 ## License 📝
 This project is licensed under the [MIT](https://github.com/RPDJF/Goofyn/blob/main/LICENCE.md).
 
