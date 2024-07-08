@@ -2,7 +2,8 @@
 	"success": "Hooray!",
 	"errors": {
 		"title": "Oopsie daisy!",
-		"execution_error": "There was a hiccup while executing this command!"
+		"execution_error": "There was a hiccup while executing this command!",
+		"execution_missing_perms": "I don't have the necessary permissions to execute this command!"
 	},
 	"commands": {
 		"ask": {
@@ -41,13 +42,14 @@
 		},
 		"reactionrole": {
 			"title": {
+				"new": "New reaction role",
 				"add": "Added reaction role",
 				"remove": "Removed reaction role",
 				"delete": "Deleted reaction role message",
 				"list": "List of reaction roles"
 			},
 			"messages": {
-				"choose_role": "Choose a role by reacting with the corresponding emoji!",
+				"choose_role": "Choose a role by reacting\n",
 				"added": "The role <@&{role}> has been added successfully!",
 				"deleted": "The reaction-role message has been deleted!",
 				"removed": "The reaction-role <@&{role}> has been removed successfully!"

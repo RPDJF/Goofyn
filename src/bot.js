@@ -12,9 +12,10 @@ const client = new Client({
         GatewayIntentBits.GuildPresences,
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessageReactions,
     ],
     allowedMentions: { parse: ['users'], repliedUser: true },
-    partials: [Partials.Channel],
+    partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
 const fs = require("fs");
 const { errorMsg } = require("./utils/embeds");
@@ -75,4 +76,12 @@ client.on(Events.MessageCreate, async (message) => {
 
 client.on(Events.GuildMemberAdd, async (member) => {
     commands.get("autorole").onGuildMemberAdd_hook(member);
+});
+
+client.on(Events.MessageReactionAdd, async (reaction, user) => {
+    commands.get("reactionrole").onReactionAdd_hook(reaction, user);
+});
+
+client.on(Events.MessageReactionRemove, async (reaction, user) => {
+    commands.get("reactionrole").onReactionRemove_hook(reaction, user);
 });

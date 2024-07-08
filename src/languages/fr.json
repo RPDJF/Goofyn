@@ -2,7 +2,8 @@
 	"success": "Hourra !",
 	"errors": {
 		"title": "Oops la boulette !",
-		"execution_error": "Il y a eu un pépin lors de l'exécution de cette commande !"
+		"execution_error": "Il y a eu un pépin lors de l'exécution de cette commande !",
+		"execution_missing_perms": "Je n'ai pas les permissions nécessaires pour exécuter cette commande !"
 	},
 	"commands": {
 		"ask": {
@@ -41,13 +42,14 @@
 		},
 		"reactionrole": {
 			"title": {
+				"new": "Nouveau rôle de réaction",
 				"add": "Rôle de réaction ajouté",
 				"remove": "Rôle de réaction supprimé",
 				"delete": "Message de rôle de réaction supprimé",
 				"list": "Liste des rôles de réaction"
 			},
 			"messages": {
-				"choose_role": "Choisis un rôle en réagissant avec l'emoji correspondant !",
+				"choose_role": "Choisis un rôle en réagissant\n",
 				"added": "Le rôle <@&{role}> a été ajouté avec succès !",
 				"deleted": "Le message de réaction-rôle a été supprimé !",
 				"removed": "Le réaction-rôle <@&{role}> a été supprimé avec succès !"

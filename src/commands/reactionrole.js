@@ -1,4 +1,4 @@
-const { Interaction, SlashCommandBuilder, PermissionFlagsBits, GuildMember, Message, BaseInteraction } = require('discord.js');
+const { Interaction, SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, MessageReaction, User } = require('discord.js');
 const { getDictionary } = require("../utils/dictionary");
 const db = require("../utils/db");
 const { msg, errorMsg } = require('../utils/embeds');
@@ -34,7 +34,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("reactionrole")
         .setDMPermission(false)
-        .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles & PermissionFlagsBits.ManageMessages)
         .setDescription("Manage reaction roles")
         .addSubcommand(subcommand =>
             subcommand
@@ -44,12 +44,7 @@ module.exports = {
 					option
 						.setName("message")
 						.setDescription("The message to send")
-						.setRequired(true))
-				.addBooleanOption(option =>
-					option
-						.setName("use_embed")
-						.setDescription("Whether to use an embed")
-						.setRequired(false)))
+						.setRequired(true)))
 		.addSubcommand(subcommand =>
 			subcommand
 				.setName("add")
@@ -68,7 +63,12 @@ module.exports = {
 					option
 						.setName("emoji")
 						.setDescription("The emoji to react with")
-						.setRequired(true)))
+						.setRequired(true))
+				.addStringOption(option =>
+					option
+						.setName("description")
+						.setDescription("Role id by default")
+						.setRequired(false)))
 			.addSubcommand(subcommand =>
 				subcommand
 					.setName("remove")
@@ -117,39 +117,28 @@ module.exports = {
 		// Execute the subcommands
 		if (subcommand === "new") {
 			const message = interaction.options.getString("message");
-			let use_embed = interaction.options.getBoolean("use_embed");
-			if (use_embed === null)
-				use_embed = true;
-			const messageData = use_embed ? { embeds: [msg(message, dictionary.commands.reactionrole.messages.choose_role)], ephemeral: false } : { content: message, ephemeral: false };
-			interaction.editReply(messageData).then(async (message) => {
+			const messageData = { embeds: [msg(message, dictionary.commands.reactionrole.messages.choose_role)], ephemeral: false };
+			await interaction.channel.send(messageData).then(async (message) => {
 				if (reactionroles)
 					reactionroles.push({ channel_id: interaction.channelId, message_id: message.id, roles: [] });
 				else
 					reactionroles = [{ channel_id: interaction.channelId, message_id: message.id, roles: [] }];
 				db.writeData("guilds", interaction.guildId, { reactionrole: reactionroles }, true);
 			});
+			interaction.deleteReply();
 		}
 
 		else if (subcommand === "add") {
 			const message_id = interaction.options.getString("message_id");
 			const role = interaction.options.getRole("role");
-			/** @type {String} */
 			const emoji = interaction.options.getString("emoji");
+			const description = interaction.options.getString("description") || `<@&${role.id}>`;
 
-			if (!emoji.match(/<a?:.+:\d+>/)) {
+			if (!emoji.match(/<a?:.+>/) && !emoji.match(/\p{Extended_Pictographic}/u)) {
 				await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.invalid_emoji)], ephemeral: true });
 				await new Promise(resolve => setTimeout(resolve, 10000));
 				interaction.deleteReply();
 				return;
-			} else {
-				const emoji_id = emoji.match(/\d+/)[0];
-				const guildEmojis = await interaction.guild.emojis.fetch();
-				if (!guildEmojis.has(emoji_id)) {
-					await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.invalid_emoji)], ephemeral: true });
-					await new Promise(resolve => setTimeout(resolve, 10000));
-					interaction.deleteReply();
-					return;
-				}
 			}
 
 			if (reactionroles && reactionroles[0]) {
@@ -157,8 +146,12 @@ module.exports = {
 				if (reactionrole) {
 					const channel = await interaction.guild.channels.fetch(reactionrole.channel_id);
 					const message = await channel.messages.fetch(reactionrole.message_id);
-					const emoji_id = (await message.react(emoji))._emoji.id;
-					reactionrole.roles.push({ role_id: role.id, emoji_id });
+					const embed = message.embeds[0];
+					const updatedDescription = `${embed.description}\n\n${emoji} : ${description}`;
+					const updatedEmbed = new EmbedBuilder(embed).setDescription(updatedDescription);
+					const reaction_id = (await message.react(emoji))._emoji.id;
+					await message.edit({ embeds: [updatedEmbed] });
+					reactionrole.roles.push({ role_id: role.id, reaction_id, emoji });
 					db.writeData("guilds", interaction.guildId, { reactionrole: reactionroles }, true);
 					await interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.add, dictionary.commands.reactionrole.messages.added.replace("{role}", role.id))], ephemeral: true });
 					await new Promise(resolve => setTimeout(resolve, 10000));
@@ -176,32 +169,27 @@ module.exports = {
 		}
 
 		else if (subcommand === "remove") {
-			// TODO: Implement the remove subcommand
-			// Emoji ID is now stored, may need to redo this function
 			const message_id = interaction.options.getString("message_id");
 			const emoji = interaction.options.getString("emoji");
 			if (reactionroles && reactionroles[0]) {
-				const reactionrole = reactionroles.find(r => r.message_id === message_id);
+				let reactionrole_message = reactionroles.find(r => r.message_id === message_id);
+				let reactionrole;
+				if (reactionrole_message)
+					reactionrole = reactionrole_message.roles.find(r => r.emoji === emoji);
 				if (reactionrole) {
-					const channel = await interaction.guild.channels.fetch(reactionrole.channel_id);
-					const message = await channel.messages.fetch(reactionrole.message_id);
-					console.log(message.reactions.cache);
-					for (const reaction of message.reactions.cache) {
-						console.log(reaction);
-					}
-					const reaction = message.reactions.cache.find(r => r.emoji.name === emoji);
-					if (reaction) {
-						const role = reactionrole.roles.find(r => r.emoji === emoji);
-						reactionrole.roles = reactionrole.roles.filter(r => r.emoji !== emoji);
-						db.writeData("guilds", interaction.guildId, { reactionrole: reactionroles }, true);
-						await interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.remove, dictionary.commands.reactionrole.messages.removed.replace("{role}", role.role_id))], ephemeral: true });
-						await new Promise(resolve => setTimeout(resolve, 10000));
-						interaction.deleteReply();
-					} else {
-						await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.reaction_not_found)], ephemeral: true });
-						await new Promise(resolve => setTimeout(resolve, 10000));
-						interaction.deleteReply();
-					}
+					const message = await (await interaction.guild.channels.fetch(reactionrole_message.channel_id)).messages.fetch(reactionrole_message.message_id);
+					const reaction = message.reactions.cache.find(r => r.emoji.id === reactionrole.reaction_id);
+					await reaction.remove();
+					const embed = message.embeds[0];
+					const findReactionRole = new RegExp(`^${emoji}.*$`, "m");
+					const updatedDescription = embed.description.replace(findReactionRole, "");
+					const updatedEmbed = new EmbedBuilder(embed).setDescription(updatedDescription);
+					await message.edit({ embeds: [updatedEmbed] });
+					reactionrole_message.roles = reactionrole_message.roles.filter(r => r.emoji !== emoji);
+					await db.writeData("guilds", interaction.guildId, { reactionrole: reactionroles }, true);
+					await interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.remove, dictionary.commands.reactionrole.messages.removed.replace("{role}", reactionrole.role_id))], ephemeral: true });
+					await new Promise(resolve => setTimeout(resolve, 10000));
+					interaction.deleteReply();
 				} else {
 					await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.message_not_found)], ephemeral: true });
 					await new Promise(resolve => setTimeout(resolve, 10000));
@@ -233,5 +221,98 @@ module.exports = {
 				interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.no_reactionroles)], ephemeral: true });
 			}
 		}
+
+		else if (subcommand === "list") {
+			if (reactionroles && reactionroles[0]) {
+				let message = "";
+				for (const reactionrole of reactionroles) {
+					message += `https://discord.com/channels/${interaction.guildId}/${reactionrole.channel_id}/${reactionrole.message_id}\n`;
+					for (const role of reactionrole.roles) {
+						message += `- ${role.emoji} : <@&${role.role_id}>\n`;
+					}
+					message += "\n";
+				}
+				interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.list, message)], ephemeral: true });
+			} else {
+				await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.no_reactionroles)], ephemeral: true });
+				await new Promise(resolve => setTimeout(resolve, 10000));
+				interaction.deleteReply();
+			}
+		}
     },
+
+	/**
+	 * Function to be called when a new reaction is added to a reaction role message
+	 * @param {MessageReaction} reaction
+	 * @param {User} user
+	 * @returns {Promise<void>}
+	 */
+	async onReactionAdd_hook(reaction, user) {
+		if (reaction.partial) {
+			try {
+				await reaction.fetch();
+			} catch (error) {
+				logger.error(error);
+				return;
+			}
+		}
+		let reactionroles = (await db.getData("guilds", reaction.message.guild.id)).reactionrole;
+		if (reactionroles && reactionroles[0]) {
+			const reactionrole = reactionroles.find(r => r.message_id === reaction.message.id && r.channel_id === reaction.message.channel.id);
+			if (reactionrole) {
+				let role = reactionrole.roles.find(r => r.reaction_id === reaction.emoji.id);
+				if (role) {
+					const member = await reaction.message.guild.members.fetch(user.id);
+					await member.roles.add(role.role_id).catch(async (err) => {
+						if (err.code === 50013) {
+							const dictionary = await getDictionary({ userid: user.id });
+							const reply = await user.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_missing_perms)], ephemeral: true });
+							user
+							await new Promise(resolve => setTimeout(resolve, 20000));
+							reply.delete();
+						} else {
+							logger.error(err);
+						}
+					});
+				}
+			}
+		}
+	},
+
+	/**
+	 * Function to be called when a reaction is removed from a reaction role message
+	 * @param {MessageReaction} reaction
+	 * @param {User} user
+	 * @returns {Promise<void>}
+	 */
+	async onReactionRemove_hook(reaction, user) {
+		if (reaction.partial) {
+			try {
+				await reaction.fetch();
+			} catch (error) {
+				logger.error(error);
+				return;
+			}
+		}
+		let reactionroles = (await db.getData("guilds", reaction.message.guild.id)).reactionrole;
+		if (reactionroles && reactionroles[0]) {
+			const reactionrole = reactionroles.find(r => r.message_id === reaction.message.id && r.channel_id === reaction.message.channel.id);
+			if (reactionrole) {
+				let role = reactionrole.roles.find(r => r.reaction_id === reaction.emoji.id);
+				if (role) {
+					const member = await reaction.message.guild.members.fetch(user.id);
+					await member.roles.remove(role.role_id).catch(async (err) => {
+						if (err.code === 50013) {
+							const dictionary = await getDictionary({ userid: user.id });
+							const reply = await user.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_missing_perms)], ephemeral: true });
+							await new Promise(resolve => setTimeout(resolve, 20000));
+							reply.delete();
+						} else {
+							logger.error(err);
+						}
+					});
+				}
+			}
+		}
+	}
 };

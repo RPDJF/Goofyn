@@ -9,6 +9,10 @@ const langCode = {
         value: "fr",
         name: "Français",
     },
+    uwu: {
+        value: "uwu",
+        name: "UwU",
+    },
 };
 
 langCode.default = langCode.en;
@@ -16,6 +20,7 @@ langCode.default = langCode.en;
 const languageData = [];
 languageData[langCode.en.value] = require("../languages/en.json");
 languageData[langCode.fr.value] = require("../languages/fr.json");
+languageData[langCode.uwu.value] = require("../languages/uwu.json");
 
 /**
  * @summary Get the dictionary for the given guild or user

@@ -1,0 +1,65 @@
+{
+	"success": "UwU ! ✨🌸",
+	"errors": {
+		"title": "OwO ! 😿",
+		"execution_error": "Thewe was a hiccup whiwe executing this command ! 😿🌸",
+		"execution_missing_perms": "I don't have the nyecessawy pewmissions to execute this command ! 😿🌸"
+	},
+	"commands": {
+		"ask": {
+			"errors": {
+				"no_api_key": "The pwovidew has nyot configuwed the API fow this command ! 😿🌸",
+				"request_failed": "The wequest faiwed.. Twy again watew ! 😿🌸"
+			}
+		},
+		"language": {
+			"success": "The wanguage has been changed successfuwwy ! 😸🌸",
+			"errors": {
+				"invalid": "The specified wanguage is invawid ! 😿🌸"
+			}
+		},
+		"invite": {
+			"title": "Invitation Wink UwU ! 🌸",
+			"errors": {
+				"no_link": "NyO invitation wink has been set by the bot ownew ! 😿🌸"
+			}
+		},
+		"autorole": {
+			"title": {
+				"add": "Added automatic wowe UwU ! 🌸",
+				"remove": "Wemoved automatic wowe UwU ! 🌸",
+				"list": "Wist of automatic wowe UwU ! 🌸"
+			},
+			"success": {
+				"add": "The wowe <@&{role}> wiww nyow be assigned to nyew membews ! 😸🌸",
+				"remove": "The wowe <@&{role}> wiww nyo wongew be assigned to nyew membews ! 😸🌸"
+			},
+			"errors": {
+				"no_role": "The wowe is nyot an autowowe ! 😿🌸",
+				"empty_roles": "Thewe awe nyo autowowes defined ! 😿🌸",
+				"already_added": "The wowe has awweady been added ! 😿🌸"
+			}
+		},
+		"reactionrole": {
+			"title": {
+				"new": "Nyew weaction wowe UwU ! 🌸",
+				"add": "Added weaction wowe UwU ! 🌸",
+				"remove": "Wemoved weaction wowe UwU ! 🌸",
+				"delete": "Deweted weaction wowe message UwU ! 🌸",
+				"list": "Wist of weaction wowes UwU ! 🌸"
+			},
+			"messages": {
+				"choose_role": "Choose a wowe by weacting UwU 🌸\n",
+				"added": "The wowe <@&{role}> has been added successfuwwy ! 😸🌸",
+				"deleted": "The weaction-wowe message has been deweted ! 😸🌸",
+				"removed": "The weaction-wowe <@&{role}> has been wemoved successfuwwy ! 😸🌸"
+			},
+			"errors": {
+				"message_not_found": "This weaction-wowe message does nyot exist ! 😿🌸",
+				"reaction_not_found": "This weaction does nyot exist ! 😿🌸",
+				"no_reactionroles": "NyO weaction wowes awe defined on this sewvew ! 😿🌸",
+				"invalid_emoji": "The specified emoji is invawid ! 😿🌸"
+			}
+		}
+	}
+}
