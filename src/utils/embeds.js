@@ -15,18 +15,14 @@ class Author {
     }
 }
 
-const botAuthor = new Author(name.charAt(0).toUpperCase() + name.slice(1), logo.url, repository.url.split('+')[1]);
+const botAuthor = new Author(`${name.charAt(0).toUpperCase()}${name.slice(1)} v${version}`, logo.url, repository.url.split('+')[1]);
 
 function msg(title, description, color = 0x7289DA, author = botAuthor) {
     const embed = new EmbedBuilder()
         .setColor(color)
         .setTitle(title)
         .setDescription(description)
-        .setAuthor(author)
-        .setFooter({
-            text: `${name} v${version}`,
-            iconURL: logo.url,
-        });
+        .setAuthor(author);
     return embed;
 }
 
