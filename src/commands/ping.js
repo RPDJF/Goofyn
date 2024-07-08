@@ -1,10 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Interaction } = require('discord.js');
+const { Interaction, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("ping")
         .setDMPermission(true)
+        .setDefaultMemberPermissions(PermissionFlagsBits.SendMessages)
         .setDescription("Ping !"),
     /**
      * Instructions to execute
