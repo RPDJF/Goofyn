@@ -149,7 +149,8 @@ module.exports = {
 					const embed = message.embeds[0];
 					const updatedDescription = `${embed.description}\n\n${emoji} : ${description}`;
 					const updatedEmbed = new EmbedBuilder(embed).setDescription(updatedDescription);
-					const reaction_id = (await message.react(emoji))._emoji.id;
+					const reaction = await message.react(emoji);
+					const reaction_id = reaction._emoji.id || reaction._emoji.name;
 					await message.edit({ embeds: [updatedEmbed] });
 					reactionrole.roles.push({ role_id: role.id, reaction_id, emoji });
 					db.writeData("guilds", interaction.guildId, { reactionrole: reactionroles }, true);
@@ -260,7 +261,7 @@ module.exports = {
 		if (reactionroles && reactionroles[0]) {
 			const reactionrole = reactionroles.find(r => r.message_id === reaction.message.id && r.channel_id === reaction.message.channel.id);
 			if (reactionrole) {
-				let role = reactionrole.roles.find(r => r.reaction_id === reaction.emoji.id);
+				let role = reactionrole.roles.find(r => r.reaction_id === reaction.emoji.id || r.reaction_id === reaction.emoji.name);
 				if (role) {
 					const member = await reaction.message.guild.members.fetch(user.id);
 					await member.roles.add(role.role_id).catch(async (err) => {
@@ -298,7 +299,7 @@ module.exports = {
 		if (reactionroles && reactionroles[0]) {
 			const reactionrole = reactionroles.find(r => r.message_id === reaction.message.id && r.channel_id === reaction.message.channel.id);
 			if (reactionrole) {
-				let role = reactionrole.roles.find(r => r.reaction_id === reaction.emoji.id);
+				let role = reactionrole.roles.find(r => r.reaction_id === reaction.emoji.id || r.reaction_id === reaction.emoji.name);
 				if (role) {
 					const member = await reaction.message.guild.members.fetch(user.id);
 					await member.roles.remove(role.role_id).catch(async (err) => {
