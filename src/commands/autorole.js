@@ -6,6 +6,28 @@ const logger = require('../utils/logger');
 
 // This command requires the function onGuildMemberAdd_hook to be called when a new member joins the server
 
+/**
+ * Clean up the data by removing roles that no longer exist
+ * @param {Interaction} interaction
+ * @param {Object} roles
+ * @returns {Promise<Object>}
+ */
+async function cleanUpData(interaction, roles) {
+    if (roles) {
+        let triggered = false;
+        const guildRoles = await interaction.guild.roles.fetch();
+        for (const autorole of roles) {
+            if (!guildRoles.has(autorole)) {
+                roles = roles.filter(r => r !== autorole);
+                triggered = true;
+            }
+        }
+        if (triggered)
+            await db.writeData("guilds", interaction.guildId, { autorole: roles }, true);
+    }
+    return roles;
+}
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("autorole")
@@ -45,18 +67,7 @@ module.exports = {
         let roles = (await db.getData("guilds", interaction.guildId)).autorole;
 
         // Check if the role exists, if not remove it from the autorole list
-        if (roles) {
-            let triggered = false;
-            const guildRoles = await interaction.guild.roles.fetch();
-            for (const autorole of roles) {
-                if (!guildRoles.has(autorole)) {
-                    roles = roles.filter(r => r !== autorole);
-                    triggered = true;
-                }
-            }
-            if (triggered)
-                await db.writeData("guilds", interaction.guildId, { autorole: roles }, true);
-        }
+        roles = await cleanUpData(interaction, roles);
 
         // Execute the subcommands
         if (subcommand === "add") {
