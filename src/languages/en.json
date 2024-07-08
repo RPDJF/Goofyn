@@ -38,6 +38,26 @@
 				"empty_roles": "There are no autoroles defined!",
 				"already_added": "The role has already been added!"
 			}
+		},
+		"reactionrole": {
+			"title": {
+				"add": "Added reaction role",
+				"remove": "Removed reaction role",
+				"delete": "Deleted reaction role message",
+				"list": "List of reaction roles"
+			},
+			"messages": {
+				"choose_role": "Choose a role by reacting with the corresponding emoji!",
+				"added": "The role <@&{role}> has been added successfully!",
+				"deleted": "The reaction-role message has been deleted!",
+				"removed": "The reaction-role <@&{role}> has been removed successfully!"
+			},
+			"errors": {
+				"message_not_found": "This reaction-role message does not exist!",
+				"reaction_not_found": "This reaction does not exist!",
+				"no_reactionroles": "No reaction roles are defined on this server!",
+				"invalid_emoji": "The specified emoji is invalid!"
+			}
 		}
 	}
 }

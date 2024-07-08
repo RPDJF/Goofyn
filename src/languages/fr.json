@@ -38,6 +38,26 @@
 				"empty_roles": "Aucun rôle automatique n'est défini !",
 				"already_added": "Le rôle a déjà été ajouté !"
 			}
+		},
+		"reactionrole": {
+			"title": {
+				"add": "Rôle de réaction ajouté",
+				"remove": "Rôle de réaction supprimé",
+				"delete": "Message de rôle de réaction supprimé",
+				"list": "Liste des rôles de réaction"
+			},
+			"messages": {
+				"choose_role": "Choisis un rôle en réagissant avec l'emoji correspondant !",
+				"added": "Le rôle <@&{role}> a été ajouté avec succès !",
+				"deleted": "Le message de réaction-rôle a été supprimé !",
+				"removed": "Le réaction-rôle <@&{role}> a été supprimé avec succès !"
+			},
+			"errors": {
+				"message_not_found": "Ce message reaction-role n'existe pas !",
+				"reaction_not_found": "Cette réaction n'existe pas !",
+				"no_reactionroles": "Aucun rôle de réaction n'est défini sur ce serveur !",
+				"invalid_emoji": "L'emoji spécifié est invalide !"
+			}
 		}
 	}
 }
