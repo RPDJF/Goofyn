@@ -13,7 +13,7 @@ module.exports = {
             option.setName("language")
                 .setDescription("The language you want to use")
                 .setRequired(true);
-            const choices = Object.keys(langCode).map(lang => [{name:langCode[lang].name, value:lang}]);
+            const choices = Object.keys(langCode).map(lang => [{name:langCode[lang].data.name, value:lang}]);
             for (const choice of choices) {
                 if (choice[0].value === "default")
                     continue;

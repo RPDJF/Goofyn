@@ -27,6 +27,7 @@
     "dotenv": "^16.4.5",
     "firebase-admin": "^12.1.1",
     "fs": "^0.0.1-security",
+    "path": "^0.12.7",
     "pino": "^9.2.0",
     "pino-pretty": "^11.2.1"
   }

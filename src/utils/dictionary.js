@@ -1,26 +1,25 @@
 const db = require("./db");
+const fs = require("fs");
+const path = require("path");
 
-const langCode = {
-    en: {
-        value: "en",
-        name: "English",
-    },
-    fr: {
-        value: "fr",
-        name: "Français",
-    },
-    uwu: {
-        value: "uwu",
-        name: "UwU",
-    },
-};
+const langDir = path.join(__dirname, "..", "languages");
+
+const langFiles = fs.readdirSync(langDir).filter(file => file.endsWith(".json"));
+
+const langCode = {};
+
+langFiles.forEach(file => {
+    const lang = require(path.join(langDir, file));
+    langCode[lang.data.code] = lang;
+});
 
 langCode.default = langCode.en;
 
 const languageData = [];
-languageData[langCode.en.value] = require("../languages/en.json");
-languageData[langCode.fr.value] = require("../languages/fr.json");
-languageData[langCode.uwu.value] = require("../languages/uwu.json");
+
+for (const lang in langCode) {
+    languageData[langCode[lang].value] = langCode[lang].data;
+}
 
 /**
  * @summary Get the dictionary for the given guild or user
@@ -30,9 +29,10 @@ languageData[langCode.uwu.value] = require("../languages/uwu.json");
 async function getDictionary({ guildid, userid}) {
     let lang = langCode.default;
     const doc = guildid ? await db.getData("guilds", guildid) : await db.getData("users", userid);
-    if (doc && doc.lang)
-        lang = langCode[doc.lang] || langCode.default;
-    return languageData[lang.value];
+    if (doc && doc.lang) {
+        return (langCode[doc.lang] || lang);
+    }
+    return lang;
 }
 
 module.exports = {

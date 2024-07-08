@@ -1,4 +1,8 @@
 {
+	"data": {
+		"name": "English",
+		"code": "en"
+	},
 	"success": "Hooray!",
 	"errors": {
 		"title": "Oopsie daisy!",
