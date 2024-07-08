@@ -95,12 +95,7 @@ module.exports = {
 			.addSubcommand(subcommand =>
 				subcommand
 					.setName("list")
-					.setDescription("List all reaction role messages")
-					.addStringOption(option =>
-						option
-							.setName("message_id")
-							.setDescription("The message ID")
-							.setRequired(false))),
+					.setDescription("List all reaction role messages")),
     /**
      * Instructions to execute
      * @param {Interaction} interaction
@@ -179,7 +174,7 @@ module.exports = {
 					reactionrole = reactionrole_message.roles.find(r => r.emoji === emoji);
 				if (reactionrole) {
 					const message = await (await interaction.guild.channels.fetch(reactionrole_message.channel_id)).messages.fetch(reactionrole_message.message_id);
-					const reaction = message.reactions.cache.find(r => r.emoji.id === reactionrole.reaction_id);
+					const reaction = message.reactions.cache.find(r => r.emoji.id === reactionrole.reaction_id || r.emoji.name === reactionrole.reaction_id);
 					await reaction.remove();
 					const embed = message.embeds[0];
 					const findReactionRole = new RegExp(`^${emoji}.*$`, "m");
