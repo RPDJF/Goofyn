@@ -1,4 +1,8 @@
 const { Interaction, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { msg, errorMsg } = require('../utils/embeds');
+const { getDictionary } = require("../utils/dictionary");
+const db = require("../utils/db");
+const logger = require('../utils/logger');
 
 module.exports = {
     data: new SlashCommandBuilder()
