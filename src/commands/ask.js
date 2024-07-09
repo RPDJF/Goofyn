@@ -1,6 +1,5 @@
 const { getGeminiContext, safetySettings, generationConfig, historySettings } = require('../../config/ask_gemini_conf');
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Interaction, Message, Collection } = require('discord.js');
+const { Interaction, Message, Collection, ChannelType, MessageType, SlashCommandBuilder } = require('discord.js');
 const { getDictionary } = require('../utils/dictionary');
 const { errorMsg, Author } = require('../utils/embeds');
 const logger = require('../utils/logger');
@@ -8,6 +7,35 @@ const logger = require('../utils/logger');
 // Requires API key to be set in environment variable GEMINI_API_KEY
 
 const author = new Author("Gemini", "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png", "https://gemini.google.com/");
+
+/**
+ *
+ * @param {Message} message 
+ */
+async function messageExecute(message) {
+    await message.channel.sendTyping();
+    const dictionary = message.guild ? await getDictionary({ guildid: message.guild.id }) : await getDictionary({ userid: message.author.id });
+    if (!process.env.GEMINI_API_KEY) {
+        logger.warn("Gemini was called but API key is missing!");
+        const errormsg = await message.channel.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)], ephemeral: true });
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        errormsg.delete();
+        return;
+    }
+    try {
+        const gemini = await promptGemini(
+            getGeminiContext({message: message}),
+            message.content,
+            await getHistory(message)
+        );
+        const text = gemini.response.text();
+        logger.info(`Gemini API request by ${message.author.id}`);
+        await message.channel.send(text);
+    } catch (error) {
+        logger.error(error);
+        await message.channel.send(dictionary.commands.ask.errors.request_failed);
+    }
+}
 
 /**
  * 
@@ -95,32 +123,16 @@ module.exports = {
             await interaction.editReply(dictionary.commands.ask.errors.request_failed);
         }
     },
+
     /**
      * 
-     * @param {Message} message 
+     * @param {Message} message
+     * @returns {Promise<void>}
      */
-    async messageExecute(message) {
-        await message.channel.sendTyping();
-        const dictionary = message.guild ? await getDictionary({ guildid: message.guild.id }) : await getDictionary({ userid: message.author.id });
-        if (!process.env.GEMINI_API_KEY) {
-            logger.warn("Gemini was called but API key is missing!");
-            const errormsg = await message.channel.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)], ephemeral: true });
-            await new Promise(resolve => setTimeout(resolve, 10000));
-            errormsg.delete();
-            return;
-        }
-        try {
-            const gemini = await promptGemini(
-                getGeminiContext({message: message}),
-                message.content,
-                await getHistory(message)
-            );
-            const text = gemini.response.text();
-            logger.info(`Gemini API request by ${message.author.id}`);
-            await message.channel.send(text);
-        } catch (error) {
-            logger.error(error);
-            await message.channel.send(dictionary.commands.ask.errors.request_failed);
+    async onMessageCreate_hook(message) {
+        if (message.channel.type === ChannelType.DM || message.channel.type == ChannelType.GroupDM
+            || message.mentions.has(message.client.user.id) && (message.type === MessageType.Reply || message.content.includes(`<@${message.client.user.id}>`))) {
+                messageExecute(message);
         }
     }
 

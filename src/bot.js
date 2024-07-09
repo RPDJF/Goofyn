@@ -64,25 +64,38 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.bot) return;
-
-    // Use messageExecute from the ask command to handle the message
-    if (message.channel.type === ChannelType.DM || message.channel.type == ChannelType.GroupDM
-        || message.mentions.has(client.user.id) && (message.type === MessageType.Reply || message.content.includes(`<@${client.user.id}>`))) {
-            const command = client.commands.get("ask");
-            if (command && command.messageExecute)
-                command.messageExecute(message);
+    try{
+        commands.get("ask").onMessageCreate_hook(message);
+    } catch (error) {
+        logger.error(error);
+        const dictionary = await getDictionary({ guildid: message.guildId });
+        const reply = message.reply({ embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_error)], ephemeral: true });
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        reply.delete();
     }
 });
 
 client.on(Events.GuildMemberAdd, async (member) => {
-    commands.get("autorole").onGuildMemberAdd_hook(member);
-    commands.get("welcome").onGuildMemberAdd_hook(member);
+    try {
+        commands.get("autorole").onGuildMemberAdd_hook(member);
+        commands.get("welcome").onGuildMemberAdd_hook(member);
+    } catch (error) {
+        logger.error(error);
+    }
 });
 
 client.on(Events.MessageReactionAdd, async (reaction, user) => {
-    commands.get("reactionrole").onReactionAdd_hook(reaction, user);
+    try {
+        commands.get("reactionrole").onReactionAdd_hook(reaction, user);
+    } catch (error) {
+        logger.error(error);
+    }
 });
 
 client.on(Events.MessageReactionRemove, async (reaction, user) => {
-    commands.get("reactionrole").onReactionRemove_hook(reaction, user);
+    try {
+        commands.get("reactionrole").onReactionRemove_hook(reaction, user);
+    } catch (error) {
+        logger.error(error);
+    }
 });
