@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Interaction } = require('discord.js');
+const { Interaction, SlashCommandBuilder } = require('discord.js');
 const { getDictionary } = require("../utils/dictionary");
 const { errorMsg, msg } = require('../utils/embeds');
 const logger = require('../utils/logger');
