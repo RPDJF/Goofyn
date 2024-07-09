@@ -1,7 +1,7 @@
 const { getGeminiContext, safetySettings, generationConfig, historySettings } = require('../../config/ask_gemini_conf');
 const { Interaction, Message, Collection, ChannelType, MessageType, SlashCommandBuilder } = require('discord.js');
 const { getDictionary } = require('../utils/dictionary');
-const { errorMsg, Author } = require('../utils/embeds');
+const { errorMsg, Author } = require('../utils/embedUtility');
 const logger = require('../utils/logger');
 
 // Requires API key to be set in environment variable GEMINI_API_KEY

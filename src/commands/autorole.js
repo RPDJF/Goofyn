@@ -1,7 +1,7 @@
 const { Interaction, SlashCommandBuilder, PermissionFlagsBits, GuildMember } = require('discord.js');
 const { getDictionary } = require("../utils/dictionary");
 const db = require("../utils/db");
-const { msg, errorMsg } = require('../utils/embeds');
+const { msg, errorMsg } = require('../utils/embedUtility.js');
 const logger = require('../utils/logger');
 
 // This command requires the function onGuildMemberAdd_hook to be called when a new member joins the server

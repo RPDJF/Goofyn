@@ -1,7 +1,7 @@
 const { Interaction, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 const { langCode, getDictionary } = require("../utils/dictionary");
 const db = require("../utils/db");
-const { errorMsg, msg } = require('../utils/embeds');
+const { errorMsg, msg } = require('../utils/embedUtility.js');
 
 module.exports = {
     data: new SlashCommandBuilder()

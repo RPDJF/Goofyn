@@ -18,7 +18,7 @@ const client = new Client({
     partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
 const fs = require("fs");
-const { errorMsg } = require("./utils/embeds");
+const { errorMsg } = require("./utils/embedUtility");
 const { getDictionary } = require("./utils/dictionary");
 
 if (!fs.existsSync(".env"))

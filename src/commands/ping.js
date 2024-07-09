@@ -1,5 +1,5 @@
 const { Interaction, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { msg, errorMsg } = require('../utils/embeds');
+const { msg, errorMsg } = require('../utils/embedUtility.js');
 const { getDictionary } = require("../utils/dictionary");
 const db = require("../utils/db");
 const logger = require('../utils/logger');
