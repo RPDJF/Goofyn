@@ -97,6 +97,22 @@
 				"You can use the following special characters in the welcome message:",
 				"\\- `\\n`: New line"
 			]
+		},
+		"message": {
+			"title": {
+				"new": "New message",
+				"delete": "Deleted message",
+				"edit": "Edited message"
+			},
+			"success": {
+				"msg_created": "The message has been created successfully!",
+				"msg_deleted": "The message has been deleted successfully!",
+				"msg_edited": "The message has been edited successfully!"
+			},
+			"errors": {
+				"msg_not_found": "This message does not exist!",
+				"msg_not_bot": "This message was not sent by the bot!"
+			}
 		}
 	}
 }

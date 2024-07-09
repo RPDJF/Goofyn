@@ -97,6 +97,22 @@
 				"Yowu can use the fowwowing speciaw chawactews in the message UwU ! 🌸",
 				"\\- `\\n`: Wine bweak UwU ! 🌸"
 			]
+		},
+		"message": {
+			"title": {
+				"new": "Nyew message UwU ! 🌸",
+				"delete": "Dewete message UwU ! 🌸",
+				"edit": "Edit message UwU ! 🌸"
+			},
+			"success": {
+				"msg_created": "The message has been cweated successfuwwy ! 😸🌸",
+				"msg_deleted": "The message has been deweted successfuwwy ! 😸🌸",
+				"msg_edited": "The message has been edited successfuwwy ! 😸🌸"
+			},
+			"errors": {
+				"msg_not_found": "This message does nyot exist ! 😿🌸",
+				"msg_not_bot": "This message was nyot sent by the bot ! 😿🌸"
+			}
 		}
 	}
 }

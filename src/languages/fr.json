@@ -97,6 +97,22 @@
 				"Tu peux utiliser les caractères spéciaux suivants dans ton message de bienvenue :",
 				"\\- `\\n` : Saut de ligne"
 			]
+		},
+		"message": {
+			"title": {
+				"new": "Nouveau message",
+				"delete": "Message supprimé",
+				"edit": "Message mis à jour"
+			},
+			"success": {
+				"msg_created": "Le message a été créé avec succès !",
+				"msg_deleted": "Le message a été supprimé avec succès !",
+				"msg_edited": "Le message a été mis à jour avec succès !"
+			},
+			"errors": {
+				"msg_not_found": "Ce message n'existe pas !",
+				"msg_not_bot": "Ce message n'a pas été envoyé par le bot !"
+			}
 		}
 	}
 }
