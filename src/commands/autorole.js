@@ -85,8 +85,7 @@ module.exports = {
                         dictionary.commands.autorole.errors.already_added)],
                     ephemeral: true
                 });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                await interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 return;
             }
             await db.writeData("guilds", interaction.guildId, { autorole: roles }, true);
@@ -109,8 +108,7 @@ module.exports = {
                         dictionary.commands.autorole.errors.no_role)],
                     ephemeral: true
                 });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                await interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 return;
             }
             await db.writeData("guilds", interaction.guildId, { autorole: roles }, true);
@@ -134,8 +132,7 @@ module.exports = {
                 return;
             } else {
                 await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.autorole.errors.empty_roles)], ephemeral: true });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                await interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 return;
             }
         }

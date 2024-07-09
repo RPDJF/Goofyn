@@ -39,7 +39,7 @@ module.exports = {
             dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
             await interaction.editReply({ embeds: [msg(dictionary.success, dictionary.commands.language.success, dictionary.author)], ephemeral: true});
         }
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        await interaction.deleteReply();
+        new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+        return;
     },
 };

@@ -131,8 +131,7 @@ module.exports = {
 
             if (!emoji.match(/<a?:.+>/) && !emoji.match(/\p{Extended_Pictographic}/u)) {
                 await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.invalid_emoji)], ephemeral: true });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 return;
             }
 
@@ -150,17 +149,14 @@ module.exports = {
                     reactionrole.roles.push({ role_id: role.id, reaction_id, emoji });
                     db.writeData("guilds", interaction.guildId, { reactionrole: reactionroles }, true);
                     await interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.add, dictionary.commands.reactionrole.messages.added.replace("{role}", role.id))], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 } else {
                     await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.message_not_found)], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 }
             } else {
                 await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.no_reactionroles)], ephemeral: true });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
             }
         }
 
@@ -184,17 +180,14 @@ module.exports = {
                     reactionrole_message.roles = reactionrole_message.roles.filter(r => r.emoji !== emoji);
                     await db.writeData("guilds", interaction.guildId, { reactionrole: reactionroles }, true);
                     await interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.remove, dictionary.commands.reactionrole.messages.removed.replace("{role}", reactionrole.role_id))], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 } else {
                     await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.message_not_found)], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 }
             } else {
                 await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.no_reactionroles)], ephemeral: true });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
             }
         }
 
@@ -214,12 +207,10 @@ module.exports = {
                         logger.error(e);
                     }
                     await interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.delete, dictionary.commands.reactionrole.messages.deleted)], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 } else {
                     await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.message_not_found)], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 }
             } else {
                 interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.no_reactionroles)], ephemeral: true });
@@ -239,8 +230,7 @@ module.exports = {
                 interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.list, message)], ephemeral: true });
             } else {
                 await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.reactionrole.errors.no_reactionroles)], ephemeral: true });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
             }
         }
     },
@@ -272,8 +262,7 @@ module.exports = {
                             const dictionary = await getDictionary({ userid: user.id });
                             const reply = await user.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_missing_perms)], ephemeral: true });
                             user
-                            await new Promise(resolve => setTimeout(resolve, 20000));
-                            reply.delete();
+                            new Promise(resolve => setTimeout(resolve, 10000)).then(() => reply.delete());
                         } else {
                             logger.error(err);
                         }
@@ -309,8 +298,7 @@ module.exports = {
                         if (err.code === 50013) {
                             const dictionary = await getDictionary({ userid: user.id });
                             const reply = await user.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_missing_perms)], ephemeral: true });
-                            await new Promise(resolve => setTimeout(resolve, 20000));
-                            reply.delete();
+                            new Promise(resolve => setTimeout(resolve, 10000)).then(() => reply.delete());
                         } else {
                             logger.error(err);
                         }

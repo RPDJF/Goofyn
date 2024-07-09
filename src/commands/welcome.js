@@ -79,8 +79,7 @@ module.exports = {
                     const title = dictionary.errors.title;
                     const description = dictionary.commands.welcome.errors.no_channel_or_message;
                     await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                     return;
                 }
 
@@ -95,8 +94,7 @@ module.exports = {
                 const title = enable ? dictionary.commands.welcome.title.enabled : dictionary.commands.welcome.title.disabled;
                 const description = dictionary.commands.welcome.success.toggle.replace("{value}", enable);
                 await interaction.editReply({ embeds: [msg(title, description)], ephemeral: true });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 return;
             }
 
@@ -121,8 +119,7 @@ module.exports = {
                     const title = dictionary.errors.title;
                     const description = dictionary.errors.invalid_channel;
                     await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                     return;
                 }
 
@@ -137,8 +134,7 @@ module.exports = {
                 const title = dictionary.commands.welcome.title.channel;
                 const description = dictionary.commands.welcome.success.channel.replace("{channel}", channel_id);
                 await interaction.editReply({ embeds: [msg(title, description)] });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 return ;
             }
 
@@ -150,8 +146,7 @@ module.exports = {
                     const title = dictionary.errors.title;
                     const description = dictionary.errors.invalid_thumbnail;
                     await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                    await new Promise(resolve => setTimeout(resolve, 10000));
-                    interaction.deleteReply();
+                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                     return;
                 }
 
@@ -167,8 +162,7 @@ module.exports = {
                 const title = dictionary.commands.welcome.title.message;
                 const description = dictionary.commands.welcome.success.message;
                 await interaction.editReply({ embeds: [msg(title, description)], ephemeral: true });
-                await new Promise(resolve => setTimeout(resolve, 10000));
-                interaction.deleteReply();
+                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
                 return;
             }
         }

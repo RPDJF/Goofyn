@@ -23,7 +23,6 @@ module.exports = {
             await interaction.editReply({ embeds: [msg(dictionary.commands.invite.title, process.env.INVITE_LINK)], ephemeral: false})
             return;
         }
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        await interaction.deleteReply();
+        new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
     },
 };
