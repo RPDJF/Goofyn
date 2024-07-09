@@ -53,12 +53,16 @@ client.on(Events.InteractionCreate, async (interaction) => {
         logger.error(error);
         const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
         const error_msg = { embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_error)], ephemeral: true };
-        if (interaction.deferred || interaction.replied)
-            await interaction.editReply(error_msg);
-        else
-            await interaction.reply(error_msg);
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        await interaction.deleteReply();
+        try {
+            if (interaction.deferred || interaction.replied)
+                await interaction.editReply(error_msg);
+            else
+                await interaction.reply(error_msg);
+            await new Promise(resolve => setTimeout(resolve, 10000));
+            await interaction.deleteReply();
+        } catch (error) {
+            logger.error(error);
+        }
     }
 });
 
