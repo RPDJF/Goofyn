@@ -76,7 +76,6 @@ module.exports = {
         const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
         if (!process.env.GEMINI_API_KEY) {
             logger.warn("Gemini was called but API key is missing!");
-            //await interaction.editReply({ content: dictionary.commands.ask.errors.no_api_key, ephemeral: true });
             await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)]})
             await new Promise(resolve => setTimeout(resolve, 10000));
             await interaction.deleteReply();
