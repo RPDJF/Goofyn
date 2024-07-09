@@ -202,9 +202,17 @@ module.exports = {
             const message_id = interaction.options.getString("message_id");
             let reactionroles = (await db.getData("guilds", interaction.guildId)).reactionrole;
             if (reactionroles && reactionroles[0]) {
-                if (reactionroles.find(r => r.message_id === message_id)) {
-                    reactionroles = reactionroles.filter(r => r.message_id !== message_id);
+                const findReactionRole = reactionroles.find(r => r.message_id === message_id);
+                if (findReactionRole) {
+                    reactionroles = reactionroles.filter(r => r !== findReactionRole);
                     db.writeData("guilds", interaction.guildId, { reactionrole: reactionroles }, true);
+                    try {
+                        const channel = await interaction.guild.channels.fetch(findReactionRole.channel_id);
+                        const message = await channel.messages.fetch(message_id);
+                        await message.delete();
+                    } catch (e) {
+                        logger.error(e);
+                    }
                     await interaction.editReply({ embeds: [msg(dictionary.commands.reactionrole.title.delete, dictionary.commands.reactionrole.messages.deleted)], ephemeral: true });
                     await new Promise(resolve => setTimeout(resolve, 10000));
                     interaction.deleteReply();
