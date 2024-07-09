@@ -92,7 +92,7 @@
 				"Tu peux utiliser les variables suivantes dans ton message de bienvenue :",
 				"\\- `{user}` : Mentionne le nouvel utilisateur",
 				"\\- `{guild}` : Nom du serveur",
-				"\\- `${membercount}` : Nombre de membres du serveur\n",
+				"\\- `{membercount}` : Nombre de membres du serveur\n",
 				"**Caractères spéciaux**",
 				"Tu peux utiliser les caractères spéciaux suivants dans ton message de bienvenue :",
 				"\\- `\\n` : Saut de ligne"
