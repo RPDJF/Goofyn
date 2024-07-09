@@ -4,6 +4,8 @@ const { getDictionary } = require("../utils/dictionary");
 const db = require("../utils/db");
 const logger = require('../utils/logger');
 
+// This command requires the onGuildMemberAdd_hook function to be called when a member joins the server
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("welcome")
