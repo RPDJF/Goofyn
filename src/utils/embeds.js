@@ -17,6 +17,14 @@ class Author {
 
 const botAuthor = new Author(`${name.charAt(0).toUpperCase()}${name.slice(1)} v${version}`, logo.url, repository.url.split('+')[1]);
 
+/**
+ * Create a new embed
+ * @param {string} title
+ * @param {string} description
+ * @param {number} color
+ * @param {Author} author
+ * @returns {EmbedBuilder}
+ */
 function msg(title, description, color = 0x7289DA, author = botAuthor) {
     const embed = new EmbedBuilder()
         .setColor(color)
@@ -26,6 +34,13 @@ function msg(title, description, color = 0x7289DA, author = botAuthor) {
     return embed;
 }
 
+/**
+ * Create a new embed
+ * @param {string} title
+ * @param {string} description
+ * @param {Author} author
+ * @returns {EmbedBuilder}
+ */
 function errorMsg(title, description, author = botAuthor) {
     return msg(title, description, 0xFF0000, author);
 }
