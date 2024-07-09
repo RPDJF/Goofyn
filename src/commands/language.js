@@ -31,12 +31,12 @@ module.exports = {
         const newLang = interaction.options.getString("language");
         let dictionary;
         if (langCode[newLang] === undefined) {
-            dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
+            dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
             await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.language.errors.invalid)], ephemeral: true});
         } else {
             if (lang !== newLang)
                 await db.writeData(interaction.guild ? "guilds" : "users", interaction.guild ? interaction.guildId : interaction.user.id, { lang: newLang });
-            dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
+            dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
             await interaction.editReply({ embeds: [msg(dictionary.success, dictionary.commands.language.success, dictionary.author)], ephemeral: true});
         }
         await new Promise(resolve => setTimeout(resolve, 10000));

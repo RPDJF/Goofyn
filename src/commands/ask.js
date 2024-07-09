@@ -14,7 +14,7 @@ const author = new Author("Gemini", "https://uxwing.com/wp-content/themes/uxwing
  */
 async function messageExecute(message) {
     await message.channel.sendTyping();
-    const dictionary = message.guild ? await getDictionary({ guildid: message.guild.id }) : await getDictionary({ userid: message.author.id });
+    const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
     if (!process.env.GEMINI_API_KEY) {
         logger.warn("Gemini was called but API key is missing!");
         const errormsg = await message.channel.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)], ephemeral: true });
@@ -101,7 +101,7 @@ module.exports = {
      */
     async execute(interaction) {
         await interaction.deferReply({ephemeral: false});
-        const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
+        const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
         if (!process.env.GEMINI_API_KEY) {
             logger.warn("Gemini was called but API key is missing!");
             await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)]})

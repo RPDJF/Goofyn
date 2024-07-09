@@ -62,7 +62,7 @@ module.exports = {
      */
     async execute(interaction) {
         await interaction.deferReply();
-        const dictionary = await getDictionary({ guildid: interaction.guildId });
+        const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
         const subcommand = interaction.options.getSubcommand();
         let roles = (await db.getData("guilds", interaction.guildId)).autorole;
 

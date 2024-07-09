@@ -63,7 +63,7 @@ module.exports = {
      */
     async execute(interaction) {
         await interaction.deferReply();
-        const dictionary = await getDictionary({ guildid: interaction.guildId });
+        const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
         const subcommand = interaction.options.getSubcommand();
         const groupcommand = interaction.options.getSubcommandGroup();
         const welcomeDoc = (await db.getData("guilds", interaction.guildId)).welcome || { enabled: false, channel_id: null, message: null, thumbnail_url: null };

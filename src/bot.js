@@ -50,7 +50,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     try {
         await command.execute(interaction);
     } catch (error) {
-        const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
+        const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
         const error_msg = { embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_error)], ephemeral: true };
         try {
             if (interaction.deferred || interaction.replied)
@@ -72,7 +72,7 @@ client.on(Events.MessageCreate, async (message) => {
         commands.get("ask").onMessageCreate_hook(message);
     } catch (error) {
         logger.error(error);
-        const dictionary = await getDictionary({ guildid: message.guildId });
+        const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
         const reply = message.reply({ embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_error)], ephemeral: true });
         await new Promise(resolve => setTimeout(resolve, 10000));
         reply.delete();

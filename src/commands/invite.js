@@ -15,7 +15,7 @@ module.exports = {
      */
     async execute(interaction) {
         await interaction.deferReply();
-        const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
+        const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
         if (!process.env.INVITE_LINK) {
             logger.warn("Invite was called but INVITE_LINK is missing!");
             await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.invite.errors.no_link)], ephemeral: true });
