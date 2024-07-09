@@ -148,7 +148,7 @@ module.exports = {
 
                 if (thumbnail_url && !thumbnail_url.match(/\.(jpeg|jpg|gif|png)$/)) {
                     const title = dictionary.errors.title;
-                    const description = dictionary.commands.errors.invalid_thumbnail;
+                    const description = dictionary.errors.invalid_thumbnail;
                     await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
                     await new Promise(resolve => setTimeout(resolve, 10000));
                     interaction.deleteReply();

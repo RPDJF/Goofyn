@@ -1,118 +1,139 @@
 {
-	"data": {
-		"name": "Français",
-		"code": "fr"
-	},
-	"success": "Hourra !",
-	"errors": {
-		"title": "Oops la boulette !",
-		"execution_error": "Il y a eu un pépin lors de l'exécution de cette commande !",
-		"execution_missing_perms": "Je n'ai pas les permissions nécessaires pour exécuter cette commande !",
-		"invalid_channel": "Le salon spécifié est invalide !"
-	},
-	"commands": {
-		"ask": {
-			"errors": {
-				"no_api_key": "Le fournisseur n'a pas configuré l'API pour cette commande !",
-				"request_failed": "La requête a échoué.. Réessais plus tard !"
-			}
-		},
-		"language": {
-			"success": "La langue a été changée avec succès !",
-			"errors": {
-				"invalid": "La langue spécifiée est invalide !"
-			}
-		},
-		"invite": {
-			"title": "Lien d'invitation",
-			"errors": {
-				"no_link": "Aucun lien d'invitation n'a été défini par le propriétaire du bot !"
-			}
-		},
-		"autorole": {
-			"title": {
-				"add": "Rôle automatique ajouté",
-				"remove": "Rôle automatique supprimé",
-				"list": "Liste des rôles automatiques"
-			},
-			"success": {
-				"add": "Le rôle <@&{role}> sera désormais attribué aux nouveaux membres !",
-				"remove": "Le rôle <@&{role}> ne sera plus attribué aux nouveaux membres !"
-			},
-			"errors": {
-				"no_role": "Le rôle n'est pas un rôle automatique !",
-				"empty_roles": "Aucun rôle automatique n'est défini !",
-				"already_added": "Le rôle a déjà été ajouté !"
-			}
-		},
-		"reactionrole": {
-			"title": {
-				"new": "Nouveau rôle de réaction",
-				"add": "Rôle de réaction ajouté",
-				"remove": "Rôle de réaction supprimé",
-				"delete": "Message de rôle de réaction supprimé",
-				"list": "Liste des rôles de réaction"
-			},
-			"messages": {
-				"choose_role": "Choisis un rôle en réagissant\n",
-				"added": "Le rôle <@&{role}> a été ajouté avec succès !",
-				"deleted": "Le message de réaction-rôle a été supprimé !",
-				"removed": "Le réaction-rôle <@&{role}> a été supprimé avec succès !"
-			},
-			"errors": {
-				"message_not_found": "Ce message reaction-role n'existe pas !",
-				"reaction_not_found": "Cette réaction n'existe pas !",
-				"no_reactionroles": "Aucun rôle de réaction n'est défini sur ce serveur !",
-				"invalid_emoji": "L'emoji spécifié est invalide !"
-			}
-		},
-		"welcome": {
-			"title": {
-				"enabled": "Message de bienvenue activé",
-				"disabled": "Message de bienvenue désactivé",
-				"channel": "Salon de bienvenue",
-				"message": "Message de bienvenue",
-				"help": "Aide message de bienvenue"
-			},
-			"success": {
-				"toggle": "``welcome.enabled`` a été défini sur ``{value}`` !",
-				"channel": "Le salon de bienvenue a été défini sur <#{channel}> !",
-				"message": "Le message de bienvenue a été défini avec succès !"
-			},
-			"errors": {
-				"no_channel_or_message": "Aucun salon ou message de bienvenue n'a été défini !",
-				"invalid_thumbnail": "La miniature spécifiée est invalide !"
-			},
-			"help": [
-				"**Utiliser le message de bienvenue**",
-				"1. Définir le salon de bienvenue avec </welcome set channel:{commandId}>",
-				"2. Définir le message de bienvenue avec </welcome set message:{commandId}>",
-				"3. Activer le message de bienvenue avec </welcome enable:{commandId}>\n",
-				"**Variables**",
-				"Tu peux utiliser les variables suivantes dans ton message de bienvenue :",
-				"\\- `{user}` : Mentionne le nouvel utilisateur",
-				"\\- `{guild}` : Nom du serveur",
-				"\\- `{membercount}` : Nombre de membres du serveur\n",
-				"**Caractères spéciaux**",
-				"Tu peux utiliser les caractères spéciaux suivants dans ton message de bienvenue :",
-				"\\- `\\n` : Saut de ligne"
-			]
-		},
-		"message": {
-			"title": {
-				"new": "Nouveau message",
-				"delete": "Message supprimé",
-				"edit": "Message mis à jour"
-			},
-			"success": {
-				"msg_created": "Le message a été créé avec succès !",
-				"msg_deleted": "Le message a été supprimé avec succès !",
-				"msg_edited": "Le message a été mis à jour avec succès !"
-			},
-			"errors": {
-				"msg_not_found": "Ce message n'existe pas !",
-				"msg_not_bot": "Ce message n'a pas été envoyé par le bot !"
-			}
-		}
-	}
+    "data": {
+        "name": "Français",
+        "code": "fr"
+    },
+    "success": "Hourra !",
+    "errors": {
+        "title": "Oops la boulette !",
+        "execution_error": "Il y a eu un pépin lors de l'exécution de cette commande !",
+        "execution_missing_perms": "Je n'ai pas les permissions nécessaires pour exécuter cette commande !",
+        "invalid_channel": "Le salon spécifié est invalide !",
+        "invalid_thumbnail": "La miniature spécifiée est invalide !"
+    },
+    "commands": {
+        "ask": {
+            "errors": {
+                "no_api_key": "Le fournisseur n'a pas configuré l'API pour cette commande !",
+                "request_failed": "La requête a échoué.. Réessais plus tard !"
+            }
+        },
+        "language": {
+            "success": "La langue a été changée avec succès !",
+            "errors": {
+                "invalid": "La langue spécifiée est invalide !"
+            }
+        },
+        "invite": {
+            "title": "Lien d'invitation",
+            "errors": {
+                "no_link": "Aucun lien d'invitation n'a été défini par le propriétaire du bot !"
+            }
+        },
+        "autorole": {
+            "title": {
+                "add": "Rôle automatique ajouté",
+                "remove": "Rôle automatique supprimé",
+                "list": "Liste des rôles automatiques"
+            },
+            "success": {
+                "add": "Le rôle <@&{role}> sera désormais attribué aux nouveaux membres !",
+                "remove": "Le rôle <@&{role}> ne sera plus attribué aux nouveaux membres !"
+            },
+            "errors": {
+                "no_role": "Le rôle n'est pas un rôle automatique !",
+                "empty_roles": "Aucun rôle automatique n'est défini !",
+                "already_added": "Le rôle a déjà été ajouté !"
+            }
+        },
+        "reactionrole": {
+            "title": {
+                "new": "Nouveau rôle de réaction",
+                "add": "Rôle de réaction ajouté",
+                "remove": "Rôle de réaction supprimé",
+                "delete": "Message de rôle de réaction supprimé",
+                "list": "Liste des rôles de réaction"
+            },
+            "messages": {
+                "choose_role": "Choisis un rôle en réagissant\n",
+                "added": "Le rôle <@&{role}> a été ajouté avec succès !",
+                "deleted": "Le message de réaction-rôle a été supprimé !",
+                "removed": "Le réaction-rôle <@&{role}> a été supprimé avec succès !"
+            },
+            "errors": {
+                "message_not_found": "Ce message reaction-role n'existe pas !",
+                "reaction_not_found": "Cette réaction n'existe pas !",
+                "no_reactionroles": "Aucun rôle de réaction n'est défini sur ce serveur !",
+                "invalid_emoji": "L'emoji spécifié est invalide !"
+            }
+        },
+        "welcome": {
+            "title": {
+                "enabled": "Message de bienvenue activé",
+                "disabled": "Message de bienvenue désactivé",
+                "channel": "Salon de bienvenue",
+                "message": "Message de bienvenue",
+                "help": "Aide message de bienvenue"
+            },
+            "success": {
+                "toggle": "``welcome.enabled`` a été défini sur ``{value}`` !",
+                "channel": "Le salon de bienvenue a été défini sur <#{channel}> !",
+                "message": "Le message de bienvenue a été défini avec succès !"
+            },
+            "errors": {
+                "no_channel_or_message": "Aucun salon ou message de bienvenue n'a été défini !"
+            },
+            "help": [
+                "**Utiliser le message de bienvenue**",
+                "1. Définir le salon de bienvenue avec </welcome set channel:{commandId}>",
+                "2. Définir le message de bienvenue avec </welcome set message:{commandId}>",
+                "3. Activer le message de bienvenue avec </welcome enable:{commandId}>\n",
+                "**Variables**",
+                "Tu peux utiliser les variables suivantes dans ton message de bienvenue :",
+                "\\- `{user}` : Mentionne le nouvel utilisateur",
+                "\\- `{guild}` : Nom du serveur",
+                "\\- `{membercount}` : Nombre de membres du serveur\n",
+                "**Caractères spéciaux**",
+                "Tu peux utiliser les caractères spéciaux suivants dans ton message de bienvenue :",
+                "\\- `\\n` : Saut de ligne"
+            ]
+        },
+        "message": {
+            "title": {
+                "new": "Nouveau message",
+                "delete": "Message supprimé",
+                "edit": "Message mis à jour"
+            },
+            "success": {
+                "msg_created": "Le message a été créé avec succès !",
+                "msg_deleted": "Le message a été supprimé avec succès !",
+                "msg_edited": "Le message a été mis à jour avec succès !"
+            },
+            "errors": {
+                "msg_not_found": "Ce message n'existe pas !",
+                "msg_not_bot": "Ce message n'a pas été envoyé par le bot !"
+            }
+        },
+        "embed": {
+            "title": {
+                "new": "Nouvel embed",
+                "delete": "Embed supprimé",
+                "edit": "Embed mis à jour",
+                "remove": "Embed retiré"
+            },
+            "success": {
+                "embed_created": "L'embed a été créé avec succès !",
+                "embed_deleted": "L'embed a été supprimé avec succès !",
+                "embed_edited": "L'embed a été mis à jour avec succès !",
+                "embed_removed": "L'embed a été retiré avec succès !"
+            },
+            "errors": {
+                "embed_not_found": "Cet embed n'existe pas !",
+                "embed_not_bot": "Cet embed n'a pas été envoyé par le bot !",
+                "embed_no_title_description": "L'embed doit avoir un titre et une description !",
+                "embed_no_changes": "Aucun changement n'a été apporté à l'embed !",
+                "embed_no_embed": "Ce message ne contient pas d'embed !"
+            }
+        }
+    }
 }

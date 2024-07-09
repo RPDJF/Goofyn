@@ -1,118 +1,139 @@
 {
-	"data": {
-		"name": "UwU",
-		"code": "uwu"
-	},
-	"success": "UwU ! ✨🌸",
-	"errors": {
-		"title": "OwO ! 😿",
-		"execution_error": "Thewe was a hiccup whiwe executing this command ! 😿🌸",
-		"execution_missing_perms": "I don't have the nyecessawy pewmissions to execute this command ! 😿🌸",
-		"invalid_channel": "The specified channew is invawid ! 😿🌸"
-	},
-	"commands": {
-		"ask": {
-			"errors": {
-				"no_api_key": "The pwovidew has nyot configuwed the API fow this command ! 😿🌸",
-				"request_failed": "The wequest faiwed.. Twy again watew ! 😿🌸"
-			}
-		},
-		"language": {
-			"success": "The wanguage has been changed successfuwwy ! 😸🌸",
-			"errors": {
-				"invalid": "The specified wanguage is invawid ! 😿🌸"
-			}
-		},
-		"invite": {
-			"title": "Invitation Wink UwU ! 🌸",
-			"errors": {
-				"no_link": "NyO invitation wink has been set by the bot ownew ! 😿🌸"
-			}
-		},
-		"autorole": {
-			"title": {
-				"add": "Added automatic wowe UwU ! 🌸",
-				"remove": "Wemoved automatic wowe UwU ! 🌸",
-				"list": "Wist of automatic wowe UwU ! 🌸"
-			},
-			"success": {
-				"add": "The wowe <@&{role}> wiww nyow be assigned to nyew membews ! 😸🌸",
-				"remove": "The wowe <@&{role}> wiww nyo wongew be assigned to nyew membews ! 😸🌸"
-			},
-			"errors": {
-				"no_role": "The wowe is nyot an autowowe ! 😿🌸",
-				"empty_roles": "Thewe awe nyo autowowes defined ! 😿🌸",
-				"already_added": "The wowe has awweady been added ! 😿🌸"
-			}
-		},
-		"reactionrole": {
-			"title": {
-				"new": "Nyew weaction wowe UwU ! 🌸",
-				"add": "Added weaction wowe UwU ! 🌸",
-				"remove": "Wemoved weaction wowe UwU ! 🌸",
-				"delete": "Deweted weaction wowe message UwU ! 🌸",
-				"list": "Wist of weaction wowes UwU ! 🌸"
-			},
-			"messages": {
-				"choose_role": "Choose a wowe by weacting UwU 🌸\n",
-				"added": "The wowe <@&{role}> has been added successfuwwy ! 😸🌸",
-				"deleted": "The weaction-wowe message has been deweted ! 😸🌸",
-				"removed": "The weaction-wowe <@&{role}> has been wemoved successfuwwy ! 😸🌸"
-			},
-			"errors": {
-				"message_not_found": "This weaction-wowe message does nyot exist ! 😿🌸",
-				"reaction_not_found": "This weaction does nyot exist ! 😿🌸",
-				"no_reactionroles": "NyO weaction wowes awe defined on this sewvew ! 😿🌸",
-				"invalid_emoji": "The specified emoji is invawid ! 😿🌸"
-			}
-		},
-		"welcome": {
-			"title": {
-				"enabled": "Welcome message enabwed UwU ! 🌸",
-				"disabled": "Welcome message disabwed UwU ! 🌸",
-				"channel": "Welcome channew UwU ! 🌸",
-				"message": "Welcome message UwU ! 🌸",
-				"help": "Welcome message hewp UwU ! 🌸"
-			},
-			"success": {
-				"toggle": "``welcome.enabwed`` has been set to ``{value}`` ! 😸🌸",
-				"channel": "The new welcome channew has been set to <#{channel}> ! 😸🌸",
-				"message": "The new welcome message has been set ! 😸🌸"
-			},
-			"errors": {
-				"no_channel_or_message": "NyO channew ow welcome message has been set ! 😿🌸",
-				"invalid_thumbnail": "The specified thumbnaiw is invawid ! 😿🌸"
-			},
-			"help": [
-				"**Use the welcome message** UwU ! 🌸",
-				"1. Define the welcome channew with </welcome set channel:{commandId}> UwU ! 🌸",
-				"2. Define the welcome message with </welcome set message:{commandId}> UwU ! 🌸",
-				"3. Enabwe the welcome message with </welcome enable:{commandId}> UwU ! 🌸\n",
-				"**Vawiables UwU ! 🌸**",
-				"Yowu can use the fowwowing vawiabwes in the message UwU ! 🌸",
-				"\\- `{user}`: The membew that joined UwU ! 🌸",
-				"\\ - `{guild}`: The guiwd nyame UwU ! 🌸",
-				"\\- `{membercount}`: The totaw membew count UwU ! 🌸\n",
-				"**Speciaw chawactews UwU ! 🌸**",
-				"Yowu can use the fowwowing speciaw chawactews in the message UwU ! 🌸",
-				"\\- `\\n`: Wine bweak UwU ! 🌸"
-			]
-		},
-		"message": {
-			"title": {
-				"new": "Nyew message UwU ! 🌸",
-				"delete": "Dewete message UwU ! 🌸",
-				"edit": "Edit message UwU ! 🌸"
-			},
-			"success": {
-				"msg_created": "The message has been cweated successfuwwy ! 😸🌸",
-				"msg_deleted": "The message has been deweted successfuwwy ! 😸🌸",
-				"msg_edited": "The message has been edited successfuwwy ! 😸🌸"
-			},
-			"errors": {
-				"msg_not_found": "This message does nyot exist ! 😿🌸",
-				"msg_not_bot": "This message was nyot sent by the bot ! 😿🌸"
-			}
-		}
-	}
+    "data": {
+        "name": "Supah Kawaii UwU Chan",
+        "code": "uwu"
+    },
+    "success": "UwU ! ✨🌸",
+    "errors": {
+        "title": "UwU! 😭✨",
+        "execution_error": "Oopsie! Thewe was a wittwe hiccup when twying to wun this command! 😔🌟",
+        "execution_missing_perms": "Oh nyo! I wack the nyecessawy pewmissions to do this command! 😢💫",
+        "invalid_channel": "Oh nyu! The given channew is nyot vawid! 😿💖",
+        "invalid_thumbnail": "Oopsie daisy! The given thumbnaiw is nyot vawid! 😣🌸"
+    },
+    "commands": {
+        "ask": {
+            "errors": {
+                "no_api_key": "Oh nyo! The pwovidew hasn't configuwed the API fow this command! 😭✨",
+                "request_failed": "UwU, the wequest faiwed.. Pwease twy again watew! 😢💫"
+            }
+        },
+        "language": {
+            "success": "Yay! The wanguage has been changed successfuwwy! 😸🌺",
+            "errors": {
+                "invalid": "Oh nyo! The specified wanguage is invawid! 😿🌷"
+            }
+        },
+        "invite": {
+            "title": "Invitation Wink OwO! 🌟",
+            "errors": {
+                "no_link": "Nyaa! NyO invitation wink has been set by the bot ownew! 😭🌼"
+            }
+        },
+        "autorole": {
+            "title": {
+                "add": "Added nyew automatic wowe! UwU 🌸",
+                "remove": "Wemoved automatic wowe! OwO 🌼",
+                "list": "Wist of automatic wowes! UwU 🌟"
+            },
+            "success": {
+                "add": "The wowe <@&{role}> wiww nyow be assigned to nyew membews! 😸🌺",
+                "remove": "The wowe <@&{role}> wiww nyo wongew be assigned to nyew membews! 😸🌼"
+            },
+            "errors": {
+                "no_role": "Uh-oh! The wowe is nyot an autowowe! 😿🌷",
+                "empty_roles": "Oh nyo! Thewe awe nyo autowowes defined! 😢✨",
+                "already_added": "Uh-oh! The wowe has awweady been added! 😭🌸"
+            }
+        },
+        "reactionrole": {
+            "title": {
+                "new": "Nyew weaction wowe OwO! 🌺✨",
+                "add": "Added weaction wowe UwU! 🌟💫",
+                "remove": "Wemoved weaction wowe OwO! 🌸🌼",
+                "delete": "Deweted weaction wowe message UwU! 💖✨",
+                "list": "Wist of weaction wowes UwU! 🌺🌟"
+            },
+            "messages": {
+                "choose_role": "Choose a wowe by weacting UwU! 🌸✨\n",
+                "added": "Yay! The wowe <@&{role}> has been added successfuwwy! 😸🌷",
+                "deleted": "The weaction-wowe message has been deweted! 😸💫",
+                "removed": "The weaction-wowe <@&{role}> has been wemoved successfuwwy! 😸🌟"
+            },
+            "errors": {
+                "message_not_found": "Uh-oh! This weaction-wowe message does nyot exist! 😿🌼",
+                "reaction_not_found": "Oopsie! This weaction does nyot exist! 😿✨",
+                "no_reactionroles": "Nyaa! NyO weaction wowes awe defined on this sewvew! 😢🌸",
+                "invalid_emoji": "Oh nyo! The specified emoji is invawid! 😿🌺"
+            }
+        },
+        "welcome": {
+            "title": {
+                "enabled": "Welcome message enabwed UwU! 🌟✨",
+                "disabled": "Welcome message disabwed UwU! 😭🌼",
+                "channel": "Welcome channew UwU! 🌺💫",
+                "message": "Welcome message OwO! 🌸✨",
+                "help": "Welcome message hewp UwU! 🌷🌟"
+            },
+            "success": {
+                "toggle": "``welcome.enabwed`` has been set to ``{value}``! 😸🌸",
+                "channel": "Yay! The nyew welcome channew has been set to <#{channel}>! 😸🌼",
+                "message": "The nyew welcome message has been set! 😸💫"
+            },
+            "errors": {
+                "no_channel_or_message": "Oh nyo! NyO channew ow welcome message has been set! 😿🌺"
+            },
+            "help": [
+                "**Use the welcome message** UwU! 🌸✨",
+                "1. Define the welcome channew with </welcome set channel:{commandId}> UwU! 🌺🌟",
+                "2. Define the welcome message with </welcome set message:{commandId}> OwO! 🌸💫",
+                "3. Enabwe the welcome message with </welcome enable:{commandId}> UwU! 🌷✨\n",
+                "**Vawiables OwO! 🌸✨**",
+                "Yowu can use the fowwowing vawiabwes in the message UwU! 🌺🌟",
+                "\\- `{user}`: The membew that joined OwO! 🌸✨",
+                "\\- `{guild}`: The guiwd nyame UwU! 🌷🌟",
+                "\\- `{membercount}`: The totaw membew count UwU! 🌸💫\n",
+                "**Speciaw chawactews OwO! 🌺✨**",
+                "Yowu can use the fowwowing speciaw chawactews in the message UwU! 🌸💖",
+                "\\- `\\n`: Nyew wine bweak UwU! 🌷✨"
+            ]
+        },
+        "message": {
+            "title": {
+                "new": "Nyew message OwO! 🌷✨",
+                "delete": "Dewete message UwU! 🌺💫",
+                "edit": "Edit message OwO! 🌸🌼"
+            },
+            "success": {
+                "msg_created": "Yay! The message has been cweated successfuwwy! 😸🌟",
+                "msg_deleted": "Yay! The message has been deweted successfuwwy! 😸💖",
+                "msg_edited": "Yay! The message has been edited successfuwwy! 😸🌺"
+            },
+            "errors": {
+                "msg_not_found": "Oh nyo! This message does nyot exist! 😿✨",
+                "msg_not_bot": "Oopsie! This message was nyot sent by the bot! 😢🌸"
+            }
+        },
+        "embed": {
+            "title": {
+                "new": "Nyew embed OwO! 🌟💫",
+                "delete": "Dewete embed UwU! 🌸✨",
+                "edit": "Edit embed OwO! 🌼💖",
+                "remove": "Wemove embed UwU! 🌷🌺"
+            },
+            "success": {
+                "embed_created": "Yay! The embed has been cweated successfuwwy! 😸🌟",
+                "embed_deleted": "Yay! The embed has been deweted successfuwwy! 😸💫",
+                "embed_edited": "Yay! The embed has been edited successfuwwy! 😸🌺",
+                "embed_removed": "Yay! The embed has been wemoved successfuwwy! 😸✨"
+            },
+            "errors": {
+                "embed_not_found": "Oh nyo! This embed does nyot exist! 😿🌼",
+                "embed_not_bot": "Oopsie! This embed was nyot sent by the bot! 😢🌸",
+                "embed_no_title_description": "Uh-oh! The embed must have a titwe and descwiption! 😿✨",
+                "embed_no_changes": "Oh nyo! NyO changes have been made to the embed! 😢🌺",
+                "embed_no_embed": "Uh-oh! The message does nyot contain an embed! 😿💫"
+            }
+        }
+    }
 }
