@@ -50,7 +50,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
     try {
         await command.execute(interaction);
     } catch (error) {
-        logger.error(error);
         const dictionary = interaction.guild ? await getDictionary({ guildid: interaction.guildId }) : await getDictionary({ userid: interaction.user.id });
         const error_msg = { embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_error)], ephemeral: true };
         try {
@@ -63,6 +62,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
         } catch (error) {
             logger.error(error);
         }
+        logger.error(error);
     }
 });
 
