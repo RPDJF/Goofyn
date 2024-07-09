@@ -7,7 +7,8 @@
 	"errors": {
 		"title": "OwO ! 😿",
 		"execution_error": "Thewe was a hiccup whiwe executing this command ! 😿🌸",
-		"execution_missing_perms": "I don't have the nyecessawy pewmissions to execute this command ! 😿🌸"
+		"execution_missing_perms": "I don't have the nyecessawy pewmissions to execute this command ! 😿🌸",
+		"invalid_channel": "The specified channew is invawid ! 😿🌸"
 	},
 	"commands": {
 		"ask": {
@@ -64,6 +65,38 @@
 				"no_reactionroles": "NyO weaction wowes awe defined on this sewvew ! 😿🌸",
 				"invalid_emoji": "The specified emoji is invawid ! 😿🌸"
 			}
+		},
+		"welcome": {
+			"title": {
+				"enabled": "Welcome message enabwed UwU ! 🌸",
+				"disabled": "Welcome message disabwed UwU ! 🌸",
+				"channel": "Welcome channew UwU ! 🌸",
+				"message": "Welcome message UwU ! 🌸",
+				"help": "Welcome message hewp UwU ! 🌸"
+			},
+			"success": {
+				"toggle": "``welcome.enabwed`` has been set to ``{value}`` ! 😸🌸",
+				"channel": "The new welcome channew has been set to <#{channel}> ! 😸🌸",
+				"message": "The new welcome message has been set ! 😸🌸"
+			},
+			"errors": {
+				"no_channel_or_message": "NyO channew ow welcome message has been set ! 😿🌸",
+				"invalid_thumbnail": "The specified thumbnaiw is invawid ! 😿🌸"
+			},
+			"help": [
+				"**Use the welcome message** UwU ! 🌸",
+				"1. Define the welcome channew with </welcome set channel:{commandId}> UwU ! 🌸",
+				"2. Define the welcome message with </welcome set message:{commandId}> UwU ! 🌸",
+				"3. Enabwe the welcome message with </welcome enable:{commandId}> UwU ! 🌸\n",
+				"**Vawiables UwU ! 🌸**",
+				"Yowu can use the fowwowing vawiabwes in the message UwU ! 🌸",
+				"\\- `{user}`: The membew that joined UwU ! 🌸",
+				"\\ - `{guild}: The guiwd nyame UwU ! 🌸",
+				"\\- `{membercount}`: The totaw membew count UwU ! 🌸\n",
+				"**Speciaw chawactews UwU ! 🌸**",
+				"Yowu can use the fowwowing speciaw chawactews in the message UwU ! 🌸",
+				"\\- `\\n`: Wine bweak UwU ! 🌸"
+			]
 		}
 	}
 }

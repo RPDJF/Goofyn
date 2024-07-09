@@ -76,6 +76,7 @@ client.on(Events.MessageCreate, async (message) => {
 
 client.on(Events.GuildMemberAdd, async (member) => {
     commands.get("autorole").onGuildMemberAdd_hook(member);
+    commands.get("welcome").onGuildMemberAdd_hook(member);
 });
 
 client.on(Events.MessageReactionAdd, async (reaction, user) => {

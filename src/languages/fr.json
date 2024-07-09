@@ -7,7 +7,8 @@
 	"errors": {
 		"title": "Oops la boulette !",
 		"execution_error": "Il y a eu un pépin lors de l'exécution de cette commande !",
-		"execution_missing_perms": "Je n'ai pas les permissions nécessaires pour exécuter cette commande !"
+		"execution_missing_perms": "Je n'ai pas les permissions nécessaires pour exécuter cette commande !",
+		"invalid_channel": "Le salon spécifié est invalide !"
 	},
 	"commands": {
 		"ask": {
@@ -64,6 +65,38 @@
 				"no_reactionroles": "Aucun rôle de réaction n'est défini sur ce serveur !",
 				"invalid_emoji": "L'emoji spécifié est invalide !"
 			}
+		},
+		"welcome": {
+			"title": {
+				"enabled": "Message de bienvenue activé",
+				"disabled": "Message de bienvenue désactivé",
+				"channel": "Salon de bienvenue",
+				"message": "Message de bienvenue",
+				"help": "Aide message de bienvenue"
+			},
+			"success": {
+				"toggle": "``welcome.enabled`` a été défini sur ``{value}`` !",
+				"channel": "Le salon de bienvenue a été défini sur <#{channel}> !",
+				"message": "Le message de bienvenue a été défini avec succès !"
+			},
+			"errors": {
+				"no_channel_or_message": "Aucun salon ou message de bienvenue n'a été défini !",
+				"invalid_thumbnail": "La miniature spécifiée est invalide !"
+			},
+			"help": [
+				"**Utiliser le message de bienvenue**",
+				"1. Définir le salon de bienvenue avec </welcome set channel:{commandId}>",
+				"2. Définir le message de bienvenue avec </welcome set message:{commandId}>",
+				"3. Activer le message de bienvenue avec </welcome enable:{commandId}>\n",
+				"**Variables**",
+				"Tu peux utiliser les variables suivantes dans ton message de bienvenue :",
+				"\\- `{user}` : Mentionne le nouvel utilisateur",
+				"\\- `{guild}` : Nom du serveur",
+				"\\- `${membercount}` : Nombre de membres du serveur\n",
+				"**Caractères spéciaux**",
+				"Tu peux utiliser les caractères spéciaux suivants dans ton message de bienvenue :",
+				"\\- `\\n` : Saut de ligne"
+			]
 		}
 	}
 }

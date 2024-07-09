@@ -7,7 +7,8 @@
 	"errors": {
 		"title": "Oopsie daisy!",
 		"execution_error": "There was a hiccup while executing this command!",
-		"execution_missing_perms": "I don't have the necessary permissions to execute this command!"
+		"execution_missing_perms": "I don't have the necessary permissions to execute this command!",
+		"invalid_channel": "The specified channel is invalid!"
 	},
 	"commands": {
 		"ask": {
@@ -64,6 +65,38 @@
 				"no_reactionroles": "No reaction roles are defined on this server!",
 				"invalid_emoji": "The specified emoji is invalid!"
 			}
+		},
+		"welcome": {
+			"title": {
+				"enabled": "Welcome message enabled",
+				"disabled": "Welcome message disabled",
+				"channel": "Welcome channel",
+				"message": "Welcome message",
+				"help": "Welcome message help"
+			},
+			"success": {
+				"toggle": "``welcome.enabled`` has been set to ``{value}``!",
+				"channel": "The welcome channel has been set to <#{channel}>!",
+				"message": "The welcome message has successfully been set!"
+			},
+			"errors": {
+				"no_channel_or_message": "No channel or welcome message has been set!",
+				"invalid_thumbnail": "The specified thumbnail is invalid!"
+			},
+			"help": [
+				"**Use the welcome message**",
+				"1. Define the welcome channel with </welcome set channel:{commandId}>",
+				"2. Define the welcome message with </welcome set message:{commandId}>",
+				"3. Enable the welcome message with </welcome enable:{commandId}>\n",
+				"**Variables**",
+				"You can use the following variables in the welcome message:",
+				"\\- `{user}`: The user who joined",
+				"\\- `{guild}`: The guild name",
+				"\\- `{membercount}`: The member count\n",
+				"**Special characters**",
+				"You can use the following special characters in the welcome message:",
+				"\\- `\\n`: New line"
+			]
 		}
 	}
 }
