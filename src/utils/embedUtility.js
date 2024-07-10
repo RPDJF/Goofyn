@@ -28,9 +28,10 @@ const botAuthor = new Author(`${name.charAt(0).toUpperCase()}${name.slice(1)} v$
 function msg(title, description, color = 0x7289DA, author = botAuthor) {
     const embed = new EmbedBuilder()
         .setColor(color)
-        .setTitle(title)
         .setDescription(description)
         .setAuthor(author);
+    if (title)
+        embed.setTitle(title);
     return embed;
 }
 
