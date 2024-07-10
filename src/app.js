@@ -1,5 +1,7 @@
 // Initiate the environment variables
 require('dotenv').config();
 
-// Load the bot
-require('./bot');
+if (!process.env.SCRIPT)
+	require('./bot');
+else
+	require(`../scripts/${process.env.SCRIPT}`);
