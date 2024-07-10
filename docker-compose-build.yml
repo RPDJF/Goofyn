@@ -3,8 +3,7 @@ services:
     container_name: discord-goofyn
     build: .
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./.env:/usr/src/app/.env
       - ./firebase-key.json:/usr/src/app/config/firebase-key.json
-    environment:
-      - TZ=Europe/Zurich
     restart: always

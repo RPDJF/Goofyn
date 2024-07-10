@@ -3,41 +3,84 @@ Unleash the power of AI in your Discord server with Goofyn, the versatile bot th
 
 ## Cool Features 🚀
 - [x] Smart Chatbot: Engage in witty banter or get assistance.
-- [x] Command Execution: Control your server effortlessly through chatbot.
+- [x] Highly Customizable: Tailor the bot to your server's needs.
+- [x] Easy to Use: Simple commands for all your needs.
+- [x] Come on, it's open-source!
 
 ## Handy Commands 🛠️
 - [x] /ping: Check the bot's response time.
 - [x] /ask: Inquire anything, get answers.
+- [x] /language: Change the bot's language.
+- [x] /welcome: Set up a welcome message for new members.
+- [x] /autorole: Assign roles automatically as members join.
+- [x] /reactionrole: Set up roles with reactions for members to choose.
+- [x] /embed: Powerful tool to create and edit bot embeds.
+- [x] /message: Create and manage messages.
+- [x] /invite: Get the bot's invite link.
+- And more to come!
+
+## Text formatting 📝
+Goofyn supports text formatting in any messages and embeds.
+
+You can use them for welcome messages for example :
+- `{user}` - User mention
+- `{username}` - User name
+- `{userid}` - User ID
+- `{guild}` - Guild name
+- `{channel}` - Channel mention
+- `{bot}` - Bot mention
+- `{botname}` - Bot name
+- `{membercount}` - Member count
+- `{rolecount}` - Role count
+- `{backsplash}` - `\`
+- `\n` - New line
 
 ## Quick Start Guide 🏁
 ### Invite the Bot
 Get Goofyn on your server with a simple click [here](https://discord.com/oauth2/authorize?client_id=1251221585981997126).
 
 ### Self-Hosting 🏠
-Future plans include Docker for ease, but you can set up manually for now.
 
-Requirements:
-- Node.js LTS
+#### Docker (official image)
+1. Clone and navigate to the repository.
+```bash
+git clone https://github.com/RPDJF/Goofyn.git
+cd Goofyn
+```
 
-Follow these steps to host Goofyn:
-1. Clone it:
-```bash
-git clone https://github.com/rpdjf/Goofyn.git
-```
-2. Install dependencies:
-```bash
-npm install
-```
-3. Set up environment variables (edit the file as needed):
+2. Copy the ``env.example`` file to ``.env`` and fill in the required fields.
 ```bash
 cp env.example .env
+vim .env
 ```
-4. Set up Firebase:
-- Create a project.
-- Download service account key as firebase-key.json.
-- Place it in /config.
-5. Launch Goofyn:
+
+3. Get your firestore database (see [here](https://firebase.google.com/docs/firestore/quickstart)
+
+4. Copy the serviceAccountKey into firebase-key.json
+
+5. Compose the Docker container.
 ```bash
+docker compose up -d
+```
+
+#### Docker build image
+
+Same as above but use docker-compose-build.yml instead
+
+It will build the image from the Dockerfile, using the local repository
+```bash
+docker compose -f docker-compose-build.yml up --build -d
+```
+
+#### Manual Installation
+##### Prerequisites
+- [Node.js](https://nodejs.org) v20.15.0 (LTS) or higher
+
+Same as above but without docker compose
+
+Use this command to start the bot
+```bash
+npm install
 npm start
 ```
 
