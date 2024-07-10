@@ -74,7 +74,7 @@ docker compose -f docker-compose-build.yml up --build -d
 
 #### Manual Installation
 ##### Prerequisites
-- [Node.js](https://nodejs.org) v20.15.0 (LTS) or higher
+- [Node.js](https://nodejs.org) v20.15.1 (LTS) or higher
 
 Same as above but without docker compose
 
