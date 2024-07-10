@@ -19,7 +19,7 @@ async function messageExecute(message) {
     if (!process.env.GEMINI_API_KEY) {
         logger.warn("Gemini was called but API key is missing!");
         const errormsg = await message.channel.send({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)], ephemeral: true });
-        new Promise(resolve => setTimeout(resolve, 10000)).then(() => errormsg.delete());
+        await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await errormsg.delete());
         return;
     }
     try {
@@ -105,7 +105,7 @@ module.exports = {
         if (!process.env.GEMINI_API_KEY) {
             logger.warn("Gemini was called but API key is missing!");
             await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.ask.errors.no_api_key, author)]})
-            new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+            await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
             return;
         }
         try {

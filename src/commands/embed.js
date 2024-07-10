@@ -151,7 +151,7 @@ module.exports = {
                 const title = dictionary.errors.title;
                 const description = dictionary.errors.invalid_thumbnail;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             }
 
@@ -160,7 +160,7 @@ module.exports = {
             const title = dictionary.commands.embed.title.new;
             const description = dictionary.commands.embed.success.embed_created;
             await interaction.editReply({ embeds: [msg(title, description)], ephemeral: true });
-            new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+            await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
             return;
         }
 
@@ -178,7 +178,7 @@ module.exports = {
                 const title = dictionary.errors.title;
                 const description = dictionary.commands.embed.errors.embed_no_changes;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             }
 
@@ -188,20 +188,20 @@ module.exports = {
                 const title = dictionary.errors.title;
                 const description = dictionary.commands.embed.errors.embed_not_found;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             } else if (messageToEdit.author.id !== interaction.client.user.id) {
                 const title = dictionary.errors.title;
                 const description = dictionary.commands.embed.errors.embed_not_bot;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             } else if (!messageToEdit.embeds || messageToEdit.embeds.length <= 0) {
                 if (!embed_title || !embed_description) {
                     const title = dictionary.errors.title;
                     const description = dictionary.commands.embed.errors.embed_no_title_description;
                     await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                    new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                    await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                     return;
                 }
                 embed = msg(
@@ -222,7 +222,7 @@ module.exports = {
                 const title = dictionary.errors.title;
                 const description = dictionary.errors.invalid_thumbnail;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             }
 
@@ -231,7 +231,7 @@ module.exports = {
             const title = dictionary.commands.embed.title.edit;
             const description = dictionary.commands.embed.success.embed_edited;
             await interaction.editReply({ embeds: [msg(title, description)], ephemeral: true });
-            new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+            await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
             return;
         }
 
@@ -243,13 +243,13 @@ module.exports = {
                 const title = dictionary.errors.title;
                 const description = dictionary.commands.embed.errors.embed_not_found;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             } else if (messageToDelete.author.id !== interaction.client.user.id) {
                 const title = dictionary.errors.title;
                 const description = dictionary.commands.embed.errors.embed_not_bot;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             }
             
@@ -258,7 +258,7 @@ module.exports = {
             const title = dictionary.commands.embed.title.delete;
             const description = dictionary.commands.embed.success.embed_deleted;
             await interaction.editReply({ embeds: [msg(title, description)], ephemeral: true });
-            new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+            await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
             return;
         }
 
@@ -270,19 +270,19 @@ module.exports = {
                 const title = dictionary.errors.title;
                 const description = dictionary.commands.embed.errors.embed_not_found;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             } else if (messageToRemove.author.id !== interaction.client.user.id) {
                 const title = dictionary.errors.title;
                 const description = dictionary.commands.embed.errors.embed_not_bot;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             } else if (!messageToRemove.embeds || messageToRemove.embeds.length <= 0) {
                 const title = dictionary.errors.title;
                 const description = dictionary.commands.embed.errors.embed_no_embed;
                 await interaction.editReply({ embeds: [errorMsg(title, description)], ephemeral: true });
-                new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+                await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
                 return;
             }
             
@@ -298,7 +298,7 @@ module.exports = {
             const title = dictionary.commands.embed.title.remove;
             const description = dictionary.commands.embed.success.embed_removed;
             await interaction.editReply({ embeds: [msg(title, description)], ephemeral: true });
-            new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+            await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
             return;
         }
     },

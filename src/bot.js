@@ -57,7 +57,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                 await interaction.editReply(error_msg);
             else
                 await interaction.reply(error_msg);
-            new Promise(resolve => setTimeout(resolve, 10000)).then(() => interaction.deleteReply());
+            await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
         } catch (error) {
             logger.error(error);
         }
@@ -68,20 +68,20 @@ client.on(Events.InteractionCreate, async (interaction) => {
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.bot) return;
     try{
-        commands.get("ask").onMessageCreate_hook(message);
+        await commands.get("ask").onMessageCreate_hook(message);
     } catch (error) {
         logger.error(error);
         const dictionary = await getDictionary(message.guildId ? { guildid: message.guildId } : { userid: message.author.id });
         const reply = message.reply({ embeds: [errorMsg(dictionary.errors.title, dictionary.errors.execution_error)], ephemeral: true });
-        new Promise(resolve => setTimeout(resolve, 10000)).then(() => reply.delete());
+        await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await reply.delete());
         return;
     }
 });
 
 client.on(Events.GuildMemberAdd, async (member) => {
     try {
-        commands.get("autorole").onGuildMemberAdd_hook(member);
-        commands.get("welcome").onGuildMemberAdd_hook(member);
+        await commands.get("autorole").onGuildMemberAdd_hook(member);
+        await commands.get("welcome").onGuildMemberAdd_hook(member);
     } catch (error) {
         logger.error(error);
     }
@@ -89,7 +89,7 @@ client.on(Events.GuildMemberAdd, async (member) => {
 
 client.on(Events.MessageReactionAdd, async (reaction, user) => {
     try {
-        commands.get("reactionrole").onReactionAdd_hook(reaction, user);
+        await commands.get("reactionrole").onReactionAdd_hook(reaction, user);
     } catch (error) {
         logger.error(error);
     }
@@ -97,7 +97,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
 
 client.on(Events.MessageReactionRemove, async (reaction, user) => {
     try {
-        commands.get("reactionrole").onReactionRemove_hook(reaction, user);
+        await commands.get("reactionrole").onReactionRemove_hook(reaction, user);
     } catch (error) {
         logger.error(error);
     }
