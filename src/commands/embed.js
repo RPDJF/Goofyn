@@ -1,6 +1,7 @@
 const { Interaction, SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
 const { msg, errorMsg } = require('../utils/embedUtility.js');
 const { getDictionary } = require("../utils/dictionary");
+const { textParser } = require("../utils/textParser");
 const db = require("../utils/db");
 const logger = require('../utils/logger');
 
@@ -134,8 +135,8 @@ module.exports = {
         const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
 
         if (subcommand === "new") {
-            const embed_title = interaction.options.getString("title");
-            const embed_description = interaction.options.getString("description");
+            const embed_title = await textParser(interaction, interaction.options.getString("title"));
+            const embed_description = await textParser(interaction, interaction.options.getString("description"));
             const embed_color = interaction.options.getString("color") ? interaction.options.getString("color").replace("#", "").replace("0x", "") : undefined;
             const embed_image = interaction.options.getString("image") || undefined;
             const embed_thumbnail = interaction.options.getString("thumbnail") || undefined;
@@ -165,8 +166,10 @@ module.exports = {
 
         else if (subcommand === "edit") {
             const messageID = interaction.options.getString("message_id");
-            const embed_title = interaction.options.getString("title");
-            const embed_description = interaction.options.getString("description");
+            let embed_title = interaction.options.getString("title");
+            if (embed_title) embed_title = await textParser(interaction, embed_title);
+            let embed_description = interaction.options.getString("description");
+            if (embed_description) embed_description = await textParser(interaction, embed_description);
             const embed_color = interaction.options.getString("color") ? interaction.options.getString("color").replace("#", "").replace("0x", "") : undefined;
             const embed_image = interaction.options.getString("image") || undefined;
             const embed_thumbnail = interaction.options.getString("thumbnail") || undefined;

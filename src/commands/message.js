@@ -1,6 +1,7 @@
 const { Interaction, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 const { msg, errorMsg } = require('../utils/embedUtility');
 const { getDictionary } = require("../utils/dictionary");
+const { textParser } = require("../utils/textParser");
 const db = require("../utils/db");
 const logger = require('../utils/logger');
 
@@ -59,7 +60,7 @@ module.exports = {
         const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
 
         if (subcommand === "new") {
-            const message = interaction.options.getString("message");
+            const message = await textParser(interaction, interaction.options.getString("message"));
             
             await interaction.channel.send(message);
             
@@ -72,7 +73,7 @@ module.exports = {
 
         else if (subcommand === "edit") {
             const messageID = interaction.options.getString("message_id");
-            const message = interaction.options.getString("message");
+            const message = await textParser(interaction, interaction.options.getString("message"));
             
             const messageToEdit = await interaction.channel.messages.fetch(messageID);
             if (!messageToEdit) {

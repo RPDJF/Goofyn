@@ -2,6 +2,7 @@ const { getGeminiContext, safetySettings, generationConfig, historySettings } = 
 const { Interaction, Message, Collection, ChannelType, MessageType, SlashCommandBuilder } = require('discord.js');
 const { getDictionary } = require('../utils/dictionary');
 const { errorMsg, Author } = require('../utils/embedUtility');
+const { textParser } = require('../utils/textParser');
 const logger = require('../utils/logger');
 
 // Requires API key to be set in environment variable GEMINI_API_KEY
@@ -24,7 +25,7 @@ async function messageExecute(message) {
     try {
         const gemini = await promptGemini(
             getGeminiContext({message: message}),
-            message.content,
+            await textParser(message, message.content),
             await getHistory(message)
         );
         const text = gemini.response.text();
@@ -110,7 +111,7 @@ module.exports = {
         try {
             const gemini = await promptGemini(
                 getGeminiContext({interaction: interaction,}),
-                interaction.options.getString("question"),
+                await textParser(interaction, interaction.options.getString("question")),
                 await getHistory(interaction)
             );
             const text = gemini.response.text();

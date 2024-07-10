@@ -1,6 +1,7 @@
 const { Interaction, SlashCommandBuilder, PermissionFlagsBits, ChannelType, GuildMember } = require('discord.js');
 const { msg, errorMsg } = require('../utils/embedUtility');
 const { getDictionary } = require("../utils/dictionary");
+const { textParser } = require("../utils/textParser");
 const db = require("../utils/db");
 const logger = require('../utils/logger');
 
@@ -178,13 +179,7 @@ module.exports = {
         if (!guildDoc.welcome.enabled || !guildDoc.welcome.channel_id || !guildDoc.welcome.message)
             return;
 
-        let message = guildDoc.welcome.message;
-        message = message
-            .replace(/{user}/g, `<@${member.id}>`)
-            .replace(/{guild}/g, member.guild.name)
-            .replace(/{membercount}/g, (await member.guild.members.fetch()).size)
-            .replace(/\\n/g, "\n");
-
+        message = await textParser(member, guildDoc.welcome.message);
         const channel = await member.guild.channels.fetch(guildDoc.welcome.channel_id);
         if (!channel || channel.type != ChannelType.GuildText)
             return;
