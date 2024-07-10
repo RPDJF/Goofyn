@@ -134,6 +134,178 @@
                 "embed_no_changes": "No changes have been made to the embed!",
                 "embed_no_embed": "This message does not contain an embed!"
             }
+        },
+        "interaction": {
+            "interactions": {
+                "bite": [
+                    "Oh no! {author} bites {target}! 🫢",
+                    "Watch out! {author} just bit {target}! 😮",
+                    "Ouch! {author} took a bite of {target}! 😲",
+                    "Hey! {author} decided to nibble on {target}! 😋",
+                    "Oops! {author} sank their teeth into {target}! 🫣"
+                ],
+                "blush": [
+                    "Oh my! {author} is blushing! 😳",
+                    "Aww, {author} is turning red! 🥰",
+                    "Look at that! {author} is blushing! 😊",
+                    "How cute! {author} is all red! 😍",
+                    "Uh-oh! {author} can't stop blushing! 😅"
+                ],
+                "bonk": [
+                    "Bonk! {author} hits {target} on the head! 🤕",
+                    "Watch out! {author} just bonked {target}! 😵",
+                    "Ouch! {author} gives {target} a good bonk! 💥",
+                    "Boom! {author} bonks {target} on the noggin! 😳",
+                    "Thwack! {author} lands a bonk on {target}! 🥴"
+                ],
+                "bully": [
+                    "Oh no! {author} is bullying {target}! 😠",
+                    "Watch out! {author} is picking on {target}! 😡",
+                    "Hey! {author} is being mean to {target}! 😤",
+                    "Look out! {author} is teasing {target}! 😈",
+                    "Uh oh! {author} is harassing {target}! 😬"
+                ],
+                "cuddle": [
+                    "Aww! {author} cuddles {target}! 🤗",
+                    "How sweet! {author} is cuddling with {target}! 🥰",
+                    "Warm and cozy! {author} gives a cuddle to {target}! 💖",
+                    "Snuggle time! {author} cuddles up to {target}! 😍",
+                    "So cute! {author} wraps {target} in a big cuddle! 😊"
+                ],
+                "cringe": [
+                    "Oh no! {author} is cringing! 😬",
+                    "Yikes! {author} is cringing! 😖",
+                    "Eek! {author} is cringing! 😣",
+                    "Oh dear! {author} is cringing! 😟",
+                    "Uh oh! {author} is cringing! 😨"
+                ],
+                "cry": [
+                    "Oh no! {author} is crying! 😢",
+                    "Aww! {author} is crying! 😭",
+                    "Don't cry! {author} is in tears! 😥",
+                    "Oh dear! {author} is sobbing! 😓",
+                    "Uh oh! {author} is weeping! 😰"
+                ],
+                "dance": [
+                    "Let's dance! {author} is dancing! 💃",
+                    "Dance party! {author} is dancing! 🕺",
+                    "Shake it! {author} is dancing! 🎶",
+                    "Boogie time! {author} is dancing! 🎵",
+                    "Dance off! {author} is dancing! 🎉"
+                ],
+                "handhold": [
+                    "Aww! {author} holds hands with {target}! 🤝",
+                    "How sweet! {author} and {target} are holding hands! 💞",
+                    "Together forever! {author} and {target} hold hands! 🌟",
+                    "Hand in hand! {author} and {target} are inseparable! 🌈",
+                    "So cute! {author} and {target} hold hands! 🥺"
+                ],
+                "highfive": [
+                    "High five! {author} gives {target} a high five! 🖐️",
+                    "Nice one! {author} and {target} high five! 🤚",
+                    "Good job! {author} and {target} slap hands! 🙌",
+                    "Up top! {author} and {target} high five! 🌟",
+                    "Well done! {author} and {target} give a high five! 👏"
+                ],
+                "hug": [
+                    "Aww! {author} hugs {target}! 🤗",
+                    "How sweet! {author} gives {target} a hug! 💖",
+                    "Warm and cozy! {author} wraps {target} in a hug! 🥰",
+                    "Snuggle time! {author} cuddles up to {target}! 😍",
+                    "So cute! {author} gives {target} a big hug! 😊"
+                ],
+                "kick": [
+                    "Kick! {author} kicks {target}! 👟",
+                    "Watch out! {author} just kicked {target}! 🦵",
+                    "Ouch! {author} gives {target} a good kick! 🥾",
+                    "Boom! {author} kicks {target} in the rear! 🍑",
+                    "Thwack! {author} lands a kick on {target}! 🦶"
+                ],
+                "kill": [
+                    "Kill! {author} kills {target}! 🔪",
+                    "Watch out! {author} just killed {target}! 💀",
+                    "Ouch! {author} gives {target} a good kill! ☠️",
+                    "Boom! {author} kills {target} in cold blood! 🩸",
+                    "Thwack! {author} lands a kill on {target}! 🩹"
+                ],
+                "kiss": [
+                    "Aww! {author} kisses {target}! 😘",
+                    "How sweet! {author} gives {target} a kiss! 💋",
+                    "Mwah! {author} plants a kiss on {target}! 😚",
+                    "Smooch! {author} kisses {target} on the cheek! 😊",
+                    "So cute! {author} gives {target} a big kiss! 😍"
+                ],
+                "lick": [
+                    "Lick! {author} licks {target}! 👅",
+                    "Watch out! {author} just licked {target}! 😛",
+                    "Yuck! {author} gives {target} a good lick! 😝",
+                    "Slurp! {author} licks {target} on the face! 😋",
+                    "Taste test! {author} licks {target} on the nose! 🐶"
+                ],
+                "nom": [
+                    "Nom! {author} is eating ! 🍽️",
+                    "Watch out! {author} just ate something! 🍴",
+                    "Yum! {author} is enjoying a good meal! 🍲",
+                    "Slurp! {author} is eating something tasty! 🍜",
+                    "Taste test! {author} is eating something delicious! 🍕"
+                ],
+                "pat": [
+                    "Pat! {author} pats {target} on the head! 🤏",
+                    "Nice one! {author} gives {target} a pat! 🤗",
+                    "Good job! {author} pats {target} on the back! 🌟",
+                    "Well done! {author} gives {target} a pat! 👏",
+                    "Great work! {author} pats {target} on the shoulder! 🎉"
+                ],
+                "poke": [
+                    "Poke! {author} pokes {target}! 👉",
+                    "Hey! {author} just poked {target}! 🤏",
+                    "Boop! {author} gives {target} a good poke! 👈",
+                    "Tap! {author} pokes {target} on the nose! 👃",
+                    "Poke! {author} pokes {target} in the ribs! 🦴"
+                ],
+                "slap": [
+                    "Slap! {author} slaps {target}! 👋",
+                    "Watch out! {author} just slapped {target}! 🤚",
+                    "Ouch! {author} gives {target} a good slap! 🤕",
+                    "Boom! {author} slaps {target} in the face! 😳",
+                    "Thwack! {author} lands a slap on {target}! 🤜"
+                ],
+                "smile": [
+                    "Smile! {author} is smiling! 😊",
+                    "Cheese! {author} is smiling! 😁",
+                    "Say cheese! {author} is smiling! 😄",
+                    "Grin! {author} is smiling! 😃",
+                    "Happy face! {author} is smiling! 😆"
+                ],
+                "smug": [
+                    "Smug! {author} is feeling smug! 😏",
+                    "Look at that! {author} is feeling smug! 😎",
+                    "How cheeky! {author} is feeling smug! 😌",
+                    "Oh dear! {author} is feeling smug! 😒",
+                    "Uh oh! {author} is feeling smug! 😬"
+                ],
+                "wave": [
+                    "Wave! {author} waves at {target}! 👋",
+                    "Hey! {author} just waved at {target}! 🤚",
+                    "Hello! {author} is waving at {target}! 🌟",
+                    "Hi there! {author} waves at {target}! 👋",
+                    "Goodbye! {author} waves at {target}! 👋"
+                ],
+                "wink": [
+                    "wink! {author} winks at {target}! 😉",
+                    "Hey! {author} just winked at {target}! 😜",
+                    "How cheeky! {author} is winking at {target}! 😘",
+                    "Oh dear! {author} is winking at {target}! 😏",
+                    "Uh oh! {author} is winking at {target}! 😎"
+                ],
+                "yeet": [
+                    "Yeet! {author} yeets {target}! 🚀",
+                    "Watch out! {author} just yeeted {target}! 🛸",
+                    "Ouch! {author} gives {target} a good yeet! 💨",
+                    "Boom! {author} yeets {target} into the stratosphere! 🌌",
+                    "Thwack! {author} lands a yeet on {target}! 🌠"
+                ]
+            }
         }
     }
 }

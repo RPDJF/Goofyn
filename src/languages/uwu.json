@@ -134,6 +134,178 @@
                 "embed_no_changes": "Oh nyo! NyO changes have been made to the embed! 😢🌺",
                 "embed_no_embed": "Uh-oh! The message does nyot contain an embed! 😿💫"
             }
+        },
+        "interaction": {
+            "interactions": {
+                "bite": [
+                    "Oh nyu! {author} bites {target}! 🫢",
+                    "Watch out! {author} just bit {target}! 😮",
+                    "Ouchie-wouchie! {author} took a bite of {target}! 😲",
+                    "Heyo! {author} decided to nibble on {target}! 😋",
+                    "Oopsies! {author} sank their teefies into {target}! 🫣"
+                ],
+                "blush": [
+                    "Oh my! {author} is bwushing! 😳",
+                    "Aww, {author} is turning wed! 🥰",
+                    "Wook at that! {author} is bwushing! 😊",
+                    "How cute! {author} is aww wed! 😍",
+                    "Uh-oh! {author} can't stop bwushing! 😅"
+                ],
+                "bonk": [
+                    "Bonk! {author} hits {target}-chan on the head! 🤕",
+                    "Watch out! {author} just bonked {target}-chan! 😵",
+                    "Ouchie-wa-wa! {author} gives {target}-chan a good bonk! 💥",
+                    "Boom! {author} bonks {target}-chan on the noggin! 😳",
+                    "Thwack! {author} lands a bonk on {target}-chan! 🥴"
+                ],
+                "bully": [
+                    "Oh no! {author} is buwwying {target}-chan! 😠",
+                    "Watch out! {author} is picking on {target}-chan! 😡",
+                    "Heyo! {author} is being mean to {target}-chan! 😤",
+                    "Wook out! {author} is teasing {target}-chan! 😈",
+                    "Uh oh! {author} is hawwassing {target}-chan! 😬"
+                ],
+                "cuddle": [
+                    "Aww! {author} cuddwes {target}-chan! 🤗",
+                    "How sweet! {author} is cuddwing with {target}-chan! 🥰",
+                    "Wawm and cozy! {author} gives a cuddwe to {target}-chan! 💖",
+                    "Snuggwe time! {author} cuddwes up to {target}-chan! 😍",
+                    "So cute! {author} wraps {target}-chan in a big cuddwe! 😊"
+                ],
+                "cringe": [
+                    "Oh no! {author} is cwinging! 😬",
+                    "Yikes! {author} is cwinging! 😖",
+                    "Eek! {author} is cwinging! 😣",
+                    "Oh deaw! {author} is cwinging! 😟",
+                    "Uh oh! {author} is cwinging! 😨"
+                ],
+                "cry": [
+                    "Oh no! {author} is cwyin'! 😢",
+                    "Aww! {author} is cwyin'! 😭",
+                    "Don't cwy! {author} is in teaws! 😥",
+                    "Oh deaw! {author} is sobbin'! 😓",
+                    "Uh oh! {author} is weepin'! 😰"
+                ],
+                "dance": [
+                    "Wet's dance! {author} is dancin'! 💃",
+                    "Dance pawty! {author} is dancin'! 🕺",
+                    "Shake it! {author} is dancin'! 🎶",
+                    "Boogie time! {author} is dancin'! 🎵",
+                    "Dance off! {author} is dancin'! 🎉"
+                ],
+                "handhold": [
+                    "Aww! {author} howds hands with {target}-chan! 🤝",
+                    "How sweet! {author} and {target}-chan awe howdin' hands! 💞",
+                    "Togedew fowevew! {author} and {target}-chan howd hands! 🌟",
+                    "Hand in hand! {author} and {target}-chan awe inseparabwe! 🌈",
+                    "So cute! {author} and {target}-chan howd hands! 🥺"
+                ],
+                "highfive": [
+                    "High five! {author} gives {target}-chan a high five! 🖐️",
+                    "Nice one! {author} and {target}-chan high five! 🤚",
+                    "Good job! {author} and {target}-chan swap hands! 🙌",
+                    "Up top! {author} and {target}-chan high five! 🌟",
+                    "Weww done! {author} and {target}-chan give a high five! 👏"
+                ],
+                "hug": [
+                    "Aww! {author} hugs {target}-chan! 🤗",
+                    "How sweet! {author} gives {target}-chan a hug! 💖",
+                    "Wawm and cozy! {author} wraps {target}-chan in a hug! 🥰",
+                    "Snuggwe time! {author} cuddwes up to {target}-chan! 😍",
+                    "So cute! {author} gives {target}-chan a big hug! 😊"
+                ],
+                "kick": [
+                    "Kick! {author} kicks {target}-chan! 👟",
+                    "Watch out! {author} just kicked {target}-chan! 🦵",
+                    "Ouchie-wa-wa! {author} gives {target}-chan a good kick! 🥾",
+                    "Boom! {author} kicks {target}-chan in the weaw! 🍑",
+                    "Thwack! {author} wands a kick on {target}-chan! 🦶"
+                ],
+                "kill": [
+                    "Kiww! {author} kiwws {target}-chan! 🔪",
+                    "Watch out! {author} just kiwwed {target}-chan! 💀",
+                    "Ouchie-wa-wa! {author} gives {target}-chan a good kiww! ☠️",
+                    "Boom! {author} kiwws {target}-chan in cowd bwood! 🩸",
+                    "Thwack! {author} wands a kiww on {target}-chan! 🩹"
+                ],
+                "kiss": [
+                    "Aww! {author} kisses {target}-chan! 😘",
+                    "How sweet! {author} gives {target}-chan a kiss! 💋",
+                    "Mwah! {author} pwants a kiss on {target}-chan! 😚",
+                    "Smooch! {author} kisses {target}-chan on the cheek! 😊",
+                    "So cute! {author} gives {target}-chan a big kiss! 😍"
+                ],
+                "lick": [
+                    "Wick! {author} wicks {target}-chan! 👅",
+                    "Watch out! {author} just wickwed {target}-chan! 😛",
+                    "Yuck! {author} gives {target}-chan a good wick! 😝",
+                    "Swurp! {author} wicks {target}-chan on the face! 😋",
+                    "Taste test! {author} wicks {target}-chan on the nyose! 🐶"
+                ],
+                "nom": [
+                    "Nom! {author} is eating ! 🍽️",
+                    "Watch out! {author} just ate something! 🍴",
+                    "Yum! {author} is enjoying a good meal! 🍲",
+                    "Swurp! {author} is eating something tasty! 🍜",
+                    "Taste test! {author} is eating something dewicious! 🍕"
+                ],
+                "pat": [
+                    "Pat! {author} pats {target}-chan on the head! 🤏",
+                    "Nice one! {author} gives {target}-chan a pat! 🤗",
+                    "Good job! {author} pats {target}-chan on the back! 🌟",
+                    "Weww done! {author} gives {target}-chan a pat! 👏",
+                    "Gweat wowk! {author} pats {target}-chan on the showdew! 🎉"
+                ],
+                "poke": [
+                    "Poke! {author} pokes {target}-chan! 👉",
+                    "Heyo! {author} just poked {target}-chan! 🤏",
+                    "Boop! {author} gives {target}-chan a good poke! 👈",
+                    "Tap! {author} pokes {target}-chan on the nyose! 👃",
+                    "Poke! {author} pokes {target}-chan in the wibs! 🦴"
+                ],
+                "slap": [
+                    "Swap! {author} swaps {target}-chan! 👋",
+                    "Watch out! {author} just swapped {target}-chan! 🤚",
+                    "Ouchie-wa-wa! {author} gives {target}-chan a good swap! 🤕",
+                    "Boom! {author} swaps {target}-chan in the face! 😳",
+                    "Thwack! {author} wands a swap on {target}-chan! 🤜"
+                ],
+                "smile": [
+                    "Smile! {author} is smiwing! 😊",
+                    "Cheese! {author} is smiwing! 😁",
+                    "Say cheese! {author} is smiwing! 😄",
+                    "Gwin! {author} is smiwing! 😃",
+                    "Happy face! {author} is smiwing! 😆"
+                ],
+                "smug": [
+                    "Smug! {author} is feewing smug! 😏",
+                    "Wook at that! {author} is feewing smug! 😎",
+                    "How cheeky! {author} is feewing smug! 😌",
+                    "Oh deaw! {author} is feewing smug! 😒",
+                    "Uh oh! {author} is feewing smug! 😬"
+                ],
+                "wave": [
+                    "Wave! {author} waves at {target}-chan! 👋",
+                    "Heyo! {author} just waved at {target}-chan! 🤚",
+                    "Hewwo! {author} is waving at {target}-chan! 🌟",
+                    "Hi there! {author} waves at {target}-chan! 👋",
+                    "Goodbye! {author} waves at {target}-chan! 👋"
+                ],
+                "wink": [
+                    "Wink! {author} winks at {target}-chan! 😉",
+                    "Heyo! {author} just winked at {target}-chan! 😜",
+                    "How cheeky! {author} is winking at {target}-chan! 😘",
+                    "Oh deaw! {author} is winking at {target}-chan! 😏",
+                    "Uh oh! {author} is winking at {target}-chan! 😎"
+                ],
+                "yeet": [
+                    "Yeet! {author} yeets {target}-chan! 🚀",
+                    "Watch out! {author} just yeeted {target}-chan! 🛸",
+                    "Ouchie-wa-wa! {author} gives {target}-chan a good yeet! 💨",
+                    "Boom! {author} yeets {target}-chan into the stwatosphewe! 🌌",
+                    "Thwack! {author} wands a yeet on {target}-chan! 🌠"
+                ]
+            }
         }
     }
 }
