@@ -1,3 +1,10 @@
+<div align="center">
+  <br>
+  <h2> Buy me a coffee ☕ </h2>
+  <a href="https://ko-fi.com/rpdjf"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="rpdjf" /></a>
+  <br><br>
+</div>
+
 # Goofyn Discord Bot 🤖✨
 Unleash the power of AI in your Discord server with Goofyn, the versatile bot that's easy to expand and customize! Built with JS and harnessing the discord.js library, it's a breeze to add new commands or features.
 
