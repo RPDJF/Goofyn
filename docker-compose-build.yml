@@ -1,9 +1,27 @@
 services:
-  discord-goofyn:
-    container_name: discord-goofyn
+  goofyn-main:
     build: .
+    container_name: goofyn
+    depends_on:
+      - goofyn-mongodb
+    environment:
+      MONGO_USERNAME: root
+      MONGO_PASSWORD: root
+      MONGO_DB: goofyn
+      MONGO_URI: mongodb://goofyn-mongodb:27017
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./.env:/usr/src/app/.env
-      - ./firebase-key.json:/usr/src/app/config/firebase-key.json
     restart: always
+  goofyn-mongodb:
+    image: mongo:latest
+    container_name: goofyn-mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: goofyn
+      MONGO_PORT: 27017
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./mongo-data:/data/db

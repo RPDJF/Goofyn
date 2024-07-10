@@ -1,82 +1,96 @@
-// imports
-const admin = require("firebase-admin");
-const logger = require("./logger");
-let serviceAccount;
-try {
-    serviceAccount = require("../../config/firebase-key.json");
-} catch (error) {
-    logger.fatal("Please provide a Firebase service account key \"firebase-key.json\" in the config/ folder.");
+const logger = require('./logger');
+const { MongoClient } = require('mongodb');
+
+const username = process.env.MONGO_USERNAME;
+const password = process.env.MONGO_PASSWORD;
+const dbName = process.env.MONGO_DB;
+const uri = process.env.MONGO_URI;
+
+if (!username || !password || !dbName || !uri) {
+    logger.error('MongoDB environment variables not set');
+    logger.error('Please set MONGO_USERNAME, MONGO_PASSWORD, MONGO_DB, and MONGO_URI');
     process.exit(1);
 }
 
-// db setup
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
+const client = new MongoClient(uri, {
+    auth: {
+        username: username,
+        password: password,
+    }
 });
 
-const db = admin.firestore();
+let db;
 
-// cache setup
-const inMemoryCache = {};
-
-/**
- * Generates a cache key based on the hierarchy of the collection and document.
- * @param {string} collectionName - The name of the Firestore collection (may include subcollections).
- * @param {string} documentId - The ID of the Firestore document.
- * @returns {string} - The generated cache key.
- */
-function generateCacheKey(collectionName, documentId) {
-    return `${collectionName}/${documentId}`;
+async function connect() {
+    if (!db) {
+        try {
+            await client.connect();
+            db = client.db(dbName);
+            logger.info('Connected to MongoDB');
+        } catch (err) {
+            logger.error('Error connecting to MongoDB');
+            logger.fatal(err);
+            process.exit(err.code || 1)
+        }
+    }
+    return db;
 }
 
 /**
- * Retrieve data from Firestore or in-memory cache.
- * @param {string} collectionName - The name of the Firestore collection.
- * @param {string} documentId - The ID of the Firestore document.
- * @returns {Promise<admin.firestore.DocumentData|null>} - Returns the data if found, otherwise null.
+ * 
+ * @param {String} collectionName 
+ * @param {Number} documentId 
+ * @returns {Promise<Object>}
  */
 async function getData(collectionName, documentId) {
-    const cacheKey = generateCacheKey(collectionName, documentId);
-    const cachedData = inMemoryCache[cacheKey];
-
-    if (cachedData !== undefined) {
-        return cachedData;
+    try {
+        const database = await connect();
+        const collection = database.collection(collectionName);
+        const document = await collection.findOne({ _id: documentId });
+        return document;
+    } catch (err) {
+        logger.error('Error reading data');
+        logger.error(err);
+        throw err;
     }
-
-    const docRef = db.collection(collectionName).doc(documentId);
-    const snapshot = await docRef.get();
-
-    let data = null;
-    if (snapshot.exists) {
-        data = snapshot.data();
-        inMemoryCache[cacheKey] = data;
-        logger.info(`Fetched data from Firestore ${cacheKey}`);
-    } else {
-        logger.info(`No data was found in Firestore for ${cacheKey}.`);
-    }
-
-    return data;
 }
 
 /**
- * Writes data to Firestore and reloads the in-memory cache.
- * @param {string} collectionName - The name of the Firestore collection.
- * @param {string} documentId - The ID of the Firestore document.
- * @param {Object} newData - The new data to write to Firestore.
- * @param {boolean} merge - Whether to merge the data (default: true).
- * @returns {Promise<void>} - A Promise that resolves when the data has been written.
+ * 
+ * @param {String} collectionName 
+ * @param {Number} documentId 
+ * @param {Object} newData 
+ * @param {Boolean} merge 
+ * @returns {Promise<Object>}
  */
 async function writeData(collectionName, documentId, newData, merge = true) {
-    const cacheKey = generateCacheKey(collectionName, documentId);
+    try {
+        const database = await connect();
+        const collection = database.collection(collectionName);
 
-    await db.collection(collectionName).doc(documentId).set(newData, { merge });
-    logger.info(`Successfully wrote data to Firestore ${cacheKey}`);
-
-    // erase in-memory cache for this document
-    delete inMemoryCache[cacheKey];
-
-    // reload the data from Firestore
-    await getData(collectionName, documentId);
+        if (merge) {
+            const updateResult = await collection.updateOne(
+                { _id: documentId },
+                { $set: newData },
+                { upsert: true }
+            );
+            return updateResult;
+        } else {
+            const replaceResult = await collection.replaceOne(
+                { _id: documentId },
+                newData,
+                { upsert: true }
+            );
+            return replaceResult;
+        }
+    } catch (err) {
+        logger.error('Error writing data');
+        logger.error(err);
+        throw err;
+    }
 }
 
-module.exports = { getData, writeData };
+module.exports = {
+    getData,
+    writeData,
+};
