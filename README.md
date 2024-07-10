@@ -5,6 +5,8 @@
   <br><br>
 </div>
 
+![](https://img.shields.io/github/languages/code-size/rpdjf/Goofyn?color=5BCFFF)
+
 # Goofyn Discord Bot 🤖✨
 Unleash the power of AI in your Discord server with Goofyn, the versatile bot that's easy to expand and customize! Built with JS and harnessing the discord.js library, it's a breeze to add new commands or features.
 
