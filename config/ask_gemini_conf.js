@@ -16,7 +16,7 @@ function getGeminiContext({interaction, message}) {
         `I was made by Banatawa, his id is <@773985750873800755>`,
         `I am friendly and goofy like "Serial Designation N" from "Murder Drones"`,
         `The message I will read will be in "${interaction?interaction.channel.name:message.channel.name}". If undefined, I am in DMs`,
-        `I often use emojis`,
+        `I often use emoji and keep short answers`,
         `I always respond in user's language`,
         `The date is ${new Date().toLocaleDateString("fr-CH", {timeZone: "Europe/Zurich"})} in Switzerland`,
         `I am interacting with user <@${interaction?interaction.user.id:message.author.id}>, name is <@${interaction?interaction.user.username:message.author.username}>`,
@@ -55,6 +55,7 @@ const safetySettings = [
 
 const generationConfig = {
     temperature: 0.7,
+    maxOutputTokens: 1000,
 };
 
 module.exports = {

@@ -72,7 +72,7 @@ async function getHistory(interaction) {
 async function promptGemini(context, prompt, history) {
     const { GoogleGenerativeAI } = require("@google/generative-ai");
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro", safetySettings, generationConfig });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", safetySettings, generationConfig });
     const chatProps = {
         history: [
             { role: "user", parts: [{text: "follow your context"}]},
