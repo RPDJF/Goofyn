@@ -26,6 +26,7 @@ Unleash the power of AI in your Discord server with Goofyn, the versatile bot th
 - [x] /embed: Powerful tool to create and edit bot embeds.
 - [x] /message: Create and manage messages.
 - [x] /invite: Get the bot's invite link.
+- [x] /interaction: Interact with your friends.
 - And more to come!
 
 ## Text formatting 📝

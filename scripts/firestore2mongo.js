@@ -4,10 +4,6 @@ const { MongoClient } = require('mongodb');
 const fs = require('fs');
 
 // Initialize Firebase Admin
-// print current directory
-console.log(__dirname);
-// print ./ files
-console.log(fs.readdirSync('./config'));
 if (!fs.existsSync('./config/firebase-key.json')) {
   console.error('Firebase service account key not found');
   process.exit(1);
