@@ -63,11 +63,7 @@ cp env.example .env
 vim .env
 ```
 
-3. Get your firestore database (see [here](https://firebase.google.com/docs/firestore/quickstart)
-
-4. Copy the serviceAccountKey into firebase-key.json
-
-5. Compose the Docker container.
+3. Compose the Docker container.
 ```bash
 docker compose up -d
 ```
@@ -93,6 +89,13 @@ npm install
 npm start
 ```
 
+## Scripts 📜
+- ``firestore2mongo``: Migrate data from Firestore to MongoDB.
+To use this script, define `SCRIPT` env to firestore2mongo and bind firebase-key.json to /config folder.
+
+You can also use the `docker-compose.yml` file to run the bot with the script by uncommenting the script line.
+
+
 ## Make It Yours 🎨
 Tweak bot/command settings via ``.env`` file and ``/config`` folder for a personalized touch.
 
@@ -110,7 +113,7 @@ This means you can use, modify, and distribute the code as you see fit, but you 
 
 ## Acknowledgements 🙏
 - [discord.js](https://discord.js.org)
-- [Firebase](https://firebase.google.com)
+- [MongoDB](https://www.mongodb.com)
 - [Google Gemini](https://ai.google.dev)
 - [Node.js](https://nodejs.org)
 - [dotenv](https://www.npmjs.com/package/dotenv)

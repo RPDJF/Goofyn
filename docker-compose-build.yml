@@ -9,9 +9,11 @@ services:
       MONGO_PASSWORD: root
       MONGO_DB: goofyn
       MONGO_URI: mongodb://goofyn-mongodb:27017
+      #SCRIPT: firestore2mongo.js # only if using firestore2mongo script
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./.env:/usr/src/app/.env
+      - ./.env:/usr/src/app/.env # can be setup in environment variables instead
+      #- ./firebase-key.json:/usr/src/app/config/firebase-key.json # only if using firestore2mongo script
     restart: always
   goofyn-mongodb:
     image: mongo:latest

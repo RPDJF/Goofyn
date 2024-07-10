@@ -14,6 +14,9 @@ COPY src/ ./src/
 # Copying the config folder
 COPY config/ ./config/
 
+# Copying the scripts folder
+COPY scripts/ ./scripts/
+
 # Exposing the default topgg webhook port
 EXPOSE 3042
 

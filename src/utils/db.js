@@ -46,7 +46,7 @@ async function getData(collectionName, documentId) {
     try {
         const database = await connect();
         const collection = database.collection(collectionName);
-        const document = await collection.findOne({ _id: documentId });
+        const document = await collection.findOne({ id: documentId });
         return document;
     } catch (err) {
         logger.error('Error reading data');
