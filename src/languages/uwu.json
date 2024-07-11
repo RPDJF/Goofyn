@@ -26,9 +26,7 @@
         },
         "invite": {
             "title": "Invitation Wink OwO! 🌟",
-            "errors": {
-                "no_link": "Nyaa! NyO invitation wink has been set by the bot ownew! 😭🌼"
-            }
+            "description": "Hewwo! Cwick hewe to invite me to youw sewvew! 😸🌸"
         },
         "autorole": {
             "title": {

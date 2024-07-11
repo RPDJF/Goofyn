@@ -2,7 +2,7 @@ const { loadCommands } = require("./utils/loadCommands");
 const { deployCommands } = require("./utils/deployCommands");
 const { commands } = require("./commands/commands");
 const logger = require("./utils/logger");
-const dynactivity = require("./utils/dynactivity");
+const dynactivity = require("./utils/dynactivity"); 
 const { Client, GatewayIntentBits, Events, MessageType, Partials, ChannelType } = require("discord.js");
 const client = new Client({
     intents: [
@@ -18,7 +18,7 @@ const client = new Client({
     partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
 const fs = require("fs");
-const { errorMsg } = require("./utils/embedUtility");
+const { errorMsg, initBotAuthor } = require("./utils/embedUtility");
 const { getDictionary } = require("./utils/dictionary");
 
 if (!fs.existsSync(".env"))
@@ -34,6 +34,7 @@ client.login(process.env.DISCORD_CLIENT_SECRET).catch((err) => {
 
 client.on(Events.ClientReady, () => {
     logger.info(`Logged in as ${client.user.tag}`);
+    initBotAuthor(client);
     deployCommands(client.commands.map((command) => command.data.toJSON()));
     dynactivity(client);
 });
