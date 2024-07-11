@@ -46,7 +46,7 @@ You can use them for welcome messages for example :
 - `{botname}` - Bot name
 - `{membercount}` - Member count
 - `{rolecount}` - Role count
-- `{backsplash}` - `\`
+- `{backslash}` - `\`
 - `\n` - New line
 
 ## Quick Start Guide 🏁
