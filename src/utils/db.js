@@ -70,14 +70,14 @@ async function writeData(collectionName, documentId, newData, merge = true) {
 
         if (merge) {
             const updateResult = await collection.updateOne(
-                { _id: documentId },
+                { id: documentId },
                 { $set: newData },
                 { upsert: true }
             );
             return updateResult;
         } else {
             const replaceResult = await collection.replaceOne(
-                { _id: documentId },
+                { id: documentId },
                 newData,
                 { upsert: true }
             );
