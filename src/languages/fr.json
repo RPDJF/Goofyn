@@ -26,9 +26,7 @@
         },
         "invite": {
             "title": "Lien d'invitation",
-            "errors": {
-                "no_link": "Aucun lien d'invitation n'a été défini par le propriétaire du bot !"
-            }
+            "description": "Clique sur ce lien pour m'ajouter !"
         },
         "autorole": {
             "title": {

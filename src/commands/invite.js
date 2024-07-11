@@ -15,13 +15,12 @@ module.exports = {
     async execute(interaction) {
         await interaction.deferReply();
         const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
-        if (!process.env.INVITE_LINK) {
-            logger.warn("Invite was called but INVITE_LINK is missing!");
-            await interaction.editReply({ embeds: [errorMsg(dictionary.errors.title, dictionary.commands.invite.errors.no_link)], ephemeral: true });
-        } else {
-            await interaction.editReply({ embeds: [msg(dictionary.commands.invite.title, process.env.INVITE_LINK)], ephemeral: false})
-            return;
-        }
-        await new Promise(resolve => setTimeout(resolve, 10000)).then(async() => await interaction.deleteReply());
+        const inviteLink = `https://discord.com/oauth2/authorize?client_id=${interaction.client.user.id}`;
+
+        const title = dictionary.commands.invite.title;
+        const description = `[${dictionary.commands.invite.description}](${inviteLink})`;
+        const embed = msg(title, description);
+        embed.setThumbnail(interaction.client.user.avatarURL());
+        await interaction.editReply({ embeds: [embed], ephemeral: false})
     },
 };

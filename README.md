@@ -63,6 +63,8 @@ cd Goofyn
 ```
 
 2. Copy the ``env.example`` file to ``.env`` and fill in the required fields.
+
+Note that you can also use the ``docker-compose.yml`` file to run the bot with the environment variables or use .env file instead of the docker-compose file environment variables.
 ```bash
 cp env.example .env
 vim .env

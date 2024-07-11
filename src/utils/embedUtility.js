@@ -1,4 +1,4 @@
-const { EmbedBuilder, Embed } = require("discord.js");
+const { EmbedBuilder, Embed, Client } = require("discord.js");
 const { name, version, repository, logo } = require("../../package.json");
 const logger = require("./logger");
 
@@ -15,7 +15,19 @@ class Author {
     }
 }
 
-const botAuthor = new Author(`${name.charAt(0).toUpperCase()}${name.slice(1)} v${version}`, logo.url, repository.url.split('+')[1]);
+let botAuthor;
+
+/**
+ * Initialize the bot author
+ * @param {Client} client 
+ */
+function initBotAuthor(client) {
+    botAuthor = new Author(
+        `${client.user.username} v${version}`,
+        client.user.avatarURL(),
+        repository.url.includes('+') ? repository.url.split('+')[1] : repository.url,
+    );
+}
 
 /**
  * Create a new embed
@@ -48,6 +60,7 @@ function errorMsg(title, description, author = botAuthor) {
 
 module.exports = {
     Author,
+    initBotAuthor,
     msg,
     errorMsg,
 }

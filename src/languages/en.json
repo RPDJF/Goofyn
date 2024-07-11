@@ -26,9 +26,7 @@
         },
         "invite": {
             "title": "Invitation Link",
-            "errors": {
-                "no_link": "No invitation link has been set by the bot owner!"
-            }
+            "description": "Click here to add me to your server!"
         },
         "autorole": {
             "title": {
