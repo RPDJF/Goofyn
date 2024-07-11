@@ -5,6 +5,10 @@
   <br><br>
 </div>
 
+<a href="https://top.gg/bot/1251221585981997126">
+  <img src="https://top.gg/api/widget/1251221585981997126.svg">
+</a>
+
 ![](https://img.shields.io/github/languages/code-size/rpdjf/Goofyn?color=5BCFFF)
 
 # Goofyn Discord Bot 🤖✨
