@@ -83,17 +83,22 @@
             },
             "help": [
                 "**Use the welcome message** UwU! 🌸✨",
-                "1. Define the welcome channew with </welcome set channel:{commandId}> UwU! 🌺🌟",
+                "1. Define the welcome channel with </welcome set channel:{commandId}> UwU! 🌺🌟",
                 "2. Define the welcome message with </welcome set message:{commandId}> OwO! 🌸💫",
-                "3. Enabwe the welcome message with </welcome enable:{commandId}> UwU! 🌷✨\n",
-                "**Vawiables OwO! 🌸✨**",
-                "Yowu can use the fowwowing vawiabwes in the message UwU! 🌺🌟",
-                "\\- `{user}`: The membew that joined OwO! 🌸✨",
-                "\\- `{guild}`: The guiwd nyame UwU! 🌷🌟",
-                "\\- `{membercount}`: The totaw membew count UwU! 🌸💫\n",
-                "**Speciaw chawactews OwO! 🌺✨**",
-                "Yowu can use the fowwowing speciaw chawactews in the message UwU! 🌸💖",
-                "\\- `\\n`: Nyew wine bweak UwU! 🌷✨"
+                "3. Enable the welcome message with </welcome enable:{commandId}> UwU! 🌷✨\n",
+                "**Variables OwO! 🌸✨**",
+                "You can use the following variables in the message UwU! 🌺🌟",
+                "- `{user}`: The member that joined OwO! 🌸✨",
+                "- `{username}`: User's name UwU! 🌺🌟",
+                "- `{userid}`: User's ID OwO! 🌸💫",
+                "- `{guild}`: The guild name UwU! 🌷🌟",
+                "- `{channel}`: Channel mention OwO! 🌸✨",
+                "- `{bot}`: Bot mention UwU! 🌺🌟",
+                "- `{botname}`: Bot's name OwO! 🌸💫",
+                "- `{membercount}`: The total member count UwU! 🌷✨",
+                "- `{rolecount}`: Role count OwO! 🌸✨",
+                "- `{backslash}`: Backslash `\\` UwU! 🌺🌟",
+                "- `\\n`: New line break UwU! 🌷✨"
             ]
         },
         "message": {

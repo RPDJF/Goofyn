@@ -82,18 +82,23 @@
                 "no_channel_or_message": "No channel or welcome message has been set!"
             },
             "help": [
-                "**Use the welcome message**",
-                "1. Define the welcome channel with </welcome set channel:{commandId}>",
-                "2. Define the welcome message with </welcome set message:{commandId}>",
-                "3. Enable the welcome message with </welcome enable:{commandId}>\n",
+                "**Use the welcome message**!",
+                "1. Define the welcome channel with </welcome set channel:{commandId}>!",
+                "2. Define the welcome message with </welcome set message:{commandId}>!",
+                "3. Enable the welcome message with </welcome enable:{commandId}>!\n",
                 "**Variables**",
-                "You can use the following variables in the welcome message:",
-                "\\- `{user}`: The user who joined",
-                "\\- `{guild}`: The guild name",
-                "\\- `{membercount}`: The member count\n",
-                "**Special characters**",
-                "You can use the following special characters in the welcome message:",
-                "\\- `\\n`: New line"
+                "You can use the following variables in the message:",
+                "- `{user}`: The member that joined.",
+                "- `{username}`: User's name.",
+                "- `{userid}`: User's ID.",
+                "- `{guild}`: The guild name.",
+                "- `{channel}`: Channel mention.",
+                "- `{bot}`: Bot mention.",
+                "- `{botname}`: Bot's name.",
+                "- `{membercount}`: The total member count.",
+                "- `{rolecount}`: Role count.",
+                "- `{backslash}`: Backslash `\\`.",
+                "- `\\n`: New line break."
             ]
         },
         "message": {

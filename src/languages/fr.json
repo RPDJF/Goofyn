@@ -82,18 +82,23 @@
                 "no_channel_or_message": "Aucun salon ou message de bienvenue n'a été défini !"
             },
             "help": [
-                "**Utiliser le message de bienvenue**",
-                "1. Définir le salon de bienvenue avec </welcome set channel:{commandId}>",
-                "2. Définir le message de bienvenue avec </welcome set message:{commandId}>",
-                "3. Activer le message de bienvenue avec </welcome enable:{commandId}>\n",
+                "**Utilisez le message de bienvenue** !",
+                "1. Définissez le canal de bienvenue avec </welcome set channel:{commandId}> !",
+                "2. Définissez le message de bienvenue avec </welcome set message:{commandId}> !",
+                "3. Activez le message de bienvenue avec </welcome enable:{commandId}> !\n",
                 "**Variables**",
-                "Tu peux utiliser les variables suivantes dans ton message de bienvenue :",
-                "\\- `{user}` : Mentionne le nouvel utilisateur",
-                "\\- `{guild}` : Nom du serveur",
-                "\\- `{membercount}` : Nombre de membres du serveur\n",
-                "**Caractères spéciaux**",
-                "Tu peux utiliser les caractères spéciaux suivants dans ton message de bienvenue :",
-                "\\- `\\n` : Saut de ligne"
+                "Vous pouvez utiliser les variables suivantes dans le message :",
+                "- `{user}` : Le membre qui a rejoint.",
+                "- `{username}` : Nom de l'utilisateur.",
+                "- `{userid}` : ID de l'utilisateur.",
+                "- `{guild}` : Le nom du serveur.",
+                "- `{channel}` : Mention du canal.",
+                "- `{bot}` : Mention du bot.",
+                "- `{botname}` : Nom du bot.",
+                "- `{membercount}` : Le nombre total de membres.",
+                "- `{rolecount}` : Le nombre de rôles.",
+                "- `{backslash}` : Antislash `\\`.",
+                "- `\\n` : Saut de ligne."
             ]
         },
         "message": {
