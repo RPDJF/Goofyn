@@ -47,6 +47,11 @@ async function getData(collectionName, documentId) {
         const database = await connect();
         const collection = database.collection(collectionName);
         const document = await collection.findOne({ id: documentId });
+        if (!document) {
+            return ({
+                id: documentId,
+            });
+        }
         return document;
     } catch (err) {
         logger.error('Error reading data');
