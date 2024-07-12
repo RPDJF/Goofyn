@@ -1,6 +1,6 @@
 {
   "name": "goofyn",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Just a goofy discord bot inspired by N !",
   "main": "src/app.js",
   "scripts": {
