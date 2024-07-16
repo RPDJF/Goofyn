@@ -176,7 +176,7 @@ module.exports = {
      */
     async onGuildMemberAdd_hook(member) {
         const guildDoc = await db.getData("guilds", member.guild.id);
-        if (!guildDoc.welcome.enabled || !guildDoc.welcome.channel_id || !guildDoc.welcome.message)
+        if (!guildDoc || guildDoc.welcome.enabled || !guildDoc.welcome.channel_id || !guildDoc.welcome.message)
             return;
 
         message = await textParser(member, guildDoc.welcome.message);
