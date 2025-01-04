@@ -36,11 +36,12 @@ library, it's a breeze to add new commands or features.
 - [x] /message: Create and manage messages.
 - [x] /invite: Get the bot's invite link.
 - [x] /interaction: Interact with your friends.
+- [x] /search: Search for specific anime, manga, or characters through the MyAnimeList thanks to [Jikan.js](https://github.com/RPDJF/Jikan.js).
 - And more to come!
 
 ## Text formatting 📝
 
-Goofyn supports text formatting in any messages and embeds.
+Goofyn supports text formatting in any messages, embeds and some commands.
 
 You can use them for welcome messages for example :
 
@@ -64,9 +65,6 @@ Get Goofyn on your server with a simple click
 [here](https://discord.com/oauth2/authorize?client_id=1251221585981997126).
 
 ### Self-Hosting 🏠
-
-**Note**: If you want to use Jikan.js commands, you need to build your own image
-instead of using the official one.
 
 #### Docker (official image)
 
