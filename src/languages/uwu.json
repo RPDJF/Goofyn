@@ -1,314 +1,319 @@
 {
-    "data": {
-        "name": "Supah Kawaii UwU Chan",
-        "code": "uwu"
+  "data": {
+    "name": "Supah Kawaii UwU Chan",
+    "code": "uwu"
+  },
+  "success": "UwU ! ✨🌸",
+  "errors": {
+    "title": "UwU! 😭✨",
+    "execution_error": "Oopsie! Thewe was a wittwe hiccup when twying to wun this command! 😔🌟",
+    "execution_missing_perms": "Oh nyo! I wack the nyecessawy pewmissions to do this command! 😢💫",
+    "invalid_channel": "Oh nyu! The given channew is nyot vawid! 😿💖",
+    "invalid_thumbnail": "Oopsie daisy! The given thumbnaiw is nyot vawid! 😣🌸"
+  },
+  "commands": {
+    "ask": {
+      "errors": {
+        "no_api_key": "Oh nyo! The pwovidew hasn't configuwed the API fow this command! 😭✨",
+        "request_failed": "UwU, the wequest faiwed.. Pwease twy again watew! 😢💫"
+      }
     },
-    "success": "UwU ! ✨🌸",
-    "errors": {
-        "title": "UwU! 😭✨",
-        "execution_error": "Oopsie! Thewe was a wittwe hiccup when twying to wun this command! 😔🌟",
-        "execution_missing_perms": "Oh nyo! I wack the nyecessawy pewmissions to do this command! 😢💫",
-        "invalid_channel": "Oh nyu! The given channew is nyot vawid! 😿💖",
-        "invalid_thumbnail": "Oopsie daisy! The given thumbnaiw is nyot vawid! 😣🌸"
+    "language": {
+      "success": "Yay! The wanguage has been changed successfuwwy! 😸🌺",
+      "errors": {
+        "invalid": "Oh nyo! The specified wanguage is invawid! 😿🌷"
+      }
     },
-    "commands": {
-        "ask": {
-            "errors": {
-                "no_api_key": "Oh nyo! The pwovidew hasn't configuwed the API fow this command! 😭✨",
-                "request_failed": "UwU, the wequest faiwed.. Pwease twy again watew! 😢💫"
-            }
-        },
-        "language": {
-            "success": "Yay! The wanguage has been changed successfuwwy! 😸🌺",
-            "errors": {
-                "invalid": "Oh nyo! The specified wanguage is invawid! 😿🌷"
-            }
-        },
-        "invite": {
-            "title": "Invitation Wink OwO! 🌟",
-            "description": "Hewwo! Cwick hewe to invite me to youw sewvew! 😸🌸"
-        },
-        "autorole": {
-            "title": {
-                "add": "Added nyew automatic wowe! UwU 🌸",
-                "remove": "Wemoved automatic wowe! OwO 🌼",
-                "list": "Wist of automatic wowes! UwU 🌟"
-            },
-            "success": {
-                "add": "The wowe <@&{role}> wiww nyow be assigned to nyew membews! 😸🌺",
-                "remove": "The wowe <@&{role}> wiww nyo wongew be assigned to nyew membews! 😸🌼"
-            },
-            "errors": {
-                "no_role": "Uh-oh! The wowe is nyot an autowowe! 😿🌷",
-                "empty_roles": "Oh nyo! Thewe awe nyo autowowes defined! 😢✨",
-                "already_added": "Uh-oh! The wowe has awweady been added! 😭🌸"
-            }
-        },
-        "reactionrole": {
-            "title": {
-                "new": "Nyew weaction wowe OwO! 🌺✨",
-                "add": "Added weaction wowe UwU! 🌟💫",
-                "remove": "Wemoved weaction wowe OwO! 🌸🌼",
-                "delete": "Deweted weaction wowe message UwU! 💖✨",
-                "list": "Wist of weaction wowes UwU! 🌺🌟"
-            },
-            "messages": {
-                "choose_role": "Choose a wowe by weacting UwU! 🌸✨\n",
-                "added": "Yay! The wowe <@&{role}> has been added successfuwwy! 😸🌷",
-                "deleted": "The weaction-wowe message has been deweted! 😸💫",
-                "removed": "The weaction-wowe <@&{role}> has been wemoved successfuwwy! 😸🌟"
-            },
-            "errors": {
-                "message_not_found": "Uh-oh! This weaction-wowe message does nyot exist! 😿🌼",
-                "reaction_not_found": "Oopsie! This weaction does nyot exist! 😿✨",
-                "no_reactionroles": "Nyaa! NyO weaction wowes awe defined on this sewvew! 😢🌸",
-                "invalid_emoji": "Oh nyo! The specified emoji is invawid! 😿🌺"
-            }
-        },
-        "welcome": {
-            "title": {
-                "enabled": "Welcome message enabwed UwU! 🌟✨",
-                "disabled": "Welcome message disabwed UwU! 😭🌼",
-                "channel": "Welcome channew UwU! 🌺💫",
-                "message": "Welcome message OwO! 🌸✨",
-                "help": "Welcome message hewp UwU! 🌷🌟"
-            },
-            "success": {
-                "toggle": "``welcome.enabwed`` has been set to ``{value}``! 😸🌸",
-                "channel": "Yay! The nyew welcome channew has been set to <#{channel}>! 😸🌼",
-                "message": "The nyew welcome message has been set! 😸💫"
-            },
-            "errors": {
-                "no_channel_or_message": "Oh nyo! NyO channew ow welcome message has been set! 😿🌺"
-            },
-            "help": [
-                "**Use the welcome message** UwU! 🌸✨",
-                "1. Define the welcome channel with </welcome set channel:{commandId}> UwU! 🌺🌟",
-                "2. Define the welcome message with </welcome set message:{commandId}> OwO! 🌸💫",
-                "3. Enable the welcome message with </welcome enable:{commandId}> UwU! 🌷✨\n",
-                "**Variables OwO! 🌸✨**",
-                "You can use the following variables in the message UwU! 🌺🌟",
-                "- `{user}`: The member that joined OwO! 🌸✨",
-                "- `{username}`: User's name UwU! 🌺🌟",
-                "- `{userid}`: User's ID OwO! 🌸💫",
-                "- `{guild}`: The guild name UwU! 🌷🌟",
-                "- `{channel}`: Channel mention OwO! 🌸✨",
-                "- `{bot}`: Bot mention UwU! 🌺🌟",
-                "- `{botname}`: Bot's name OwO! 🌸💫",
-                "- `{membercount}`: The total member count UwU! 🌷✨",
-                "- `{rolecount}`: Role count OwO! 🌸✨",
-                "- `{backslash}`: Backslash `\\` UwU! 🌺🌟",
-                "- `\\n`: New line break UwU! 🌷✨"
-            ]
-        },
-        "message": {
-            "title": {
-                "new": "Nyew message OwO! 🌷✨",
-                "delete": "Dewete message UwU! 🌺💫",
-                "edit": "Edit message OwO! 🌸🌼"
-            },
-            "success": {
-                "msg_created": "Yay! The message has been cweated successfuwwy! 😸🌟",
-                "msg_deleted": "Yay! The message has been deweted successfuwwy! 😸💖",
-                "msg_edited": "Yay! The message has been edited successfuwwy! 😸🌺"
-            },
-            "errors": {
-                "msg_not_found": "Oh nyo! This message does nyot exist! 😿✨",
-                "msg_not_bot": "Oopsie! This message was nyot sent by the bot! 😢🌸"
-            }
-        },
-        "embed": {
-            "title": {
-                "new": "Nyew embed OwO! 🌟💫",
-                "delete": "Dewete embed UwU! 🌸✨",
-                "edit": "Edit embed OwO! 🌼💖",
-                "remove": "Wemove embed UwU! 🌷🌺"
-            },
-            "success": {
-                "embed_created": "Yay! The embed has been cweated successfuwwy! 😸🌟",
-                "embed_deleted": "Yay! The embed has been deweted successfuwwy! 😸💫",
-                "embed_edited": "Yay! The embed has been edited successfuwwy! 😸🌺",
-                "embed_removed": "Yay! The embed has been wemoved successfuwwy! 😸✨"
-            },
-            "errors": {
-                "embed_not_found": "Oh nyo! This embed does nyot exist! 😿🌼",
-                "embed_not_bot": "Oopsie! This embed was nyot sent by the bot! 😢🌸",
-                "embed_no_title_description": "Uh-oh! The embed must have a titwe and descwiption! 😿✨",
-                "embed_no_changes": "Oh nyo! NyO changes have been made to the embed! 😢🌺",
-                "embed_no_embed": "Uh-oh! The message does nyot contain an embed! 😿💫"
-            }
-        },
-        "interaction": {
-            "interactions": {
-                "bite": [
-                    "Oh nyu! {author} bites {target}! 🫢",
-                    "Watch out! {author} just bit {target}! 😮",
-                    "Ouchie-wouchie! {author} took a bite of {target}! 😲",
-                    "Heyo! {author} decided to nibble on {target}! 😋",
-                    "Oopsies! {author} sank their teefies into {target}! 🫣"
-                ],
-                "blush": [
-                    "Oh my! {author} is bwushing! 😳",
-                    "Aww, {author} is turning wed! 🥰",
-                    "Wook at that! {author} is bwushing! 😊",
-                    "How cute! {author} is aww wed! 😍",
-                    "Uh-oh! {author} can't stop bwushing! 😅"
-                ],
-                "bonk": [
-                    "Bonk! {author} hits {target}-chan on the head! 🤕",
-                    "Watch out! {author} just bonked {target}-chan! 😵",
-                    "Ouchie-wa-wa! {author} gives {target}-chan a good bonk! 💥",
-                    "Boom! {author} bonks {target}-chan on the noggin! 😳",
-                    "Thwack! {author} lands a bonk on {target}-chan! 🥴"
-                ],
-                "bully": [
-                    "Oh no! {author} is buwwying {target}-chan! 😠",
-                    "Watch out! {author} is picking on {target}-chan! 😡",
-                    "Heyo! {author} is being mean to {target}-chan! 😤",
-                    "Wook out! {author} is teasing {target}-chan! 😈",
-                    "Uh oh! {author} is hawwassing {target}-chan! 😬"
-                ],
-                "cuddle": [
-                    "Aww! {author} cuddwes {target}-chan! 🤗",
-                    "How sweet! {author} is cuddwing with {target}-chan! 🥰",
-                    "Wawm and cozy! {author} gives a cuddwe to {target}-chan! 💖",
-                    "Snuggwe time! {author} cuddwes up to {target}-chan! 😍",
-                    "So cute! {author} wraps {target}-chan in a big cuddwe! 😊"
-                ],
-                "cringe": [
-                    "Oh no! {author} is cwinging! 😬",
-                    "Yikes! {author} is cwinging! 😖",
-                    "Eek! {author} is cwinging! 😣",
-                    "Oh deaw! {author} is cwinging! 😟",
-                    "Uh oh! {author} is cwinging! 😨"
-                ],
-                "cry": [
-                    "Oh no! {author} is cwyin'! 😢",
-                    "Aww! {author} is cwyin'! 😭",
-                    "Don't cwy! {author} is in teaws! 😥",
-                    "Oh deaw! {author} is sobbin'! 😓",
-                    "Uh oh! {author} is weepin'! 😰"
-                ],
-                "dance": [
-                    "Wet's dance! {author} is dancin'! 💃",
-                    "Dance pawty! {author} is dancin'! 🕺",
-                    "Shake it! {author} is dancin'! 🎶",
-                    "Boogie time! {author} is dancin'! 🎵",
-                    "Dance off! {author} is dancin'! 🎉"
-                ],
-                "handhold": [
-                    "Aww! {author} howds hands with {target}-chan! 🤝",
-                    "How sweet! {author} and {target}-chan awe howdin' hands! 💞",
-                    "Togedew fowevew! {author} and {target}-chan howd hands! 🌟",
-                    "Hand in hand! {author} and {target}-chan awe inseparabwe! 🌈",
-                    "So cute! {author} and {target}-chan howd hands! 🥺"
-                ],
-                "highfive": [
-                    "High five! {author} gives {target}-chan a high five! 🖐️",
-                    "Nice one! {author} and {target}-chan high five! 🤚",
-                    "Good job! {author} and {target}-chan swap hands! 🙌",
-                    "Up top! {author} and {target}-chan high five! 🌟",
-                    "Weww done! {author} and {target}-chan give a high five! 👏"
-                ],
-                "hug": [
-                    "Aww! {author} hugs {target}-chan! 🤗",
-                    "How sweet! {author} gives {target}-chan a hug! 💖",
-                    "Wawm and cozy! {author} wraps {target}-chan in a hug! 🥰",
-                    "Snuggwe time! {author} cuddwes up to {target}-chan! 😍",
-                    "So cute! {author} gives {target}-chan a big hug! 😊"
-                ],
-                "kick": [
-                    "Kick! {author} kicks {target}-chan! 👟",
-                    "Watch out! {author} just kicked {target}-chan! 🦵",
-                    "Ouchie-wa-wa! {author} gives {target}-chan a good kick! 🥾",
-                    "Boom! {author} kicks {target}-chan in the weaw! 🍑",
-                    "Thwack! {author} wands a kick on {target}-chan! 🦶"
-                ],
-                "kill": [
-                    "Kiww! {author} kiwws {target}-chan! 🔪",
-                    "Watch out! {author} just kiwwed {target}-chan! 💀",
-                    "Ouchie-wa-wa! {author} gives {target}-chan a good kiww! ☠️",
-                    "Boom! {author} kiwws {target}-chan in cowd bwood! 🩸",
-                    "Thwack! {author} wands a kiww on {target}-chan! 🩹"
-                ],
-                "kiss": [
-                    "Aww! {author} kisses {target}-chan! 😘",
-                    "How sweet! {author} gives {target}-chan a kiss! 💋",
-                    "Mwah! {author} pwants a kiss on {target}-chan! 😚",
-                    "Smooch! {author} kisses {target}-chan on the cheek! 😊",
-                    "So cute! {author} gives {target}-chan a big kiss! 😍"
-                ],
-                "lick": [
-                    "Wick! {author} wicks {target}-chan! 👅",
-                    "Watch out! {author} just wickwed {target}-chan! 😛",
-                    "Yuck! {author} gives {target}-chan a good wick! 😝",
-                    "Swurp! {author} wicks {target}-chan on the face! 😋",
-                    "Taste test! {author} wicks {target}-chan on the nyose! 🐶"
-                ],
-                "nom": [
-                    "Nom! {author} is eating ! 🍽️",
-                    "Watch out! {author} just ate something! 🍴",
-                    "Yum! {author} is enjoying a good meal! 🍲",
-                    "Swurp! {author} is eating something tasty! 🍜",
-                    "Taste test! {author} is eating something dewicious! 🍕"
-                ],
-                "pat": [
-                    "Pat! {author} pats {target}-chan on the head! 🤏",
-                    "Nice one! {author} gives {target}-chan a pat! 🤗",
-                    "Good job! {author} pats {target}-chan on the back! 🌟",
-                    "Weww done! {author} gives {target}-chan a pat! 👏",
-                    "Gweat wowk! {author} pats {target}-chan on the showdew! 🎉"
-                ],
-                "poke": [
-                    "Poke! {author} pokes {target}-chan! 👉",
-                    "Heyo! {author} just poked {target}-chan! 🤏",
-                    "Boop! {author} gives {target}-chan a good poke! 👈",
-                    "Tap! {author} pokes {target}-chan on the nyose! 👃",
-                    "Poke! {author} pokes {target}-chan in the wibs! 🦴"
-                ],
-                "slap": [
-                    "Swap! {author} swaps {target}-chan! 👋",
-                    "Watch out! {author} just swapped {target}-chan! 🤚",
-                    "Ouchie-wa-wa! {author} gives {target}-chan a good swap! 🤕",
-                    "Boom! {author} swaps {target}-chan in the face! 😳",
-                    "Thwack! {author} wands a swap on {target}-chan! 🤜"
-                ],
-                "smile": [
-                    "Smile! {author} is smiwing! 😊",
-                    "Cheese! {author} is smiwing! 😁",
-                    "Say cheese! {author} is smiwing! 😄",
-                    "Gwin! {author} is smiwing! 😃",
-                    "Happy face! {author} is smiwing! 😆"
-                ],
-                "smug": [
-                    "Smug! {author} is feewing smug! 😏",
-                    "Wook at that! {author} is feewing smug! 😎",
-                    "How cheeky! {author} is feewing smug! 😌",
-                    "Oh deaw! {author} is feewing smug! 😒",
-                    "Uh oh! {author} is feewing smug! 😬"
-                ],
-                "wave": [
-                    "Wave! {author} waves at {target}-chan! 👋",
-                    "Heyo! {author} just waved at {target}-chan! 🤚",
-                    "Hewwo! {author} is waving at {target}-chan! 🌟",
-                    "Hi there! {author} waves at {target}-chan! 👋",
-                    "Goodbye! {author} waves at {target}-chan! 👋"
-                ],
-                "wink": [
-                    "Wink! {author} winks at {target}-chan! 😉",
-                    "Heyo! {author} just winked at {target}-chan! 😜",
-                    "How cheeky! {author} is winking at {target}-chan! 😘",
-                    "Oh deaw! {author} is winking at {target}-chan! 😏",
-                    "Uh oh! {author} is winking at {target}-chan! 😎"
-                ],
-                "yeet": [
-                    "Yeet! {author} yeets {target}-chan! 🚀",
-                    "Watch out! {author} just yeeted {target}-chan! 🛸",
-                    "Ouchie-wa-wa! {author} gives {target}-chan a good yeet! 💨",
-                    "Boom! {author} yeets {target}-chan into the stwatosphewe! 🌌",
-                    "Thwack! {author} wands a yeet on {target}-chan! 🌠"
-                ]
-            }
-        }
+    "invite": {
+      "title": "Invitation Wink OwO! 🌟",
+      "description": "Hewwo! Cwick hewe to invite me to youw sewvew! 😸🌸"
+    },
+    "autorole": {
+      "title": {
+        "add": "Added nyew automatic wowe! UwU 🌸",
+        "remove": "Wemoved automatic wowe! OwO 🌼",
+        "list": "Wist of automatic wowes! UwU 🌟"
+      },
+      "success": {
+        "add": "The wowe <@&{role}> wiww nyow be assigned to nyew membews! 😸🌺",
+        "remove": "The wowe <@&{role}> wiww nyo wongew be assigned to nyew membews! 😸🌼"
+      },
+      "errors": {
+        "no_role": "Uh-oh! The wowe is nyot an autowowe! 😿🌷",
+        "empty_roles": "Oh nyo! Thewe awe nyo autowowes defined! 😢✨",
+        "already_added": "Uh-oh! The wowe has awweady been added! 😭🌸"
+      }
+    },
+    "reactionrole": {
+      "title": {
+        "new": "Nyew weaction wowe OwO! 🌺✨",
+        "add": "Added weaction wowe UwU! 🌟💫",
+        "remove": "Wemoved weaction wowe OwO! 🌸🌼",
+        "delete": "Deweted weaction wowe message UwU! 💖✨",
+        "list": "Wist of weaction wowes UwU! 🌺🌟"
+      },
+      "messages": {
+        "choose_role": "Choose a wowe by weacting UwU! 🌸✨\n",
+        "added": "Yay! The wowe <@&{role}> has been added successfuwwy! 😸🌷",
+        "deleted": "The weaction-wowe message has been deweted! 😸💫",
+        "removed": "The weaction-wowe <@&{role}> has been wemoved successfuwwy! 😸🌟"
+      },
+      "errors": {
+        "message_not_found": "Uh-oh! This weaction-wowe message does nyot exist! 😿🌼",
+        "reaction_not_found": "Oopsie! This weaction does nyot exist! 😿✨",
+        "no_reactionroles": "Nyaa! NyO weaction wowes awe defined on this sewvew! 😢🌸",
+        "invalid_emoji": "Oh nyo! The specified emoji is invawid! 😿🌺"
+      }
+    },
+    "welcome": {
+      "title": {
+        "enabled": "Welcome message enabwed UwU! 🌟✨",
+        "disabled": "Welcome message disabwed UwU! 😭🌼",
+        "channel": "Welcome channew UwU! 🌺💫",
+        "message": "Welcome message OwO! 🌸✨",
+        "help": "Welcome message hewp UwU! 🌷🌟"
+      },
+      "success": {
+        "toggle": "``welcome.enabwed`` has been set to ``{value}``! 😸🌸",
+        "channel": "Yay! The nyew welcome channew has been set to <#{channel}>! 😸🌼",
+        "message": "The nyew welcome message has been set! 😸💫"
+      },
+      "errors": {
+        "no_channel_or_message": "Oh nyo! NyO channew ow welcome message has been set! 😿🌺"
+      },
+      "help": [
+        "**Use the welcome message** UwU! 🌸✨",
+        "1. Define the welcome channel with </welcome set channel:{commandId}> UwU! 🌺🌟",
+        "2. Define the welcome message with </welcome set message:{commandId}> OwO! 🌸💫",
+        "3. Enable the welcome message with </welcome enable:{commandId}> UwU! 🌷✨\n",
+        "**Variables OwO! 🌸✨**",
+        "You can use the following variables in the message UwU! 🌺🌟",
+        "- `{user}`: The member that joined OwO! 🌸✨",
+        "- `{username}`: User's name UwU! 🌺🌟",
+        "- `{userid}`: User's ID OwO! 🌸💫",
+        "- `{guild}`: The guild name UwU! 🌷🌟",
+        "- `{channel}`: Channel mention OwO! 🌸✨",
+        "- `{bot}`: Bot mention UwU! 🌺🌟",
+        "- `{botname}`: Bot's name OwO! 🌸💫",
+        "- `{membercount}`: The total member count UwU! 🌷✨",
+        "- `{rolecount}`: Role count OwO! 🌸✨",
+        "- `{backslash}`: Backslash `\\` UwU! 🌺🌟",
+        "- `\\n`: New line break UwU! 🌷✨"
+      ]
+    },
+    "message": {
+      "title": {
+        "new": "Nyew message OwO! 🌷✨",
+        "delete": "Dewete message UwU! 🌺💫",
+        "edit": "Edit message OwO! 🌸🌼"
+      },
+      "success": {
+        "msg_created": "Yay! The message has been cweated successfuwwy! 😸🌟",
+        "msg_deleted": "Yay! The message has been deweted successfuwwy! 😸💖",
+        "msg_edited": "Yay! The message has been edited successfuwwy! 😸🌺"
+      },
+      "errors": {
+        "msg_not_found": "Oh nyo! This message does nyot exist! 😿✨",
+        "msg_not_bot": "Oopsie! This message was nyot sent by the bot! 😢🌸"
+      }
+    },
+    "embed": {
+      "title": {
+        "new": "Nyew embed OwO! 🌟💫",
+        "delete": "Dewete embed UwU! 🌸✨",
+        "edit": "Edit embed OwO! 🌼💖",
+        "remove": "Wemove embed UwU! 🌷🌺"
+      },
+      "success": {
+        "embed_created": "Yay! The embed has been cweated successfuwwy! 😸🌟",
+        "embed_deleted": "Yay! The embed has been deweted successfuwwy! 😸💫",
+        "embed_edited": "Yay! The embed has been edited successfuwwy! 😸🌺",
+        "embed_removed": "Yay! The embed has been wemoved successfuwwy! 😸✨"
+      },
+      "errors": {
+        "embed_not_found": "Oh nyo! This embed does nyot exist! 😿🌼",
+        "embed_not_bot": "Oopsie! This embed was nyot sent by the bot! 😢🌸",
+        "embed_no_title_description": "Uh-oh! The embed must have a titwe and descwiption! 😿✨",
+        "embed_no_changes": "Oh nyo! NyO changes have been made to the embed! 😢🌺",
+        "embed_no_embed": "Uh-oh! The message does nyot contain an embed! 😿💫"
+      }
+    },
+    "interaction": {
+      "interactions": {
+        "bite": [
+          "Oh nyu! {author} bites {target}! 🫢",
+          "Watch out! {author} just bit {target}! 😮",
+          "Ouchie-wouchie! {author} took a bite of {target}! 😲",
+          "Heyo! {author} decided to nibble on {target}! 😋",
+          "Oopsies! {author} sank their teefies into {target}! 🫣"
+        ],
+        "blush": [
+          "Oh my! {author} is bwushing! 😳",
+          "Aww, {author} is turning wed! 🥰",
+          "Wook at that! {author} is bwushing! 😊",
+          "How cute! {author} is aww wed! 😍",
+          "Uh-oh! {author} can't stop bwushing! 😅"
+        ],
+        "bonk": [
+          "Bonk! {author} hits {target}-chan on the head! 🤕",
+          "Watch out! {author} just bonked {target}-chan! 😵",
+          "Ouchie-wa-wa! {author} gives {target}-chan a good bonk! 💥",
+          "Boom! {author} bonks {target}-chan on the noggin! 😳",
+          "Thwack! {author} lands a bonk on {target}-chan! 🥴"
+        ],
+        "bully": [
+          "Oh no! {author} is buwwying {target}-chan! 😠",
+          "Watch out! {author} is picking on {target}-chan! 😡",
+          "Heyo! {author} is being mean to {target}-chan! 😤",
+          "Wook out! {author} is teasing {target}-chan! 😈",
+          "Uh oh! {author} is hawwassing {target}-chan! 😬"
+        ],
+        "cuddle": [
+          "Aww! {author} cuddwes {target}-chan! 🤗",
+          "How sweet! {author} is cuddwing with {target}-chan! 🥰",
+          "Wawm and cozy! {author} gives a cuddwe to {target}-chan! 💖",
+          "Snuggwe time! {author} cuddwes up to {target}-chan! 😍",
+          "So cute! {author} wraps {target}-chan in a big cuddwe! 😊"
+        ],
+        "cringe": [
+          "Oh no! {author} is cwinging! 😬",
+          "Yikes! {author} is cwinging! 😖",
+          "Eek! {author} is cwinging! 😣",
+          "Oh deaw! {author} is cwinging! 😟",
+          "Uh oh! {author} is cwinging! 😨"
+        ],
+        "cry": [
+          "Oh no! {author} is cwyin'! 😢",
+          "Aww! {author} is cwyin'! 😭",
+          "Don't cwy! {author} is in teaws! 😥",
+          "Oh deaw! {author} is sobbin'! 😓",
+          "Uh oh! {author} is weepin'! 😰"
+        ],
+        "dance": [
+          "Wet's dance! {author} is dancin'! 💃",
+          "Dance pawty! {author} is dancin'! 🕺",
+          "Shake it! {author} is dancin'! 🎶",
+          "Boogie time! {author} is dancin'! 🎵",
+          "Dance off! {author} is dancin'! 🎉"
+        ],
+        "handhold": [
+          "Aww! {author} howds hands with {target}-chan! 🤝",
+          "How sweet! {author} and {target}-chan awe howdin' hands! 💞",
+          "Togedew fowevew! {author} and {target}-chan howd hands! 🌟",
+          "Hand in hand! {author} and {target}-chan awe inseparabwe! 🌈",
+          "So cute! {author} and {target}-chan howd hands! 🥺"
+        ],
+        "highfive": [
+          "High five! {author} gives {target}-chan a high five! 🖐️",
+          "Nice one! {author} and {target}-chan high five! 🤚",
+          "Good job! {author} and {target}-chan swap hands! 🙌",
+          "Up top! {author} and {target}-chan high five! 🌟",
+          "Weww done! {author} and {target}-chan give a high five! 👏"
+        ],
+        "hug": [
+          "Aww! {author} hugs {target}-chan! 🤗",
+          "How sweet! {author} gives {target}-chan a hug! 💖",
+          "Wawm and cozy! {author} wraps {target}-chan in a hug! 🥰",
+          "Snuggwe time! {author} cuddwes up to {target}-chan! 😍",
+          "So cute! {author} gives {target}-chan a big hug! 😊"
+        ],
+        "kick": [
+          "Kick! {author} kicks {target}-chan! 👟",
+          "Watch out! {author} just kicked {target}-chan! 🦵",
+          "Ouchie-wa-wa! {author} gives {target}-chan a good kick! 🥾",
+          "Boom! {author} kicks {target}-chan in the weaw! 🍑",
+          "Thwack! {author} wands a kick on {target}-chan! 🦶"
+        ],
+        "kill": [
+          "Kiww! {author} kiwws {target}-chan! 🔪",
+          "Watch out! {author} just kiwwed {target}-chan! 💀",
+          "Ouchie-wa-wa! {author} gives {target}-chan a good kiww! ☠️",
+          "Boom! {author} kiwws {target}-chan in cowd bwood! 🩸",
+          "Thwack! {author} wands a kiww on {target}-chan! 🩹"
+        ],
+        "kiss": [
+          "Aww! {author} kisses {target}-chan! 😘",
+          "How sweet! {author} gives {target}-chan a kiss! 💋",
+          "Mwah! {author} pwants a kiss on {target}-chan! 😚",
+          "Smooch! {author} kisses {target}-chan on the cheek! 😊",
+          "So cute! {author} gives {target}-chan a big kiss! 😍"
+        ],
+        "lick": [
+          "Wick! {author} wicks {target}-chan! 👅",
+          "Watch out! {author} just wickwed {target}-chan! 😛",
+          "Yuck! {author} gives {target}-chan a good wick! 😝",
+          "Swurp! {author} wicks {target}-chan on the face! 😋",
+          "Taste test! {author} wicks {target}-chan on the nyose! 🐶"
+        ],
+        "nom": [
+          "Nom! {author} is eating ! 🍽️",
+          "Watch out! {author} just ate something! 🍴",
+          "Yum! {author} is enjoying a good meal! 🍲",
+          "Swurp! {author} is eating something tasty! 🍜",
+          "Taste test! {author} is eating something dewicious! 🍕"
+        ],
+        "pat": [
+          "Pat! {author} pats {target}-chan on the head! 🤏",
+          "Nice one! {author} gives {target}-chan a pat! 🤗",
+          "Good job! {author} pats {target}-chan on the back! 🌟",
+          "Weww done! {author} gives {target}-chan a pat! 👏",
+          "Gweat wowk! {author} pats {target}-chan on the showdew! 🎉"
+        ],
+        "poke": [
+          "Poke! {author} pokes {target}-chan! 👉",
+          "Heyo! {author} just poked {target}-chan! 🤏",
+          "Boop! {author} gives {target}-chan a good poke! 👈",
+          "Tap! {author} pokes {target}-chan on the nyose! 👃",
+          "Poke! {author} pokes {target}-chan in the wibs! 🦴"
+        ],
+        "slap": [
+          "Swap! {author} swaps {target}-chan! 👋",
+          "Watch out! {author} just swapped {target}-chan! 🤚",
+          "Ouchie-wa-wa! {author} gives {target}-chan a good swap! 🤕",
+          "Boom! {author} swaps {target}-chan in the face! 😳",
+          "Thwack! {author} wands a swap on {target}-chan! 🤜"
+        ],
+        "smile": [
+          "Smile! {author} is smiwing! 😊",
+          "Cheese! {author} is smiwing! 😁",
+          "Say cheese! {author} is smiwing! 😄",
+          "Gwin! {author} is smiwing! 😃",
+          "Happy face! {author} is smiwing! 😆"
+        ],
+        "smug": [
+          "Smug! {author} is feewing smug! 😏",
+          "Wook at that! {author} is feewing smug! 😎",
+          "How cheeky! {author} is feewing smug! 😌",
+          "Oh deaw! {author} is feewing smug! 😒",
+          "Uh oh! {author} is feewing smug! 😬"
+        ],
+        "wave": [
+          "Wave! {author} waves at {target}-chan! 👋",
+          "Heyo! {author} just waved at {target}-chan! 🤚",
+          "Hewwo! {author} is waving at {target}-chan! 🌟",
+          "Hi there! {author} waves at {target}-chan! 👋",
+          "Goodbye! {author} waves at {target}-chan! 👋"
+        ],
+        "wink": [
+          "Wink! {author} winks at {target}-chan! 😉",
+          "Heyo! {author} just winked at {target}-chan! 😜",
+          "How cheeky! {author} is winking at {target}-chan! 😘",
+          "Oh deaw! {author} is winking at {target}-chan! 😏",
+          "Uh oh! {author} is winking at {target}-chan! 😎"
+        ],
+        "yeet": [
+          "Yeet! {author} yeets {target}-chan! 🚀",
+          "Watch out! {author} just yeeted {target}-chan! 🛸",
+          "Ouchie-wa-wa! {author} gives {target}-chan a good yeet! 💨",
+          "Boom! {author} yeets {target}-chan into the stwatosphewe! 🌌",
+          "Thwack! {author} wands a yeet on {target}-chan! 🌠"
+        ]
+      }
+    },
+    "jikanjs": {
+      "errors": {
+        "oops": "Woopsie! Thewe was an ewwow whiwe fetching the data! 😿🌟\nI cawn't get uwu mowre infowmations 😿"
+      }
     }
+  }
 }

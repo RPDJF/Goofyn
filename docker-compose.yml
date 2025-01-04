@@ -14,7 +14,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./.env:/usr/src/app/.env # can be setup in environment variables instead
-      #- ./firebase-key.json:/usr/src/app/config/firebase-key.json # only if using firestore2mongo script
+    #- ./firebase-key.json:/usr/src/app/config/firebase-key.json # only if using firestore2mongo script
     restart: always
   goofyn-mongodb:
     image: mongo:latest

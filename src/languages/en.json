@@ -1,314 +1,319 @@
 {
-    "data": {
-        "name": "English",
-        "code": "en"
+  "data": {
+    "name": "English",
+    "code": "en"
+  },
+  "success": "Hooray!",
+  "errors": {
+    "title": "Oopsie daisy!",
+    "execution_error": "There was a hiccup while executing this command!",
+    "execution_missing_perms": "I don't have the necessary permissions to execute this command!",
+    "invalid_channel": "The specified channel is invalid!",
+    "invalid_thumbnail": "The specified thumbnail is invalid!"
+  },
+  "commands": {
+    "ask": {
+      "errors": {
+        "no_api_key": "The provider has not configured the API for this command!",
+        "request_failed": "The request failed.. Try again later!"
+      }
     },
-    "success": "Hooray!",
-    "errors": {
-        "title": "Oopsie daisy!",
-        "execution_error": "There was a hiccup while executing this command!",
-        "execution_missing_perms": "I don't have the necessary permissions to execute this command!",
-        "invalid_channel": "The specified channel is invalid!",
-        "invalid_thumbnail": "The specified thumbnail is invalid!"
+    "language": {
+      "success": "The language has been changed successfully!",
+      "errors": {
+        "invalid": "The specified language is invalid!"
+      }
     },
-    "commands": {
-        "ask": {
-            "errors": {
-                "no_api_key": "The provider has not configured the API for this command!",
-                "request_failed": "The request failed.. Try again later!"
-            }
-        },
-        "language": {
-            "success": "The language has been changed successfully!",
-            "errors": {
-                "invalid": "The specified language is invalid!"
-            }
-        },
-        "invite": {
-            "title": "Invitation Link",
-            "description": "Click here to add me to your server!"
-        },
-        "autorole": {
-            "title": {
-                "add": "Added automatic role",
-                "remove": "Removed automatic role",
-                "list": "List of automatic roles"
-            },
-            "success": {
-                "add": "The role <@&{role}> will now be assigned to new members!",
-                "remove": "The role <@&{role}> will no longer be assigned to new members!"
-            },
-            "errors": {
-                "no_role": "The role is not an autorole!",
-                "empty_roles": "There are no autoroles defined!",
-                "already_added": "The role has already been added!"
-            }
-        },
-        "reactionrole": {
-            "title": {
-                "new": "New reaction role",
-                "add": "Added reaction role",
-                "remove": "Removed reaction role",
-                "delete": "Deleted reaction role message",
-                "list": "List of reaction roles"
-            },
-            "messages": {
-                "choose_role": "Choose a role by reacting\n",
-                "added": "The role <@&{role}> has been added successfully!",
-                "deleted": "The reaction-role message has been deleted!",
-                "removed": "The reaction-role <@&{role}> has been removed successfully!"
-            },
-            "errors": {
-                "message_not_found": "This reaction-role message does not exist!",
-                "reaction_not_found": "This reaction does not exist!",
-                "no_reactionroles": "No reaction roles are defined on this server!",
-                "invalid_emoji": "The specified emoji is invalid!"
-            }
-        },
-        "welcome": {
-            "title": {
-                "enabled": "Welcome message enabled",
-                "disabled": "Welcome message disabled",
-                "channel": "Welcome channel",
-                "message": "Welcome message",
-                "help": "Welcome message help"
-            },
-            "success": {
-                "toggle": "``welcome.enabled`` has been set to ``{value}``!",
-                "channel": "The welcome channel has been set to <#{channel}>!",
-                "message": "The welcome message has successfully been set!"
-            },
-            "errors": {
-                "no_channel_or_message": "No channel or welcome message has been set!"
-            },
-            "help": [
-                "**Use the welcome message**!",
-                "1. Define the welcome channel with </welcome set channel:{commandId}>!",
-                "2. Define the welcome message with </welcome set message:{commandId}>!",
-                "3. Enable the welcome message with </welcome enable:{commandId}>!\n",
-                "**Variables**",
-                "You can use the following variables in the message:",
-                "- `{user}`: The member that joined.",
-                "- `{username}`: User's name.",
-                "- `{userid}`: User's ID.",
-                "- `{guild}`: The guild name.",
-                "- `{channel}`: Channel mention.",
-                "- `{bot}`: Bot mention.",
-                "- `{botname}`: Bot's name.",
-                "- `{membercount}`: The total member count.",
-                "- `{rolecount}`: Role count.",
-                "- `{backslash}`: Backslash `\\`.",
-                "- `\\n`: New line break."
-            ]
-        },
-        "message": {
-            "title": {
-                "new": "New message",
-                "delete": "Deleted message",
-                "edit": "Edited message"
-            },
-            "success": {
-                "msg_created": "The message has been created successfully!",
-                "msg_deleted": "The message has been deleted successfully!",
-                "msg_edited": "The message has been edited successfully!"
-            },
-            "errors": {
-                "msg_not_found": "This message does not exist!",
-                "msg_not_bot": "This message was not sent by the bot!"
-            }
-        },
-        "embed": {
-            "title": {
-                "new": "New embed",
-                "delete": "Deleted embed",
-                "edit": "Edited embed",
-                "remove": "Removed embed"
-            },
-            "success": {
-                "embed_created": "The embed has been created successfully!",
-                "embed_deleted": "The embed has been deleted successfully!",
-                "embed_edited": "The embed has been edited successfully!",
-                "embed_removed": "The embed has been removed successfully!"
-            },
-            "errors": {
-                "embed_not_found": "This embed does not exist!",
-                "embed_not_bot": "This embed was not sent by the bot!",
-                "embed_no_title_description": "The embed must have a title and description!",
-                "embed_no_changes": "No changes have been made to the embed!",
-                "embed_no_embed": "This message does not contain an embed!"
-            }
-        },
-        "interaction": {
-            "interactions": {
-                "bite": [
-                    "Oh no! {author} bites {target}! 🫢",
-                    "Watch out! {author} just bit {target}! 😮",
-                    "Ouch! {author} took a bite of {target}! 😲",
-                    "Hey! {author} decided to nibble on {target}! 😋",
-                    "Oops! {author} sank their teeth into {target}! 🫣"
-                ],
-                "blush": [
-                    "Oh my! {author} is blushing! 😳",
-                    "Aww, {author} is turning red! 🥰",
-                    "Look at that! {author} is blushing! 😊",
-                    "How cute! {author} is all red! 😍",
-                    "Uh-oh! {author} can't stop blushing! 😅"
-                ],
-                "bonk": [
-                    "Bonk! {author} hits {target} on the head! 🤕",
-                    "Watch out! {author} just bonked {target}! 😵",
-                    "Ouch! {author} gives {target} a good bonk! 💥",
-                    "Boom! {author} bonks {target} on the noggin! 😳",
-                    "Thwack! {author} lands a bonk on {target}! 🥴"
-                ],
-                "bully": [
-                    "Oh no! {author} is bullying {target}! 😠",
-                    "Watch out! {author} is picking on {target}! 😡",
-                    "Hey! {author} is being mean to {target}! 😤",
-                    "Look out! {author} is teasing {target}! 😈",
-                    "Uh oh! {author} is harassing {target}! 😬"
-                ],
-                "cuddle": [
-                    "Aww! {author} cuddles {target}! 🤗",
-                    "How sweet! {author} is cuddling with {target}! 🥰",
-                    "Warm and cozy! {author} gives a cuddle to {target}! 💖",
-                    "Snuggle time! {author} cuddles up to {target}! 😍",
-                    "So cute! {author} wraps {target} in a big cuddle! 😊"
-                ],
-                "cringe": [
-                    "Oh no! {author} is cringing! 😬",
-                    "Yikes! {author} is cringing! 😖",
-                    "Eek! {author} is cringing! 😣",
-                    "Oh dear! {author} is cringing! 😟",
-                    "Uh oh! {author} is cringing! 😨"
-                ],
-                "cry": [
-                    "Oh no! {author} is crying! 😢",
-                    "Aww! {author} is crying! 😭",
-                    "Don't cry! {author} is in tears! 😥",
-                    "Oh dear! {author} is sobbing! 😓",
-                    "Uh oh! {author} is weeping! 😰"
-                ],
-                "dance": [
-                    "Let's dance! {author} is dancing! 💃",
-                    "Dance party! {author} is dancing! 🕺",
-                    "Shake it! {author} is dancing! 🎶",
-                    "Boogie time! {author} is dancing! 🎵",
-                    "Dance off! {author} is dancing! 🎉"
-                ],
-                "handhold": [
-                    "Aww! {author} holds hands with {target}! 🤝",
-                    "How sweet! {author} and {target} are holding hands! 💞",
-                    "Together forever! {author} and {target} hold hands! 🌟",
-                    "Hand in hand! {author} and {target} are inseparable! 🌈",
-                    "So cute! {author} and {target} hold hands! 🥺"
-                ],
-                "highfive": [
-                    "High five! {author} gives {target} a high five! 🖐️",
-                    "Nice one! {author} and {target} high five! 🤚",
-                    "Good job! {author} and {target} slap hands! 🙌",
-                    "Up top! {author} and {target} high five! 🌟",
-                    "Well done! {author} and {target} give a high five! 👏"
-                ],
-                "hug": [
-                    "Aww! {author} hugs {target}! 🤗",
-                    "How sweet! {author} gives {target} a hug! 💖",
-                    "Warm and cozy! {author} wraps {target} in a hug! 🥰",
-                    "Snuggle time! {author} cuddles up to {target}! 😍",
-                    "So cute! {author} gives {target} a big hug! 😊"
-                ],
-                "kick": [
-                    "Kick! {author} kicks {target}! 👟",
-                    "Watch out! {author} just kicked {target}! 🦵",
-                    "Ouch! {author} gives {target} a good kick! 🥾",
-                    "Boom! {author} kicks {target} in the rear! 🍑",
-                    "Thwack! {author} lands a kick on {target}! 🦶"
-                ],
-                "kill": [
-                    "Kill! {author} kills {target}! 🔪",
-                    "Watch out! {author} just killed {target}! 💀",
-                    "Ouch! {author} gives {target} a good kill! ☠️",
-                    "Boom! {author} kills {target} in cold blood! 🩸",
-                    "Thwack! {author} lands a kill on {target}! 🩹"
-                ],
-                "kiss": [
-                    "Aww! {author} kisses {target}! 😘",
-                    "How sweet! {author} gives {target} a kiss! 💋",
-                    "Mwah! {author} plants a kiss on {target}! 😚",
-                    "Smooch! {author} kisses {target} on the cheek! 😊",
-                    "So cute! {author} gives {target} a big kiss! 😍"
-                ],
-                "lick": [
-                    "Lick! {author} licks {target}! 👅",
-                    "Watch out! {author} just licked {target}! 😛",
-                    "Yuck! {author} gives {target} a good lick! 😝",
-                    "Slurp! {author} licks {target} on the face! 😋",
-                    "Taste test! {author} licks {target} on the nose! 🐶"
-                ],
-                "nom": [
-                    "Nom! {author} is eating ! 🍽️",
-                    "Watch out! {author} just ate something! 🍴",
-                    "Yum! {author} is enjoying a good meal! 🍲",
-                    "Slurp! {author} is eating something tasty! 🍜",
-                    "Taste test! {author} is eating something delicious! 🍕"
-                ],
-                "pat": [
-                    "Pat! {author} pats {target} on the head! 🤏",
-                    "Nice one! {author} gives {target} a pat! 🤗",
-                    "Good job! {author} pats {target} on the back! 🌟",
-                    "Well done! {author} gives {target} a pat! 👏",
-                    "Great work! {author} pats {target} on the shoulder! 🎉"
-                ],
-                "poke": [
-                    "Poke! {author} pokes {target}! 👉",
-                    "Hey! {author} just poked {target}! 🤏",
-                    "Boop! {author} gives {target} a good poke! 👈",
-                    "Tap! {author} pokes {target} on the nose! 👃",
-                    "Poke! {author} pokes {target} in the ribs! 🦴"
-                ],
-                "slap": [
-                    "Slap! {author} slaps {target}! 👋",
-                    "Watch out! {author} just slapped {target}! 🤚",
-                    "Ouch! {author} gives {target} a good slap! 🤕",
-                    "Boom! {author} slaps {target} in the face! 😳",
-                    "Thwack! {author} lands a slap on {target}! 🤜"
-                ],
-                "smile": [
-                    "Smile! {author} is smiling! 😊",
-                    "Cheese! {author} is smiling! 😁",
-                    "Say cheese! {author} is smiling! 😄",
-                    "Grin! {author} is smiling! 😃",
-                    "Happy face! {author} is smiling! 😆"
-                ],
-                "smug": [
-                    "Smug! {author} is feeling smug! 😏",
-                    "Look at that! {author} is feeling smug! 😎",
-                    "How cheeky! {author} is feeling smug! 😌",
-                    "Oh dear! {author} is feeling smug! 😒",
-                    "Uh oh! {author} is feeling smug! 😬"
-                ],
-                "wave": [
-                    "Wave! {author} waves at {target}! 👋",
-                    "Hey! {author} just waved at {target}! 🤚",
-                    "Hello! {author} is waving at {target}! 🌟",
-                    "Hi there! {author} waves at {target}! 👋",
-                    "Goodbye! {author} waves at {target}! 👋"
-                ],
-                "wink": [
-                    "wink! {author} winks at {target}! 😉",
-                    "Hey! {author} just winked at {target}! 😜",
-                    "How cheeky! {author} is winking at {target}! 😘",
-                    "Oh dear! {author} is winking at {target}! 😏",
-                    "Uh oh! {author} is winking at {target}! 😎"
-                ],
-                "yeet": [
-                    "Yeet! {author} yeets {target}! 🚀",
-                    "Watch out! {author} just yeeted {target}! 🛸",
-                    "Ouch! {author} gives {target} a good yeet! 💨",
-                    "Boom! {author} yeets {target} into the stratosphere! 🌌",
-                    "Thwack! {author} lands a yeet on {target}! 🌠"
-                ]
-            }
-        }
+    "invite": {
+      "title": "Invitation Link",
+      "description": "Click here to add me to your server!"
+    },
+    "autorole": {
+      "title": {
+        "add": "Added automatic role",
+        "remove": "Removed automatic role",
+        "list": "List of automatic roles"
+      },
+      "success": {
+        "add": "The role <@&{role}> will now be assigned to new members!",
+        "remove": "The role <@&{role}> will no longer be assigned to new members!"
+      },
+      "errors": {
+        "no_role": "The role is not an autorole!",
+        "empty_roles": "There are no autoroles defined!",
+        "already_added": "The role has already been added!"
+      }
+    },
+    "reactionrole": {
+      "title": {
+        "new": "New reaction role",
+        "add": "Added reaction role",
+        "remove": "Removed reaction role",
+        "delete": "Deleted reaction role message",
+        "list": "List of reaction roles"
+      },
+      "messages": {
+        "choose_role": "Choose a role by reacting\n",
+        "added": "The role <@&{role}> has been added successfully!",
+        "deleted": "The reaction-role message has been deleted!",
+        "removed": "The reaction-role <@&{role}> has been removed successfully!"
+      },
+      "errors": {
+        "message_not_found": "This reaction-role message does not exist!",
+        "reaction_not_found": "This reaction does not exist!",
+        "no_reactionroles": "No reaction roles are defined on this server!",
+        "invalid_emoji": "The specified emoji is invalid!"
+      }
+    },
+    "welcome": {
+      "title": {
+        "enabled": "Welcome message enabled",
+        "disabled": "Welcome message disabled",
+        "channel": "Welcome channel",
+        "message": "Welcome message",
+        "help": "Welcome message help"
+      },
+      "success": {
+        "toggle": "``welcome.enabled`` has been set to ``{value}``!",
+        "channel": "The welcome channel has been set to <#{channel}>!",
+        "message": "The welcome message has successfully been set!"
+      },
+      "errors": {
+        "no_channel_or_message": "No channel or welcome message has been set!"
+      },
+      "help": [
+        "**Use the welcome message**!",
+        "1. Define the welcome channel with </welcome set channel:{commandId}>!",
+        "2. Define the welcome message with </welcome set message:{commandId}>!",
+        "3. Enable the welcome message with </welcome enable:{commandId}>!\n",
+        "**Variables**",
+        "You can use the following variables in the message:",
+        "- `{user}`: The member that joined.",
+        "- `{username}`: User's name.",
+        "- `{userid}`: User's ID.",
+        "- `{guild}`: The guild name.",
+        "- `{channel}`: Channel mention.",
+        "- `{bot}`: Bot mention.",
+        "- `{botname}`: Bot's name.",
+        "- `{membercount}`: The total member count.",
+        "- `{rolecount}`: Role count.",
+        "- `{backslash}`: Backslash `\\`.",
+        "- `\\n`: New line break."
+      ]
+    },
+    "message": {
+      "title": {
+        "new": "New message",
+        "delete": "Deleted message",
+        "edit": "Edited message"
+      },
+      "success": {
+        "msg_created": "The message has been created successfully!",
+        "msg_deleted": "The message has been deleted successfully!",
+        "msg_edited": "The message has been edited successfully!"
+      },
+      "errors": {
+        "msg_not_found": "This message does not exist!",
+        "msg_not_bot": "This message was not sent by the bot!"
+      }
+    },
+    "embed": {
+      "title": {
+        "new": "New embed",
+        "delete": "Deleted embed",
+        "edit": "Edited embed",
+        "remove": "Removed embed"
+      },
+      "success": {
+        "embed_created": "The embed has been created successfully!",
+        "embed_deleted": "The embed has been deleted successfully!",
+        "embed_edited": "The embed has been edited successfully!",
+        "embed_removed": "The embed has been removed successfully!"
+      },
+      "errors": {
+        "embed_not_found": "This embed does not exist!",
+        "embed_not_bot": "This embed was not sent by the bot!",
+        "embed_no_title_description": "The embed must have a title and description!",
+        "embed_no_changes": "No changes have been made to the embed!",
+        "embed_no_embed": "This message does not contain an embed!"
+      }
+    },
+    "interaction": {
+      "interactions": {
+        "bite": [
+          "Oh no! {author} bites {target}! 🫢",
+          "Watch out! {author} just bit {target}! 😮",
+          "Ouch! {author} took a bite of {target}! 😲",
+          "Hey! {author} decided to nibble on {target}! 😋",
+          "Oops! {author} sank their teeth into {target}! 🫣"
+        ],
+        "blush": [
+          "Oh my! {author} is blushing! 😳",
+          "Aww, {author} is turning red! 🥰",
+          "Look at that! {author} is blushing! 😊",
+          "How cute! {author} is all red! 😍",
+          "Uh-oh! {author} can't stop blushing! 😅"
+        ],
+        "bonk": [
+          "Bonk! {author} hits {target} on the head! 🤕",
+          "Watch out! {author} just bonked {target}! 😵",
+          "Ouch! {author} gives {target} a good bonk! 💥",
+          "Boom! {author} bonks {target} on the noggin! 😳",
+          "Thwack! {author} lands a bonk on {target}! 🥴"
+        ],
+        "bully": [
+          "Oh no! {author} is bullying {target}! 😠",
+          "Watch out! {author} is picking on {target}! 😡",
+          "Hey! {author} is being mean to {target}! 😤",
+          "Look out! {author} is teasing {target}! 😈",
+          "Uh oh! {author} is harassing {target}! 😬"
+        ],
+        "cuddle": [
+          "Aww! {author} cuddles {target}! 🤗",
+          "How sweet! {author} is cuddling with {target}! 🥰",
+          "Warm and cozy! {author} gives a cuddle to {target}! 💖",
+          "Snuggle time! {author} cuddles up to {target}! 😍",
+          "So cute! {author} wraps {target} in a big cuddle! 😊"
+        ],
+        "cringe": [
+          "Oh no! {author} is cringing! 😬",
+          "Yikes! {author} is cringing! 😖",
+          "Eek! {author} is cringing! 😣",
+          "Oh dear! {author} is cringing! 😟",
+          "Uh oh! {author} is cringing! 😨"
+        ],
+        "cry": [
+          "Oh no! {author} is crying! 😢",
+          "Aww! {author} is crying! 😭",
+          "Don't cry! {author} is in tears! 😥",
+          "Oh dear! {author} is sobbing! 😓",
+          "Uh oh! {author} is weeping! 😰"
+        ],
+        "dance": [
+          "Let's dance! {author} is dancing! 💃",
+          "Dance party! {author} is dancing! 🕺",
+          "Shake it! {author} is dancing! 🎶",
+          "Boogie time! {author} is dancing! 🎵",
+          "Dance off! {author} is dancing! 🎉"
+        ],
+        "handhold": [
+          "Aww! {author} holds hands with {target}! 🤝",
+          "How sweet! {author} and {target} are holding hands! 💞",
+          "Together forever! {author} and {target} hold hands! 🌟",
+          "Hand in hand! {author} and {target} are inseparable! 🌈",
+          "So cute! {author} and {target} hold hands! 🥺"
+        ],
+        "highfive": [
+          "High five! {author} gives {target} a high five! 🖐️",
+          "Nice one! {author} and {target} high five! 🤚",
+          "Good job! {author} and {target} slap hands! 🙌",
+          "Up top! {author} and {target} high five! 🌟",
+          "Well done! {author} and {target} give a high five! 👏"
+        ],
+        "hug": [
+          "Aww! {author} hugs {target}! 🤗",
+          "How sweet! {author} gives {target} a hug! 💖",
+          "Warm and cozy! {author} wraps {target} in a hug! 🥰",
+          "Snuggle time! {author} cuddles up to {target}! 😍",
+          "So cute! {author} gives {target} a big hug! 😊"
+        ],
+        "kick": [
+          "Kick! {author} kicks {target}! 👟",
+          "Watch out! {author} just kicked {target}! 🦵",
+          "Ouch! {author} gives {target} a good kick! 🥾",
+          "Boom! {author} kicks {target} in the rear! 🍑",
+          "Thwack! {author} lands a kick on {target}! 🦶"
+        ],
+        "kill": [
+          "Kill! {author} kills {target}! 🔪",
+          "Watch out! {author} just killed {target}! 💀",
+          "Ouch! {author} gives {target} a good kill! ☠️",
+          "Boom! {author} kills {target} in cold blood! 🩸",
+          "Thwack! {author} lands a kill on {target}! 🩹"
+        ],
+        "kiss": [
+          "Aww! {author} kisses {target}! 😘",
+          "How sweet! {author} gives {target} a kiss! 💋",
+          "Mwah! {author} plants a kiss on {target}! 😚",
+          "Smooch! {author} kisses {target} on the cheek! 😊",
+          "So cute! {author} gives {target} a big kiss! 😍"
+        ],
+        "lick": [
+          "Lick! {author} licks {target}! 👅",
+          "Watch out! {author} just licked {target}! 😛",
+          "Yuck! {author} gives {target} a good lick! 😝",
+          "Slurp! {author} licks {target} on the face! 😋",
+          "Taste test! {author} licks {target} on the nose! 🐶"
+        ],
+        "nom": [
+          "Nom! {author} is eating ! 🍽️",
+          "Watch out! {author} just ate something! 🍴",
+          "Yum! {author} is enjoying a good meal! 🍲",
+          "Slurp! {author} is eating something tasty! 🍜",
+          "Taste test! {author} is eating something delicious! 🍕"
+        ],
+        "pat": [
+          "Pat! {author} pats {target} on the head! 🤏",
+          "Nice one! {author} gives {target} a pat! 🤗",
+          "Good job! {author} pats {target} on the back! 🌟",
+          "Well done! {author} gives {target} a pat! 👏",
+          "Great work! {author} pats {target} on the shoulder! 🎉"
+        ],
+        "poke": [
+          "Poke! {author} pokes {target}! 👉",
+          "Hey! {author} just poked {target}! 🤏",
+          "Boop! {author} gives {target} a good poke! 👈",
+          "Tap! {author} pokes {target} on the nose! 👃",
+          "Poke! {author} pokes {target} in the ribs! 🦴"
+        ],
+        "slap": [
+          "Slap! {author} slaps {target}! 👋",
+          "Watch out! {author} just slapped {target}! 🤚",
+          "Ouch! {author} gives {target} a good slap! 🤕",
+          "Boom! {author} slaps {target} in the face! 😳",
+          "Thwack! {author} lands a slap on {target}! 🤜"
+        ],
+        "smile": [
+          "Smile! {author} is smiling! 😊",
+          "Cheese! {author} is smiling! 😁",
+          "Say cheese! {author} is smiling! 😄",
+          "Grin! {author} is smiling! 😃",
+          "Happy face! {author} is smiling! 😆"
+        ],
+        "smug": [
+          "Smug! {author} is feeling smug! 😏",
+          "Look at that! {author} is feeling smug! 😎",
+          "How cheeky! {author} is feeling smug! 😌",
+          "Oh dear! {author} is feeling smug! 😒",
+          "Uh oh! {author} is feeling smug! 😬"
+        ],
+        "wave": [
+          "Wave! {author} waves at {target}! 👋",
+          "Hey! {author} just waved at {target}! 🤚",
+          "Hello! {author} is waving at {target}! 🌟",
+          "Hi there! {author} waves at {target}! 👋",
+          "Goodbye! {author} waves at {target}! 👋"
+        ],
+        "wink": [
+          "wink! {author} winks at {target}! 😉",
+          "Hey! {author} just winked at {target}! 😜",
+          "How cheeky! {author} is winking at {target}! 😘",
+          "Oh dear! {author} is winking at {target}! 😏",
+          "Uh oh! {author} is winking at {target}! 😎"
+        ],
+        "yeet": [
+          "Yeet! {author} yeets {target}! 🚀",
+          "Watch out! {author} just yeeted {target}! 🛸",
+          "Ouch! {author} gives {target} a good yeet! 💨",
+          "Boom! {author} yeets {target} into the stratosphere! 🌌",
+          "Thwack! {author} lands a yeet on {target}! 🌠"
+        ]
+      }
+    },
+    "jikanjs": {
+      "errors": {
+        "oops": "Oops! An error occurred while fetching the data!\nI can't get you more infos, this feature is still in development!"
+      }
     }
+  }
 }
