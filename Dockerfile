@@ -1,5 +1,5 @@
 # Stage 1: Building the modules
-FROM node:20.15.1 as deno-builder
+FROM node:20.15.1 AS deno-builder
 
 WORKDIR /usr/src/app
 
