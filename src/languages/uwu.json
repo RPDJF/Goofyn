@@ -309,6 +309,11 @@
                     "Thwack! {author} wands a yeet on {target}-chan! 🌠"
                 ]
             }
+        },
+        "jikanjs": {
+            "errors": {
+                "oops": "Woopsie! Thewe was an ewwow whiwe fetching the data! 😿🌟\nI cawn't get uwu mowre infowmations 😿"
+            }
         }
     }
 }

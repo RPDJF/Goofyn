@@ -309,6 +309,11 @@
                     "Thwack ! {author} a envoyé {target} voler ! 🌠"
                 ]
             }
+        },
+        "jikanjs": {
+            "errors": {
+                "oops": "Oups ! Quelque chose s'est mal passé !\nJe ne peux pas te donner plus d'informations, cette fonctionnalité est en cours de développement !"
+            }
         }
     }
 }

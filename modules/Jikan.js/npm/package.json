@@ -1,0 +1,32 @@
+{
+  "name": "Jikan.js",
+  "version": "0.0.1",
+  "description": "A TypeScript client for Jikan API",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RPDJF/Jikan.js.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "git+https://github.com/RPDJF/Jikan.js/issues"
+  },
+  "main": "./script/src/mod.js",
+  "module": "./esm/src/mod.js",
+  "exports": {
+    ".": {
+      "import": "./esm/src/mod.js",
+      "require": "./script/src/mod.js"
+    }
+  },
+  "scripts": {
+    "test": "node test_runner.js"
+  },
+  "dependencies": {
+    "@deno/shim-deno": "~0.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "picocolors": "^1.0.0"
+  },
+  "_generatedBy": "dnt@0.40.0"
+}

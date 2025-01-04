@@ -309,6 +309,11 @@
                     "Thwack! {author} lands a yeet on {target}! 🌠"
                 ]
             }
+        },
+        "jikanjs": {
+            "errors": {
+                "oops": "Oops! An error occurred while fetching the data!\nI can't get you more infos, this feature is still in development!"
+            }
         }
     }
 }
