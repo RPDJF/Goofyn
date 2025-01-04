@@ -38,17 +38,23 @@ module.exports = {
             logger.info(`Jikan.js library request by ${interaction.user.id}`);
             const author = new Author("Jikan.js", interaction.client.user.avatarURL(), "https://github.com/RPDJF/Jikan.js.git");
             const title = character.name;
-            const description = (character.about ? character.about.length > 700 ? character.about.substring(0, 700) + "..." : character.about : "No description available") + "\n\n" + character.favorites + " ❤️";
+            const description = ((character.about ? character.about.length > 700 ? character.about.substring(0, 700) + "..." : character.about : "No description available") + "\n\n" + character.favorites + " ❤️")
+                .replace(/^([\w\s]+):/gm, '- **$1**:');
+            let voices = character.voices.length ? character.voices.map(voice => `**${voice.language}**: [${voice.person.name}](${voice.person.url})`).join(", ") : null;
+            if (voices && voices.length > 1024) voices = voices.substring(0, 1024 - "...".length) + "...";
             const embed = msg(title, description, undefined, author);
             embed.setImage(character.images.jpg.image_url);
             embed.setURL(character.url);
-            /*embed.addFields([{
-                    name: "Aliases",
-                    value: character.nicknames.join(", ") || "No aliases available",
-                }, {
-                    name: "Favorites",
-                    value: character.
-                }]);*/
+            embed.addFields({
+                name: "Aliases",
+                value: character.nicknames.join(", ") || "No aliases available",
+            }, voices? {
+                name: "Voices",
+                value: voices,
+            } : {}, {
+                name: "More informations",
+                value: `[See more on MyAnimeList](${character.url})`,
+            });
             await interaction.editReply({ embeds: [embed], ephemeral: false });
         } catch (error) {
             logger.error(error);
