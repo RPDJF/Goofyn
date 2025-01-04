@@ -5,8 +5,11 @@ const { msg } = require('../utils/embedUtility');
 const logger = require('../utils/logger');
 
 // nasty import since Jikan.js is not yet published to npm and not even officially supported in node.js
-const { JikanClient, animeManager } = require("../../modules/Jikan.js/npm/script/src/mod");
+const { JikanClient } = require("../../modules/Jikan.js/npm/script/mod");
+
 const jikanClient = new JikanClient();
+
+jikanClient.ge
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -31,14 +34,21 @@ module.exports = {
         await interaction.deferReply({ephemeral: false});
         const dictionary = await getDictionary(interaction.guildId ? { guildid: interaction.guildId } : { userid: interaction.user.id });
         try {
-            const character = (await jikanClient.getCharacters(query))[0];
+            const character = await jikanClient.getCharacterFull((await jikanClient.getCharacters(query))[0].mal_id);
             logger.info(`Jikan.js library request by ${interaction.user.id}`);
             const author = new Author("Jikan.js", interaction.client.user.avatarURL(), "https://github.com/RPDJF/Jikan.js.git");
             const title = character.name;
             const description = (character.about ? character.about.length > 700 ? character.about.substring(0, 700) + "..." : character.about : "No description available") + "\n\n" + character.favorites + " ❤️";
             const embed = msg(title, description, undefined, author);
-            embed.setThumbnail(character.images.jpg.image_url);
-
+            embed.setImage(character.images.jpg.image_url);
+            embed.setURL(character.url);
+            /*embed.addFields([{
+                    name: "Aliases",
+                    value: character.nicknames.join(", ") || "No aliases available",
+                }, {
+                    name: "Favorites",
+                    value: character.
+                }]);*/
             await interaction.editReply({ embeds: [embed], ephemeral: false });
         } catch (error) {
             logger.error(error);

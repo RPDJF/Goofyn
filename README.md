@@ -55,6 +55,8 @@ Get Goofyn on your server with a simple click [here](https://discord.com/oauth2/
 
 ### Self-Hosting 🏠
 
+**Note**: If you want to use Jikan.js commands, you need to build your own image instead of using the official one.
+
 #### Docker (official image)
 1. Clone and navigate to the repository.
 ```bash
