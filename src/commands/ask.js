@@ -93,21 +93,27 @@ async function getHistory(interaction) {
 }
 
 /**
+ * @param {Array<string>} context
  * @param {String} prompt
  * @param {Array} history
  * @returns {Promise<object>}
  */
 async function promptGemini(context, prompt, history) {
-  const { GoogleGenAI } = require("@google/genai");
+  const { GoogleGenAI, createUserContent, createModelContent } = require("@google/genai");
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
   const contents = [
-    { role: "user", parts: [{ text: "follow your context" }] },
-    { role: "model", parts: context },
+    createModelContent([
+        "Follow your context",
+        context.join("\n"),
+    ])
   ];
 
   while (history.length > 0) {
-    contents.push(history.shift());
+    const content = createUserContent([
+        history.shift().parts[0].text,
+    ]);
+    contents.push(content);
   }
 
   console.table(contents);
@@ -116,10 +122,10 @@ async function promptGemini(context, prompt, history) {
   console.table(contents.at(contents.length - 1).parts[0].text);
 
   return ai.models.generateContent({
-    model: "gemini-2.0-flash",
+    model: "gemini-2.5-flash-preview-04-17",
     safetySettings,
     generationConfig,
-    contents: contents.at(contents.length - 1).parts[0].text,
+    contents,
   });
 }
 
