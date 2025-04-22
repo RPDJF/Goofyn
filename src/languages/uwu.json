@@ -15,7 +15,8 @@
     "ask": {
       "errors": {
         "no_api_key": "Oh nyo! The pwovidew hasn't configuwed the API fow this command! 😭✨",
-        "request_failed": "UwU, the wequest faiwed.. Pwease twy again watew! 😢💫"
+        "request_failed": "UwU, the wequest faiwed.. Pwease twy again watew! 😢💫",
+		"depracted_usage": "Oh nyo! The command is depwecated! Pwease diwectwy mention the bot! 😿🌸"
       }
     },
     "language": {

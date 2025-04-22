@@ -15,7 +15,8 @@
     "ask": {
       "errors": {
         "no_api_key": "Le fournisseur n'a pas configuré l'API pour cette commande !",
-        "request_failed": "La requête a échoué.. Réessais plus tard !"
+        "request_failed": "La requête a échoué.. Réessais plus tard !",
+		"depracted_usage": "Cette commande est obsolète. Mentionne directement le bot pour l'utiliser !"
       }
     },
     "language": {

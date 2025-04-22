@@ -54,7 +54,8 @@ async function messageExecute(message) {
       await textParser(message, message.content),
       await getHistory(message),
     );
-    const text = gemini.response.text();
+    console.table(gemini);
+    const text = gemini.text;
     logger.info(`Gemini API request by ${message.author.id}`);
     await message.channel.send(text);
   } catch (error) {
@@ -94,27 +95,32 @@ async function getHistory(interaction) {
 /**
  * @param {String} prompt
  * @param {Array} history
- * @returns { Promise<import("@google/generative-ai").GenerateContentResult>}
+ * @returns {Promise<object>}
  */
 async function promptGemini(context, prompt, history) {
-  const { GoogleGenerativeAI } = require("@google/generative-ai");
-  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+  const { GoogleGenAI } = require("@google/genai");
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
+  const contents = [
+    { role: "user", parts: [{ text: "follow your context" }] },
+    { role: "model", parts: context },
+  ];
+
+  while (history.length > 0) {
+    contents.push(history.shift());
+  }
+
+  console.table(contents);
+  console.table(contents.at(contents.length - 1));
+  console.table(contents.at(contents.length - 1).parts[0]);
+  console.table(contents.at(contents.length - 1).parts[0].text);
+
+  return ai.models.generateContent({
+    model: "gemini-2.0-flash",
     safetySettings,
     generationConfig,
+    contents: contents.at(contents.length - 1).parts[0].text,
   });
-  const chatProps = {
-    history: [
-      { role: "user", parts: [{ text: "follow your context" }] },
-      { role: "model", parts: context },
-    ],
-  };
-  while (history.length > 0) {
-    chatProps.history.push(history.shift());
-  }
-  const chat = model.startChat(chatProps);
-  return chat.sendMessage(prompt);
 }
 
 module.exports = {
@@ -154,24 +160,7 @@ module.exports = {
       );
       return;
     }
-    try {
-      const gemini = await promptGemini(
-        getGeminiContext({ interaction: interaction }),
-        await textParser(
-          interaction,
-          interaction.options.getString("question"),
-        ),
-        await getHistory(interaction),
-      );
-      const text = gemini.response.text();
-      logger.info(`Gemini API request by ${interaction.user.id}`);
-      await interaction.editReply({ content: text, ephemeral: false });
-    } catch (error) {
-      logger.error(error);
-      await interaction.editReply(
-        dictionary.commands.ask.errors.request_failed,
-      );
-    }
+    await interaction.editReply({ content: dictionary.commands.ask.errors.depracted_usage, ephemeral: false });
   },
 
   /**

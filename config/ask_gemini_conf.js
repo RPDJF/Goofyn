@@ -1,5 +1,5 @@
 const { Interaction, Message } = require("discord.js");
-const { HarmBlockThreshold, HarmCategory } = require("@google/generative-ai");
+const { HarmBlockThreshold, HarmCategory } = require("@google/genai");
 const { commands } = require("../src/commands/commands");
 
 /**
