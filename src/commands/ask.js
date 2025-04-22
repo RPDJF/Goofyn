@@ -54,7 +54,6 @@ async function messageExecute(message) {
       await textParser(message, message.content),
       await getHistory(message),
     );
-    console.table(gemini);
     const text = gemini.text;
     logger.info(`Gemini API request by ${message.author.id}`);
     await message.channel.send(text);
@@ -116,10 +115,6 @@ async function promptGemini(context, prompt, history) {
     contents.push(content);
   }
 
-  console.table(contents);
-  console.table(contents.at(contents.length - 1));
-  console.table(contents.at(contents.length - 1).parts[0]);
-  console.table(contents.at(contents.length - 1).parts[0].text);
 
   return ai.models.generateContent({
     model: "gemini-2.5-flash-preview-04-17",
